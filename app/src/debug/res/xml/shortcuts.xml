@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/search"
+        android:shortcutId="search"
+        android:shortcutShortLabel="@string/search">
+        <intent
+            android:targetClass="com.dd3boh.outertune.MainActivity"
+            android:targetPackage="com.dd3boh.outertune.debug"
+            android:action="com.dd3boh.streamtune.action.SEARCH" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/music_note"
+        android:shortcutId="songs"
+        android:shortcutShortLabel="@string/songs">
+        <intent
+            android:targetClass="com.dd3boh.outertune.MainActivity"
+            android:targetPackage="com.dd3boh.outertune.debug"
+            android:action="com.dd3boh.streamtune.action.SONGS" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/album"
+        android:shortcutId="albums"
+        android:shortcutShortLabel="@string/albums">
+        <intent
+            android:targetClass="com.dd3boh.outertune.MainActivity"
+            android:targetPackage="com.dd3boh.outertune.debug"
+            android:action="com.dd3boh.streamtune.action.ALBUMS" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/queue_music"
+        android:shortcutId="playlists"
+        android:shortcutShortLabel="@string/playlists">
+        <intent
+            android:targetClass="com.dd3boh.outertune.MainActivity"
+            android:targetPackage="com.dd3boh.outertune.debug"
+            android:action="com.dd3boh.streamtune.action.PLAYLISTS" />
+    </shortcut>
+</shortcuts>

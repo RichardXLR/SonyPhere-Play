@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="36dp"
+    android:height="36dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Raio -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M54,30 L69,48 L54,48 L54,70 L39,52 L54,52 Z"/>
+        
+    <!-- Texto "Tune" -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M34,75 h40 v5 h-40z"/>
+</vector> 
