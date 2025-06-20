@@ -74,3 +74,587 @@ _**Assistant**_
 
 ---
 
+Perfeito! Vou adicionar seu repositório GitHub como remote origin:
+
+---
+
+```bash
+git remote add origin https://github.com/RichardXLR/ASK-PI.git
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ 
+
+```
+
+---
+
+
+
+---
+
+```bash
+git remote -v
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ git remote -v
+origin  https://github.com/RichardXLR/ASK-PI.git (fetch)
+origin  https://github.com/RichardXLR/ASK-PI.git (push)
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$
+```
+
+---
+
+
+
+---
+
+```bash
+git status
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ git status
+No ramo master
+Mudanças a serem submetidas:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/ContextExt.kt -> core/src/
+main/java/com/dd3boh/outertune/extensions/ContextExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/CoroutineExt.kt -> core/sr
+c/main/java/com/dd3boh/outertune/extensions/CoroutineExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/FileExt.kt -> core/src/mai
+n/java/com/dd3boh/outertune/extensions/FileExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/ListExt.kt -> core/src/mai
+n/java/com/dd3boh/outertune/extensions/ListExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/MediaItemExt.kt -> core/sr
+c/main/java/com/dd3boh/outertune/extensions/MediaItemExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/PlayerExt.kt -> core/src/m
+ain/java/com/dd3boh/outertune/extensions/PlayerExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/StringExt.kt -> core/src/m
+ain/java/com/dd3boh/outertune/extensions/StringExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/extensions/UtilExt.kt -> core/src/mai
+n/java/com/dd3boh/outertune/extensions/UtilExt.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/ActivityLaunchHelper.kt -> core
+/src/main/java/com/dd3boh/outertune/utils/ActivityLaunchHelper.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/AudioAnalyzer.kt -> core/src/ma
+in/java/com/dd3boh/outertune/utils/AudioAnalyzer.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/CacheManager.kt -> core/src/mai
+n/java/com/dd3boh/outertune/utils/CacheManager.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/CloudSyncManager.kt -> core/src
+/main/java/com/dd3boh/outertune/utils/CloudSyncManager.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/CoilBitmapLoader.kt -> core/src
+/main/java/com/dd3boh/outertune/utils/CoilBitmapLoader.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/ComposeDebugUtils.kt -> core/sr
+c/main/java/com/dd3boh/outertune/utils/ComposeDebugUtils.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/DataStore.kt -> core/src/main/j
+ava/com/dd3boh/outertune/utils/DataStore.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/LmImageCacheMgr.kt -> core/src/
+main/java/com/dd3boh/outertune/utils/LmImageCacheMgr.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/NetworkConnectivityObserver.kt 
+-> core/src/main/java/com/dd3boh/outertune/utils/NetworkConnectivityObserver.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/SmartRecommendationEngine.kt ->
+ core/src/main/java/com/dd3boh/outertune/utils/SmartRecommendationEngine.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/StringUtils.kt -> core/src/main
+/java/com/dd3boh/outertune/utils/StringUtils.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/SyncUtils.kt -> core/src/main/j
+ava/com/dd3boh/outertune/utils/SyncUtils.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/Utils.kt -> core/src/main/java/
+com/dd3boh/outertune/utils/Utils.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/YTPlayerUtils.kt -> core/src/ma
+in/java/com/dd3boh/outertune/utils/YTPlayerUtils.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/potoken/JavaScriptUtil.kt -> co
+re/src/main/java/com/dd3boh/outertune/utils/potoken/JavaScriptUtil.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenException.kt -> 
+core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenException.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenGenerator.kt -> 
+core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenGenerator.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenResult.kt -> cor
+e/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenResult.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenWebView.kt -> co
+re/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenWebView.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/scanners/FFMpegScanner.kt -> co
+re/src/main/java/com/dd3boh/outertune/utils/scanners/FFMpegScanner.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/scanners/LocalMediaScanner.kt -
+> core/src/main/java/com/dd3boh/outertune/utils/scanners/LocalMediaScanner.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/scanners/MetadataScanner.kt -> 
+core/src/main/java/com/dd3boh/outertune/utils/scanners/MetadataScanner.kt
+        renamed:    app/src/main/java/com/dd3boh/outertune/utils/scanners/TagLibScanner.kt -> co
+re/src/main/java/com/dd3boh/outertune/utils/scanners/TagLibScanner.kt
+
+Changes not staged for commit:
+  (utilize "git add/rm <arquivo>..." para atualizar o que será submetido)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .vscode/settings.json
+        modified:   app/build.gradle.kts
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/1.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/10.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/11.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/12.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/13.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/14.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/15.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/16.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/17.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/18.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/19.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/2.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/3.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/4.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/5.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/6.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/7.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/8.json
+        deleted:    app/schemas/com.dd3boh.outertune.db.InternalDatabase/9.json
+        modified:   app/src/debug/res/values/app_name.xml
+        modified:   app/src/debug/res/xml/shortcuts.xml
+        modified:   app/src/main/AndroidManifest.xml
+        modified:   app/src/main/ic_launcher-playstore.png
+        deleted:    app/src/main/java/com/dd3boh/outertune/App.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/MainActivity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/Dimensions.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/HistorySource.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/MediaSessionConstants.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/PreferenceKeys.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/Settings.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/StatPeriod.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/constants/Vars.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/Converters.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/DatabaseDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/MusicDatabase.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/daos/AlbumsDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/daos/ArtistsDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/daos/PlaylistsDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/daos/QueueDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/daos/SongsDao.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/Album.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/AlbumArtistMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/AlbumEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/AlbumWithSongs.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/Artist.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/ArtistEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/Event.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/EventWithSong.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/FormatEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/GenreEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/LocalItem.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/LyricsEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/PlayCountEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/Playlist.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/PlaylistEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/PlaylistSong.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/PlaylistSongMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/PlaylistSongMapPreview.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/QueueEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/QueueSongMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/RecentActivityEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/RelatedSongMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SearchHistory.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/Song.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SongAlbumMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SongArtistMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SongEntity.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SongGenreMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SortedSongAlbumMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/db/entities/SortedSongArtistMap.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/di/AppModule.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/KuGouLyricsProvider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LocalLyricsProvider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LrcLibLyricsProvider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LyricsEntry.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LyricsHelper.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LyricsProvider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/LyricsUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/SemanticLyrics.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/YouTubeLyricsProvider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/lyrics/YouTubeSubtitleLyricsProvider.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/DirectoryTree.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/HybridCacheDataSinkFactory.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/ImageCache.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/ItemsPage.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/MediaMetadata.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/MultiQueueObject.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/SimilarRecommendation.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/models/SongTempData.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/DownloadUtil.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/ExoDownloadService.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/MediaLibrarySessionCallback.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/MusicService.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/PlayerConnection.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/QueueBoard.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/SleepTimer.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/queues/EmptyQueue.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/queues/ListQueue.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/queues/Queue.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/queues/YouTubeAlbumRadio.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/playback/queues/YouTubeQueue.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/AnchorDraggable.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/AsyncImageLocal.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/AudioVisualizer.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/AutoResizeText.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/BigSeekBar.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/BottomSheet.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/BottomSheetMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/ChipsRow.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/CreatePlaylistDialog.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/Dialog.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/EmptyPlaceholder.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/FloatingFooter.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/GridMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/HideOnScrollFAB.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/IconButton.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/Items.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/Library.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/Lyrics.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/NavigationTile.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/NavigationTitle.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/PlayerSlider.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/PlayingIndicator.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/Preference.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/SearchBar.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/SelectHeader.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/SettingsClickToReveal.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/SortHeader.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/ArtistPagePlaceh
+older.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/ButtonPlaceholde
+r.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/GridItemPlacehol
+der.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/ListItemPlacehol
+der.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/ShimmerHost.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/component/shimmer/TextPlaceholder.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/AddToPlaylistDialog.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/AddToQueueDialog.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/AlbumMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/ArtistMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/FolderMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/LyricsMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/PlayerMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/PlaylistMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/QueueMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/SelectionSongsMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/SongMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/YouTubeAlbumMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/YouTubeArtistMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/YouTubePlaylistMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/menu/YouTubeSongMenu.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/player/MiniPlayer.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/player/PlaybackError.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/player/Player.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/player/Queue.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/player/Thumbnail.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/AboutScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/AccountScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/AlbumScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/BrowseScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/HistoryScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/HomeScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/HomeScreen.kt.backup
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/LoginScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/MoodAndGenresScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/Screens.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/SetupWizard.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/SmartRecommendationsScreen
+.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/SplashScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/StatsScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/YouTubeBrowseScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/artist/ArtistAlbumsScreen.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/artist/ArtistItemsScreen.k
+t
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/artist/ArtistScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/artist/ArtistSongsScreen.k
+t
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/FolderScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibraryAlbumsScree
+n.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibraryArtistsScre
+en.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibraryFolderScree
+n.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibraryPlaylistsSc
+reen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibraryScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/library/LibrarySongsScreen
+.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/playlist/AutoPlaylistScree
+n.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/playlist/LocalPlaylistScre
+en.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/playlist/OnlinePlaylistScr
+een.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/search/LocalSearchScreen.k
+t
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/search/OnlineSearchResult.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/search/OnlineSearchScreen.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/AboutScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/AccountSyncSettin
+gs.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/AppearanceSetting
+s.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/BackupAndRestore.
+kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/ExperimentalSetti
+ngs.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/InterfaceSettings
+.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/LibrarySettings.k
+t
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/LocalPlayerSettin
+gs.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/LyricsSettings.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/PlayerSettings.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/PrivacySecuritySe
+ttings.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/SettingsScreen.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/StorageSettings.k
+t
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/Account
+Frag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/LocalSc
+annerExtraFrag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/LocalSc
+annerFrag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/LyricFo
+rmatFrag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/LyricPa
+rserFrag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/LyricSo
+urceFrag.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/screens/settings/fragments/SyncFra
+g.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/theme/Theme.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/AppBar.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/FadingEdge.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/LazyGridSnapLayoutInfoProvid
+er.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/LocalMediaUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/NavControllerUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/ScrollUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/ShapeUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/StringUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/ui/utils/YouTubeUtils.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/AccountViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/AlbumViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/ArtistAlbumsViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/ArtistItemsViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/ArtistViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/AutoPlaylistViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/BackupRestoreViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/BrowseViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/HistoryViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/HomeViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/LibraryViewModels.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/LocalPlaylistViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/LocalSearchViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/LyricsMenuViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/MoodAndGenresViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/OnlinePlaylistViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/OnlineSearchSuggestionView
+Model.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/OnlineSearchViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/SmartRecommendationsViewMo
+del.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/StatsViewModel.kt
+        deleted:    app/src/main/java/com/dd3boh/outertune/viewmodels/YouTubeBrowseViewModel.kt
+        modified:   app/src/main/res/drawable/buymeacoffee.xml
+        modified:   app/src/main/res/drawable/download.xml
+        modified:   app/src/main/res/drawable/favorite.xml
+        modified:   app/src/main/res/drawable/favorite_border.xml
+        modified:   app/src/main/res/drawable/ic_launcher_foreground.xml
+        modified:   app/src/main/res/drawable/launcher_foreground.xml
+        modified:   app/src/main/res/drawable/music_note.xml
+        modified:   app/src/main/res/drawable/notification_icon.xml
+        modified:   app/src/main/res/drawable/pause.xml
+        modified:   app/src/main/res/drawable/play.xml
+        modified:   app/src/main/res/drawable/repeat.xml
+        modified:   app/src/main/res/drawable/shortcut_songs.xml
+        modified:   app/src/main/res/drawable/shuffle.xml
+        modified:   app/src/main/res/drawable/skip_next.xml
+        modified:   app/src/main/res/drawable/skip_previous.xml
+        modified:   app/src/main/res/drawable/small_icon.xml
+        modified:   app/src/main/res/values-pt-rBR/strings-ot.xml
+        modified:   app/src/main/res/values/app_name.xml
+        modified:   app/src/main/res/values/colors.xml
+        modified:   app/src/main/res/values/strings-ot.xml
+        modified:   app/src/main/res/values/strings.xml
+        modified:   app/src/main/res/xml/shortcuts.xml
+        deleted:    assets/IzzyOnDroidButtonGreyBorder.svg
+        deleted:    assets/badge_github.png
+        deleted:    assets/badge_obtainium.png
+        deleted:    assets/main-interface.webp
+        deleted:    assets/outertune.webp
+        deleted:    assets/paypal.png
+        deleted:    assets/player.webp
+        deleted:    assets/ytm-sync.webp
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/ContextExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/CoroutineExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/FileExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/ListExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/MediaItemExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/PlayerExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/StringExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/extensions/UtilExt.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/ActivityLaunchHelper.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/AudioAnalyzer.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/CacheManager.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/CloudSyncManager.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/CoilBitmapLoader.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/ComposeDebugUtils.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/DataStore.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/LmImageCacheMgr.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/NetworkConnectivityObserver.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/SmartRecommendationEngine.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/StringUtils.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/SyncUtils.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/Utils.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/YTPlayerUtils.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/potoken/JavaScriptUtil.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenException.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenGenerator.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenResult.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenWebView.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/scanners/FFMpegScanner.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/scanners/LocalMediaScanner.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/scanners/MetadataScanner.kt
+        deleted:    core/src/main/java/com/dd3boh/outertune/utils/scanners/TagLibScanner.kt
+        modified:   gradle.properties
+        modified:   gradle/libs.versions.toml
+        modified:   innertube/build.gradle.kts
+        modified:   keystore.properties
+        modified:   kugou/build.gradle.kts
+        modified:   lrclib/build.gradle.kts
+        modified:   material-color-utilities/src/main/java/com/google/material/color/dynamiccolo
+r/MaterialDynamicColors.java
+        modified:   material-color-utilities/src/main/java/com/google/material/color/quantize/Qu
+antizerWu.java
+        modified:   material-color-utilities/src/main/java/com/google/material/color/temperature
+/TemperatureCache.java
+        modified:   settings.gradle.kts
+
+Arquivos não monitorados:
+  (utilize "git add <arquivo>..." para incluir o que será submetido)
+        .cursorindexingignore
+        .specstory/
+        OuterTune-0.9.0-a3/
+        app/debug.keystore
+        app/lint-baseline.xml
+        app/schemas/com.richard.musicplayer.db.InternalDatabase/
+        app/src/main/java/com/richard/
+        app/src/main/res/drawable/app_icon.png
+        app/src/main/res/drawable/volume.xml
+        app/src/main/res/font/
+        app/src/main/res/mipmap-hdpi/
+        app/src/main/res/mipmap-mdpi/
+        app/src/main/res/mipmap-xhdpi/
+        app/src/main/res/mipmap-xxhdpi/
+        app/src/main/res/mipmap-xxxhdpi/
+        app/src/main/res/values/performance.xml
+        app/src/main/res/values/splash_strings.xml
+        app/src/main/res/values/themes.xml
+        instalar_app.sh
+        install_app.sh
+        musicplayer_logs.txt
+        new_icon.png
+        new_logs.txt
+        outertune_ytplayerutils.kt
+        temp_ytplayerutils_backup.kt
+        testar_app.sh
+
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$
+```
+
+---
+
+
+
+---
+
+Excelente! ✅ Seu repositório GitHub foi adicionado com sucesso como remote origin:
+
+```
+origin  https://github.com/RichardXLR/ASK-PI.git (fetch)
+origin  https://github.com/RichardXLR/ASK-PI.git (push)
+```
+
+Vejo que você tem mudanças significativas no projeto - parece que está reestruturando o código, movendo arquivos do módulo `app` para o módulo `core`. 
+
+**Próximos passos sugeridos:**
+
+1. **Para fazer commit das mudanças staged (renomeações):**
+   ```bash
+   git commit -m "Refactor: Move arquivos para módulo core"
+   ```
+
+2. **Para enviar para o GitHub:**
+   ```bash
+   git push -u origin master
+   ```
+
+3. **Para adicionar as outras mudanças:**
+   ```bash
+   git add .
+   git commit -m "Update: Aplicar modificações restantes"
+   git push
+   ```
+
+Quer que eu execute algum desses comandos para você ou precisa de ajuda com alguma parte específica da reorganização do projeto?
+
+---
+
+_**User**_
+
+mande esse porjeto pra la
+
+---
+
+_**Assistant**_
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
+
+
+---
+
