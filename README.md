@@ -6,7 +6,7 @@ Versão: 25.06.1
 
 ## Características
 
-StreamTune é um reprodutor de música moderno que oferece:
+SonsPhere é um reprodutor de música moderno que oferece:
 
 - Reprodução, pesquisa e salvamento de músicas, vídeos, álbuns e playlists do YouTube Music
     - Download de músicas para reprodução offline
