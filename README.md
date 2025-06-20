@@ -1,4 +1,4 @@
-# StreamTune
+# SonsPhere
 
 Um reprodutor de música Material 3 com suporte ao YouTube Music para Android
 
