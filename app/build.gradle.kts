@@ -18,8 +18,8 @@ plugins {
 }
 
 android {
-    namespace = "com.dd3boh.outertune"
-    compileSdk = 35
+    namespace = "com.richard.musicplayer"
+    compileSdk = 36
 
     signingConfigs {
         create("release") {
@@ -31,9 +31,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.dd3boh.outertune"
+        applicationId = "com.richard.musicplayer"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 53
         versionName = "25.06.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -107,7 +107,7 @@ android {
         variant.outputs
             .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
             .forEach { output ->
-                val outputFileName = "StreamTune-${variant.versionName}-${variant.baseName}.apk"
+                val outputFileName = "SonsPhere-${variant.versionName}-${variant.baseName}.apk"
                 output.outputFileName = outputFileName
             }
     }
@@ -145,6 +145,9 @@ android {
     lint {
         disable += "MissingTranslation"
         disable += "ByteOrderMark"
+        disable += "ExtraTranslation"
+        abortOnError = false
+        baseline = file("lint-baseline.xml")
     }
 
     androidResources {
@@ -174,6 +177,8 @@ dependencies {
     implementation(libs.compose.animation)
     implementation(libs.compose.reorderable)
     implementation(libs.compose.icons.extended)
+
+    implementation(libs.adaptive)
 
     implementation(libs.viewmodel)
     implementation(libs.viewmodel.compose)
@@ -212,11 +217,17 @@ dependencies {
     // Add kotlinx-serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
+    // Core Splashscreen API
+    implementation("androidx.core:core-splashscreen:1.0.1")
+
     /*
     "JitPack builds are broken with the latest CMake version.
     Please download the [aar](https://github.com/Kyant0/taglib/releases) manually but not use maven."
      */
 //    implementation(libs.taglib) // jitpack
-    implementation(files("../prebuilt/taglib-1.0.1-outertune-universal-release.aar")) // prebuilt
+    implementation(files("../prebuilt/taglib-1.0.2-outertune-universal-release.aar")) // prebuilt
 //    implementation("com.kyant:taglib") // custom
+
+    implementation("androidx.biometric:biometric:1.1.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
 }

@@ -6,8 +6,8 @@
         android:shortcutId="search"
         android:shortcutShortLabel="@string/search">
         <intent
-            android:targetClass="com.dd3boh.outertune.MainActivity"
-            android:targetPackage="com.dd3boh.outertune.debug"
+            android:targetClass="com.richard.musicplayer.MainActivity"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.dd3boh.streamtune.action.SEARCH" />
     </shortcut>
     <shortcut
@@ -16,8 +16,8 @@
         android:shortcutId="songs"
         android:shortcutShortLabel="@string/songs">
         <intent
-            android:targetClass="com.dd3boh.outertune.MainActivity"
-            android:targetPackage="com.dd3boh.outertune.debug"
+            android:targetClass="com.richard.musicplayer.MainActivity"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.dd3boh.streamtune.action.SONGS" />
     </shortcut>
     <shortcut
@@ -26,8 +26,8 @@
         android:shortcutId="albums"
         android:shortcutShortLabel="@string/albums">
         <intent
-            android:targetClass="com.dd3boh.outertune.MainActivity"
-            android:targetPackage="com.dd3boh.outertune.debug"
+            android:targetClass="com.richard.musicplayer.MainActivity"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.dd3boh.streamtune.action.ALBUMS" />
     </shortcut>
     <shortcut
@@ -36,8 +36,8 @@
         android:shortcutId="playlists"
         android:shortcutShortLabel="@string/playlists">
         <intent
-            android:targetClass="com.dd3boh.outertune.MainActivity"
-            android:targetPackage="com.dd3boh.outertune.debug"
+            android:targetClass="com.richard.musicplayer.MainActivity"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.dd3boh.streamtune.action.PLAYLISTS" />
     </shortcut>
 </shortcuts>

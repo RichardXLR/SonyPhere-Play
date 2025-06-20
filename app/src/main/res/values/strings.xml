@@ -320,7 +320,7 @@ We recycle translations from upstream, they are pulled periodically. -->
     <string name="restore_failed">Failed to restore backup</string>
 
     <string name="discord_integration">Discord Integration</string>
-    <string name="discord_information">StreamTune uses the KizzyRPC library to set your Discord account\'s status. This involves using the Discord Gateway connection, which may be considered a violation of Discord\'s TOS. However, there are no known cases of user accounts being suspended for this reason. Use at your own risk.\n\nStreamTune will only extract your token, and everything else is stored locally.</string>
+    <string name="discord_information">SonsPhere uses the KizzyRPC library to set your Discord account\'s status. This involves using the Discord Gateway connection, which may be considered a violation of Discord\'s TOS. However, there are no known cases of user accounts being suspended for this reason. Use at your own risk.\n\nSonsPhere will only extract your token, and everything else is stored locally.</string>
     <string name="dismiss">Dismiss</string>
     <string name="options">Options</string>
     <string name="preview">Preview</string>
@@ -337,23 +337,7 @@ We recycle translations from upstream, they are pulled periodically. -->
 
     <string name="err_reconnect_failed">Falha na reconexão</string>
 
-    <!-- Smart Recommendations -->
-    <string name="smart_recommendations">Smart Recommendations</string>
-    <string name="smart_recommendations_subtitle">Personalized music just for you</string>
-    <string name="how_are_you_feeling">How are you feeling?</string>
-    <string name="mood_happy">Happy</string>
-    <string name="mood_sad">Sad</string>
-    <string name="mood_energetic">Energetic</string>
-    <string name="mood_relaxed">Relaxed</string>
-    <string name="mood_focused">Focused</string>
-    <string name="good_morning">Good Morning</string>
-    <string name="good_afternoon">Good Afternoon</string>
-    <string name="good_evening">Good Evening</string>
-    <string name="good_night">Good Night</string>
-    <string name="recommended_for_you">Recommended for You</string>
-    <string name="mood_recommendations">%s Music</string>
-    <string name="perfect_for_now">Perfect for Now</string>
-    <string name="discover_something_new">Discover Something New</string>
+
 
     <!-- Backup and Sync -->
     <string name="cloud_sync">Cloud Sync</string>
@@ -390,4 +374,12 @@ We recycle translations from upstream, they are pulled periodically. -->
     <string name="double_tap_skip">Duplo Toque para Pular</string>
     <string name="brightness_gestures">Gestos de Brilho</string>
     <string name="always_on_visualizer">Visualizador Sempre Ativo</string>
+
+    <string name="biometric_prompt_title">Desbloquear SonsPhere</string>
+    <string name="biometric_prompt_subtitle">Use sua impressão digital ou PIN</string>
+
+    <!-- Developer Settings -->
+    <string name="experimental_settings_title">Experimental</string>
+    <string name="dev_settings_title">Enable developer settings</string>
+    <string name="dev_settings_description">Reveals additional advanced settings intended for development use</string>
 </resources>

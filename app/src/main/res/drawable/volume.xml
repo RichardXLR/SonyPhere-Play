@@ -1,0 +1,58 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    
+    <!-- Fundo sutil -->
+    <path
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10s10,-4.48 10,-10S17.52,2 12,2z"
+        android:fillColor="#00000000"
+        android:strokeWidth="0.5"
+        android:strokeColor="#ffffff20"/>
+    
+    <!-- Alto-falante base -->
+    <path
+        android:pathData="M4,9v6h2.5l3.5,3.5V5.5L6.5,9H4z"
+        android:fillColor="@android:color/white"/>
+    
+    <!-- Primeira onda sonora -->
+    <path
+        android:pathData="M12.5,8.5c0.5,0.5 0.8,1.2 0.8,2s-0.3,1.5 -0.8,2"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Segunda onda sonora -->
+    <path
+        android:pathData="M14.5,6.5c1.2,1.2 1.9,2.8 1.9,4.5s-0.7,3.3 -1.9,4.5"
+        android:strokeColor="#ffffff80"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Terceira onda sonora -->
+    <path
+        android:pathData="M16.5,4.5c2,2 3.2,4.7 3.2,7.5s-1.2,5.5 -3.2,7.5"
+        android:strokeColor="#ffffff60"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:fillColor="@android:color/transparent"/>
+    
+    <!-- Destaque no alto-falante -->
+    <path
+        android:pathData="M6.5,9c0.2,0 0.4,0.05 0.6,0.12L10,6.8v1.7L7.1,9.5H6.5z"
+        android:fillColor="#ffffff40"/>
+    
+    <!-- Pontos de energia sonora convertidos para path -->
+    <path
+        android:pathData="M13,10.5c0.28,0 0.5,0.22 0.5,0.5s-0.22,0.5 -0.5,0.5s-0.5,-0.22 -0.5,-0.5s0.22,-0.5 0.5,-0.5z"
+        android:fillColor="#ffffff80"/>
+    <path
+        android:pathData="M15,9.2c0.17,0 0.3,0.13 0.3,0.3s-0.13,0.3 -0.3,0.3s-0.3,-0.13 -0.3,-0.3s0.13,-0.3 0.3,-0.3z"
+        android:fillColor="#ffffff60"/>
+    <path
+        android:pathData="M15,14.2c0.17,0 0.3,0.13 0.3,0.3s-0.13,0.3 -0.3,0.3s-0.3,-0.13 -0.3,-0.3s0.13,-0.3 0.3,-0.3z"
+        android:fillColor="#ffffff60"/>
+</vector> 

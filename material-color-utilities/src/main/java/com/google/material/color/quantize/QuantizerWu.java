@@ -165,7 +165,7 @@ public final class QuantizerWu implements Quantizer {
             }
         }
 
-        return new CreateBoxesResult(maxColorCount, generatedColorCount);
+        return new CreateBoxesResult(generatedColorCount);
     }
 
     List<Integer> createResult(int colorCount) {
@@ -386,11 +386,9 @@ public final class QuantizerWu implements Quantizer {
     }
 
     private static final class CreateBoxesResult {
-        int requestedCount;
         int resultCount;
 
-        CreateBoxesResult(int requestedCount, int resultCount) {
-            this.requestedCount = requestedCount;
+        CreateBoxesResult(int resultCount) {
             this.resultCount = resultCount;
         }
     }

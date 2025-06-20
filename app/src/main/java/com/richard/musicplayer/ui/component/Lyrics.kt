@@ -1,0 +1,410 @@
+/*
+ * Copyright (C) 2024 z-huang/InnerTune
+ * Copyright (C) 2025 OuterTune Project
+ *
+ * SPDX-License-Identifier: GPL-3.0
+ *
+ * For any other attributions, refer to the git commit history
+ */
+
+package com.richard.musicplayer.ui.component
+
+import android.content.res.Configuration
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.add
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.MoreHoriz
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.hapticfeedback.HapticFeedbackType
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalHapticFeedback
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Velocity
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.richard.musicplayer.LocalPlayerConnection
+import com.richard.musicplayer.R
+import android.util.Log
+import com.richard.musicplayer.constants.DarkMode
+import com.richard.musicplayer.constants.DarkModeKey
+import com.richard.musicplayer.constants.LyricFontSizeKey
+import com.richard.musicplayer.constants.LyricTrimKey
+import com.richard.musicplayer.constants.LyricsTextPositionKey
+import com.richard.musicplayer.constants.MultilineLrcKey
+import com.richard.musicplayer.constants.PlayerBackgroundStyle
+import com.richard.musicplayer.constants.PlayerBackgroundStyleKey
+import com.richard.musicplayer.constants.ShowLyricsKey
+import com.richard.musicplayer.db.entities.LyricsEntity.Companion.LYRICS_NOT_FOUND
+import com.richard.musicplayer.lyrics.LyricsEntry
+import com.richard.musicplayer.lyrics.LyricsEntry.Companion.HEAD_LYRICS_ENTRY
+import com.richard.musicplayer.lyrics.LyricsUtils
+import com.richard.musicplayer.lyrics.LyricsUtils.findCurrentLineIndex
+import com.richard.musicplayer.lyrics.LyricsUtils.loadAndParseLyricsString
+import com.richard.musicplayer.ui.component.shimmer.ShimmerHost
+import com.richard.musicplayer.ui.component.shimmer.TextPlaceholder
+import com.richard.musicplayer.ui.menu.LyricsMenu
+import com.richard.musicplayer.constants.LyricsPosition
+import com.richard.musicplayer.ui.utils.fadingEdge
+import com.richard.musicplayer.utils.rememberEnumPreference
+import com.richard.musicplayer.utils.rememberPreference
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlin.time.Duration.Companion.seconds
+
+@Composable
+fun Lyrics(
+    sliderPositionProvider: () -> Long?,
+    modifier: Modifier = Modifier,
+) {
+    val haptic = LocalHapticFeedback.current
+    val playerConnection = LocalPlayerConnection.current ?: return
+    val menuState = LocalMenuState.current
+    val density = LocalDensity.current
+    var showLyrics by rememberPreference(ShowLyricsKey, false)
+    val landscapeOffset = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+    val lyricsTextPosition by rememberEnumPreference(LyricsTextPositionKey, LyricsPosition.CENTER)
+    val lyricsFontSize by rememberPreference(LyricFontSizeKey, 20)
+
+    val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
+    val lyricsEntity by playerConnection.currentLyrics.collectAsState(initial = null)
+    val lyrics = remember(lyricsEntity) { lyricsEntity?.lyrics?.trim() }
+    val multilineLrc = rememberPreference(MultilineLrcKey, defaultValue = true)
+    val lyricTrim = rememberPreference(LyricTrimKey, defaultValue = false)
+
+    val playerBackground by rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.GRADIENT)
+
+    val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
+    val isSystemInDarkTheme = isSystemInDarkTheme()
+    val useDarkTheme = remember(darkTheme, isSystemInDarkTheme) {
+        if (darkTheme == DarkMode.AUTO) isSystemInDarkTheme else darkTheme == DarkMode.ON
+    }
+
+    val lines: List<LyricsEntry> = remember(lyrics) {
+        if (lyrics == null || lyrics == LYRICS_NOT_FOUND) {
+            emptyList()
+        } else if (lyrics.startsWith("[")) {
+            listOf(HEAD_LYRICS_ENTRY) +
+                loadAndParseLyricsString(lyrics, LyricsUtils.LrcParserOptions(lyricTrim.value, multilineLrc.value, "Unable to parse lyrics"))
+        } else {
+            lyrics.lines().mapIndexed { index, line -> LyricsEntry(index * 100L, line) }
+        }
+    }
+    val isSynced = remember(lyrics) {
+        !lyrics.isNullOrEmpty() && lyrics.startsWith("[")
+    }
+
+    val textColor = when (playerBackground) {
+        PlayerBackgroundStyle.DEFAULT -> MaterialTheme.colorScheme.secondary
+        else ->
+            if (useDarkTheme)
+                MaterialTheme.colorScheme.onSurface
+            else
+                MaterialTheme.colorScheme.onPrimary
+    }
+
+    var currentLineIndex by remember {
+        mutableIntStateOf(-1)
+    }
+    // Because LaunchedEffect has delay, which leads to inconsistent with current line color and scroll animation,
+    // we use deferredCurrentLineIndex when user is scrolling
+    var deferredCurrentLineIndex by rememberSaveable {
+        mutableIntStateOf(0)
+    }
+
+    var lastPreviewTime by rememberSaveable {
+        mutableLongStateOf(0L)
+    }
+    var isSeeking by remember {
+        mutableStateOf(false)
+    }
+
+    LaunchedEffect(lyrics, playerConnection.isPlaying.collectAsState().value) {
+        if (lyrics.isNullOrEmpty() || !lyrics.startsWith("[")) {
+            currentLineIndex = -1
+            return@LaunchedEffect
+        }
+        
+        while (isActive) {
+            val sliderPosition = sliderPositionProvider()
+            isSeeking = sliderPosition != null
+            val playerPosition = playerConnection.player.currentPosition
+            val actualPosition = sliderPosition ?: playerPosition
+            
+            if (actualPosition >= 0 && lines.isNotEmpty()) {
+                // Busca mais eficiente: começa do índice atual
+                var newIndex = currentLineIndex.coerceAtLeast(0)
+                
+                // Se a posição atual está antes da linha atual, busca para trás
+                if (newIndex < lines.size && lines[newIndex].timeStamp > actualPosition) {
+                    for (i in newIndex downTo 0) {
+                        if (lines[i].timeStamp <= actualPosition) {
+                            newIndex = i
+                            break
+                        }
+                    }
+                    if (lines[0].timeStamp > actualPosition) newIndex = -1
+                } else {
+                    // Se a posição atual está depois da linha atual, busca para frente
+                    for (i in newIndex until lines.size) {
+                        if (i + 1 >= lines.size || lines[i + 1].timeStamp > actualPosition) {
+                            if (lines[i].timeStamp <= actualPosition) {
+                                newIndex = i
+                            }
+                            break
+                        }
+                    }
+                }
+                
+                if (newIndex != currentLineIndex) {
+                    currentLineIndex = newIndex
+                }
+            }
+            
+            delay(100) // Atualização mais frequente para melhor sincronização
+        }
+    }
+
+    LaunchedEffect(isSeeking, lastPreviewTime) {
+        if (isSeeking) {
+            lastPreviewTime = 0L
+        } else if (lastPreviewTime != 0L) {
+            delay(LyricsPreviewTime)
+            lastPreviewTime = 0L
+        }
+    }
+
+    val lazyListState = rememberLazyListState()
+
+    LaunchedEffect(currentLineIndex, lastPreviewTime) {
+        if (!isSynced || currentLineIndex < 0 || currentLineIndex >= lines.size) return@LaunchedEffect
+        
+            deferredCurrentLineIndex = currentLineIndex
+        
+            if (lastPreviewTime == 0L) {
+            try {
+                if (isSeeking) {
+                    lazyListState.scrollToItem(currentLineIndex)
+                } else {
+                    lazyListState.animateScrollToItem(index = currentLineIndex)
+                }
+            } catch (e: Exception) {
+                // Ignore scroll errors
+            }
+        }
+    }
+
+    BoxWithConstraints(
+        contentAlignment = Alignment.Center,
+        modifier = modifier
+            .fillMaxSize()
+            .padding(bottom = 4.dp)
+    ) {
+        LazyColumn(
+            state = lazyListState,
+            contentPadding = WindowInsets.systemBars
+                .only(WindowInsetsSides.Top)
+                .add(WindowInsets(top = maxHeight / 4, bottom = maxHeight / 4))
+                .asPaddingValues(),
+            modifier = Modifier
+                .fadingEdge(vertical = 32.dp)
+                .nestedScroll(remember {
+                    object : NestedScrollConnection {
+                        override fun onPostScroll(consumed: Offset, available: Offset, source: NestedScrollSource): Offset {
+                            lastPreviewTime = System.currentTimeMillis()
+                            return super.onPostScroll(consumed, available, source)
+                        }
+
+                        override suspend fun onPostFling(consumed: Velocity, available: Velocity): Velocity {
+                            lastPreviewTime = System.currentTimeMillis()
+                            return super.onPostFling(consumed, available)
+                        }
+                    }
+                })
+        ) {
+            val displayedCurrentLineIndex = if (isSeeking) deferredCurrentLineIndex else currentLineIndex
+
+            if (lyrics == null) {
+                item {
+                    ShimmerHost {
+                        repeat(10) {
+                            Box(
+                                contentAlignment = when (lyricsTextPosition) {
+                                    LyricsPosition.LEFT -> Alignment.CenterStart
+                                    LyricsPosition.CENTER -> Alignment.Center
+                                    LyricsPosition.RIGHT -> Alignment.CenterEnd
+                                },
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 12.dp, vertical = 2.dp)
+                            ) {
+                                TextPlaceholder()
+                            }
+                        }
+                    }
+                }
+            } else {
+                itemsIndexed(
+                    items = lines
+                ) { index, item ->
+                    val isCurrentLine = index == displayedCurrentLineIndex
+                    val lineAlpha by animateFloatAsState(
+                        targetValue = if (!isSynced || isCurrentLine) 1f else 0.5f,
+                        animationSpec = tween(durationMillis = 150),
+                        label = "lineAlpha"
+                    )
+                    val textColorAnimated by animateColorAsState(
+                        targetValue = if (isCurrentLine) {
+                            when (playerBackground) {
+                                PlayerBackgroundStyle.DEFAULT -> MaterialTheme.colorScheme.primary
+                                else -> 
+                                    if (useDarkTheme) MaterialTheme.colorScheme.primaryContainer
+                                    else MaterialTheme.colorScheme.onPrimaryContainer
+                            }
+                        } else textColor,
+                        animationSpec = tween(durationMillis = 200),
+                        label = "textColor"
+                    )
+                    val backgroundAlpha by animateFloatAsState(
+                        targetValue = if (isCurrentLine) 0.15f else 0f,
+                        animationSpec = tween(durationMillis = 150),
+                        label = "backgroundAlpha"
+                    )
+                    
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                color = MaterialTheme.colorScheme.primary.copy(alpha = backgroundAlpha),
+                                shape = RoundedCornerShape(6.dp)
+                            )
+                            .clickable(enabled = isSynced) {
+                                playerConnection.player.seekTo(item.timeStamp)
+                                lastPreviewTime = 0L
+                                haptic.performHapticFeedback(HapticFeedbackType.ToggleOn)
+                            }
+                            .padding(horizontal = 12.dp, vertical = 2.dp)
+                    ) {
+                        Text(
+                            text = item.content,
+                            fontSize = if (isCurrentLine) lyricsFontSize.sp else (lyricsFontSize - 2).sp,
+                            color = textColorAnimated,
+                            textAlign = when (lyricsTextPosition) {
+                                LyricsPosition.LEFT -> TextAlign.Left
+                                LyricsPosition.CENTER -> TextAlign.Center
+                                LyricsPosition.RIGHT -> TextAlign.Right
+                            },
+                            fontWeight = if (isCurrentLine) FontWeight.ExtraBold else FontWeight.Medium,
+                            lineHeight = if (isCurrentLine) (lyricsFontSize + 1).sp else (lyricsFontSize - 1).sp,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .alpha(lineAlpha)
+                        )
+                    }
+                }
+            }
+        }
+
+        if (lyrics == LYRICS_NOT_FOUND) {
+            Text(
+                text = stringResource(R.string.lyrics_not_found),
+                fontSize = 16.sp,
+                color = MaterialTheme.colorScheme.secondary,
+                textAlign = when (lyricsTextPosition) {
+                    LyricsPosition.LEFT -> TextAlign.Left
+                    LyricsPosition.CENTER -> TextAlign.Center
+                    LyricsPosition.RIGHT -> TextAlign.Right
+                },
+                fontWeight = FontWeight.Medium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 4.dp)
+                    .alpha(0.6f)
+            )
+        }
+
+        mediaMetadata?.let { mediaMetadata ->
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(end = 8.dp, bottom = 4.dp)
+            ) {
+                IconButton(
+                    onClick = { showLyrics = false },
+                    modifier = Modifier.padding(4.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.Close,
+                        contentDescription = null,
+                        tint = textColor.copy(alpha = 0.8f)
+                    )
+                }
+                IconButton(
+                    onClick = {
+                        menuState.show {
+                            LyricsMenu(
+                                lyricsProvider = { lyricsEntity },
+                                mediaMetadataProvider = { mediaMetadata },
+                                onDismiss = menuState::dismiss
+                            )
+                        }
+                    },
+                    modifier = Modifier.padding(4.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.MoreHoriz,
+                        contentDescription = null,
+                        tint = textColor.copy(alpha = 0.8f)
+                    )
+                }
+            }
+        }
+    }
+}
+
+const val animateScrollDuration = 200L
+val LyricsPreviewTime = 2.seconds // Reduzido para resposta mais rápida

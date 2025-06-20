@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="36dp"
-    android:height="36dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960">
     
     <!-- Raio -->
     <path
-        android:fillColor="#FFD700"
-        android:pathData="M54,30 L69,48 L54,48 L54,70 L39,52 L54,52 Z"/>
+        android:fillColor="#BB86FC"
+        android:pathData="M400,840Q334,840 287,793Q240,746 240,680Q240,614 287,567Q334,520 400,520Q423,520 442.5,525.5Q462,531 480,542L480,120L720,120L720,280L560,280L560,680Q560,746 513,793Q466,840 400,840Z"/>
         
     <!-- Texto "Tune" -->
     <path
-        android:fillColor="#FFD700"
-        android:pathData="M34,75 h40 v5 h-40z"/>
+        android:fillColor="#BB86FC"
+        android:pathData="M80,920L80,880L160,880L160,920L80,920ZM320,920L320,880L640,880L640,920L320,920ZM720,920L720,880L800,880L800,920L720,920Z"/>
 </vector> 

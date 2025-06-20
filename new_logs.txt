@@ -1,0 +1,1276 @@
+--------- beginning of main
+06-20 06:18:33.658 E/Zygote  (23660): process_name_ptr:23660 com.richard.musicplayer.debug
+06-20 06:18:33.658 E/Zygote  (23660): SetMemoryProtected process_name_ptr:23660 com.richard.musicplayer.debug
+06-20 06:18:33.665 I/sicplayer.debug(23660): Late-enabling -Xcheck:jni
+06-20 06:18:33.688 I/sicplayer.debug(23660): Using CollectorTypeCMC GC.
+06-20 06:18:33.702 D/nativeloader(23660): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+06-20 06:18:33.718 I/MessageMonitor(23660): Load libmiui_runtime
+06-20 06:18:33.747 D/MiuiMonitorThread(23660): Shared singleton Thread for stability monitor start
+06-20 06:18:33.754 D/AppScoutStateMachine(23660): 23660-ScoutStateMachinecreated
+06-20 06:18:33.768 D/ActivityThread(23660): setEmbeddedParam packageName=com.richard.musicplayer.debug processName=com.richard.musicplayer.debug isEmbedded=false isIsolated=false
+06-20 06:18:33.770 D/ApplicationLoaders(23660): Returning zygote-cached class loader: /system/framework/org.apache.http.legacy.jar
+06-20 06:18:33.770 D/CompatChangeReporter(23660): Compat change id reported: 202956589; UID 10398; state: ENABLED
+06-20 06:18:33.771 W/ziparchive(23660): Unable to open '/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/base.dm': No such file or directory
+06-20 06:18:33.771 W/ziparchive(23660): Unable to open '/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/base.dm': No such file or directory
+06-20 06:18:34.229 D/nativeloader(23660): Configuring clns-7 for other apk /data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/lib/arm64:/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/0/com.richard.musicplayer.debug
+06-20 06:18:34.233 I/Perf    (23660): Connecting to perf service.
+06-20 06:18:34.237 V/GraphicsEnvironment(23660): Currently set values for:
+06-20 06:18:34.237 V/GraphicsEnvironment(23660):   angle_gl_driver_selection_pkgs=[]
+06-20 06:18:34.237 V/GraphicsEnvironment(23660):   angle_gl_driver_selection_values=[]
+06-20 06:18:34.237 V/GraphicsEnvironment(23660): Global.Settings values are invalid: number of packages: 0, number of values: 0
+06-20 06:18:34.237 V/GraphicsEnvironment(23660): App is not on the allowlist for updatable production driver.
+--------- beginning of system
+06-20 06:18:34.239 I/ActivityThread(23660): TrafficStats init done
+06-20 06:18:34.242 D/ActivityThread(23660): useGrowthLimitOutExpendMethod invoke error.
+06-20 06:18:34.244 I/ForceDarkHelperStubImpl(23660): initialize for com.richard.musicplayer.debug , ForceDarkOrigin
+06-20 06:18:34.246 D/nativeloader(23660): Load libforcedarkimpl.so using system ns (caller=/system_ext/framework/miui-framework.jar): ok
+06-20 06:18:34.246 D/HWUI    (23660): JNI_OnLoad success
+06-20 06:18:34.246 I/MiuiForceDarkConfig(23660): setConfig density:2.750000, mainRule:0, secondaryRule:0, tertiaryRule:0
+06-20 06:18:34.251 I/ActivityThread(23660): Miui Feature Init done
+06-20 06:18:34.262 I/ResMonitorStub(23660): Get RMS proxy takes 0 ms
+06-20 06:18:34.270 W/libc    (23660): Access denied finding property "vendor.boostfwk.frameprefetcher"
+06-20 06:18:34.270 W/ziparchive(23660): Unable to open '/system/framework/QXPerformance.dm': No such file or directory
+06-20 06:18:34.270 W/ziparchive(23660): Unable to open '/system/framework/QXPerformance.dm': No such file or directory
+06-20 06:18:34.271 D/CompatChangeReporter(23660): Compat change id reported: 279646685; UID 10398; state: ENABLED
+06-20 06:18:34.273 D/WM-WrkMgrInitializer(23660): Initializing WorkManager with default configuration.
+06-20 06:18:34.306 D/App     (23660): Iniciando pré-carregamento de recursos do aplicativo
+06-20 06:18:34.309 D/App     (23660): Pré-carregando sistema de imagens
+06-20 06:18:34.313 D/App     (23660): Pré-carregando recursos de reprodução
+06-20 06:18:34.313 D/App     (23660): Sistema de reprodução inicializado com 3 componentes
+06-20 06:18:34.314 D/App     (23660): Pré-carregando banco de dados
+06-20 06:18:34.316 D/App     (23660): Pré-carregando recursos de UI
+06-20 06:18:34.334 D/App     (23660): Recursos de UI pré-carregados com sucesso
+06-20 06:18:34.350 W/System.err(23660): SLF4J(W): No SLF4J providers were found.
+06-20 06:18:34.350 W/System.err(23660): SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+06-20 06:18:34.350 W/System.err(23660): SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+06-20 06:18:34.390 D/App     (23660): Banco de dados inicializado com sucesso
+06-20 06:18:34.425 D/FramePredict(23660): FramePredict init: false
+06-20 06:18:34.425 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:34.429 I/ActivityThread(23660): HardwareRenderer preload  done
+06-20 06:18:34.432 W/libc    (23660): Access denied finding property "vendor.migl.debug"
+06-20 06:18:34.432 D/libMiGL (23660): SuperResolution SR initSR mBaseSRWidthSize: 0, mBaseSRHeightSize: 0, mTargetSRWidthSize: 0, mTargetSRHeightSize: 0
+06-20 06:18:34.432 I/libMiGL (23660): EnableDR: 0
+06-20 06:18:34.432 D/libMiGL (23660): mDFIInterval: -1
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): QUALCOMM build                   : 1daab2de43, I7911396b61
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Build Date                       : 08/16/24
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): OpenGL ES Shader Compiler Version: EV031.36.08.30
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Local Branch                     : 
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Remote Branch                    : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.11.00.00.770.073
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Remote Branch                    : NONE
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Reconstruct Branch               : NOTHING
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Build Config                     : S P 12.1.1 AArch64
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Driver Path                      : /vendor/lib64/egl/libGLESv2_adreno.so
+06-20 06:18:34.434 I/AdrenoGLES-0(23660): Driver Version                   : 0615.90
+06-20 06:18:34.449 I/AdrenoGLES-0(23660): PFP: 0x01730158, ME: 0x00000000
+06-20 06:18:34.454 D/App     (23660): Sistema de imagens pré-carregado com sucesso
+06-20 06:18:34.454 D/App     (23660): Pré-carregamento completo em 138ms
+06-20 06:18:34.479 D/CompatChangeReporter(23660): Compat change id reported: 309578419; UID 10398; state: ENABLED
+06-20 06:18:34.510 W/libc    (23660): Access denied finding property "ro.vendor.df.effect.conflict"
+06-20 06:18:34.507 W/sicplayer.debug(23660): type=1400 audit(0.0:77393): avc:  denied  { read } for  name="u:object_r:vendor_displayfeature_prop:s0" dev="tmpfs" ino=461 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:vendor_displayfeature_prop:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.511 D/SecurityManager(23660): checkAccessControl flag0
+06-20 06:18:34.515 D/CompatChangeReporter(23660): Compat change id reported: 352594277; UID 10398; state: ENABLED
+06-20 06:18:34.527 D/MiuiCameraCoveredManager(23660): java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.provider.MiuiSettings$SettingsCloudData$CloudData.getString(java.lang.String, java.lang.String)' on a null object reference
+06-20 06:18:34.529 D/FramePredict(23660): init success
+06-20 06:18:34.538 E/FramePredict(23660): registerContentObserver fail
+06-20 06:18:34.592 D/SplashActivity(23660): Iniciando pré-carregamento cinematográfico
+06-20 06:18:34.592 D/App     (23660): Verificação: Todos os 4 componentes foram pré-carregados
+06-20 06:18:34.753 W/libc    (23660): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+06-20 06:18:34.753 W/libc    (23660): Access denied finding property "vendor.gpp.create_frc_extension"
+06-20 06:18:34.751 W/sicplayer.debug(23660): type=1400 audit(0.0:77394): avc:  denied  { read } for  name="u:object_r:vendor_display_prop:s0" dev="tmpfs" ino=460 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:vendor_display_prop:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.760 D/VRI[SplashActivity](23660): vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4963 android.view.ViewRootImpl.doTraversal:3568 android.view.ViewRootImpl$TraversalRunnable.run:11594 android.view.Choreographer$CallbackRecord.run:1747 android.view.Choreographer$CallbackRecord.run:1756 
+06-20 06:18:34.760 D/VRI[SplashActivity](23660): vri.Setup new sync=wmsSync-VRI[SplashActivity]#0
+06-20 06:18:34.761 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:34.777 D/sicplayer.debug(23660): MiuiProcessManagerServiceStub setSchedFifo
+06-20 06:18:34.777 I/MiuiProcessManagerImpl(23660): setSchedFifo pid:23660, mode:3
+06-20 06:18:34.790 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.787 W/RenderThread(23660): type=1400 audit(0.0:77395): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.792 D/VRI[SplashActivity](23660): vri.reportDrawFinished
+06-20 06:18:34.798 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:34.827 W/RenderThread(23660): type=1400 audit(0.0:77396): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.829 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.845 I/HandWritingStubImpl(23660): refreshLastKeyboardType: 1
+06-20 06:18:34.845 I/HandWritingStubImpl(23660): getCurrentKeyboardType: 1
+06-20 06:18:34.860 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.855 W/RenderThread(23660): type=1400 audit(0.0:77397): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.879 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.875 W/RenderThread(23660): type=1400 audit(0.0:77398): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.891 I/HandWritingStubImpl(23660): getCurrentKeyboardType: 1
+06-20 06:18:34.895 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.891 W/RenderThread(23660): type=1400 audit(0.0:77399): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:34.924 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.934 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.950 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.969 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.984 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:34.999 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.015 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.030 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.046 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.062 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.067 I/sicplayer.debug(23660): Compiler allocated 5371KB to compile void android.view.ViewRootImpl.performTraversals()
+06-20 06:18:35.081 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.097 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.114 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.130 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.147 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.164 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.182 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.195 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.211 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.228 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.240 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.252 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.262 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.272 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.282 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.289 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.297 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.306 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.426 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.433 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.462 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.485 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.515 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.536 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.558 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.576 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.601 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.619 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.641 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.665 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.687 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.708 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.729 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.748 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.769 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.786 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.808 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.807 W/RenderThread(23660): type=1400 audit(0.0:77450): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:35.825 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.823 W/RenderThread(23660): type=1400 audit(0.0:77451): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:35.843 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.839 W/RenderThread(23660): type=1400 audit(0.0:77452): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:35.863 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.859 W/RenderThread(23660): type=1400 audit(0.0:77453): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:35.880 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.875 W/RenderThread(23660): type=1400 audit(0.0:77454): avc:  denied  { getattr } for  path="/sys/module/metis/parameters/minor_window_app" dev="sysfs" ino=69313 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:sysfs_migt:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:35.901 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.918 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.934 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.953 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.976 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:35.990 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.007 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.024 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.041 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.053 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.068 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.085 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.102 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.115 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.130 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.144 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.157 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.172 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.186 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.202 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.214 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.227 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.244 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.257 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.270 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.283 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.296 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.310 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.323 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.338 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.349 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.362 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.375 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.385 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.403 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.413 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.424 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.436 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.447 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.461 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.475 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.487 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.496 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.511 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:36.523 E/LB      (23660): fail to open node: No such file or directory
+06-20 06:18:39.472 I/ActivityThread(23660): HardwareRenderer preload  done
+06-20 06:18:39.540 D/SecurityManager(23660): checkAccessControl flag0
+06-20 06:18:39.541 D/MiuiCameraCoveredManager(23660): java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.String android.provider.MiuiSettings$SettingsCloudData$CloudData.getString(java.lang.String, java.lang.String)' on a null object reference
+06-20 06:18:39.699 W/libc    (23660): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+06-20 06:18:39.699 W/libc    (23660): Access denied finding property "vendor.gpp.create_frc_extension"
+06-20 06:18:39.695 W/sicplayer.debug(23660): type=1400 audit(0.0:77516): avc:  denied  { read } for  name="u:object_r:vendor_display_prop:s0" dev="tmpfs" ino=460 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:vendor_display_prop:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:39.707 D/VRI[MainActivity](23660): vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4963 android.view.ViewRootImpl.doTraversal:3568 android.view.ViewRootImpl$TraversalRunnable.run:11594 android.view.Choreographer$CallbackRecord.run:1747 android.view.Choreographer$CallbackRecord.run:1756 
+06-20 06:18:39.707 D/VRI[MainActivity](23660): vri.Setup new sync=wmsSync-VRI[MainActivity]#2
+06-20 06:18:39.708 W/sicplayer.debug(23660): Accessing hidden method Landroid/database/sqlite/SQLiteDatabase;->getThreadSession()Landroid/database/sqlite/SQLiteSession; (unsupported, reflection, allowed)
+06-20 06:18:39.708 W/sicplayer.debug(23660): Accessing hidden method Landroid/database/sqlite/SQLiteSession;->beginTransaction(ILandroid/database/sqlite/SQLiteTransactionListener;ILandroid/os/CancellationSignal;)V (unsupported, reflection, allowed)
+06-20 06:18:39.716 D/VRI[MainActivity](23660): vri.reportDrawFinished
+06-20 06:18:39.754 I/ExoPlayerImpl(23660): Init f49f8ff [AndroidXMedia3/1.6.1] [marble, 23049PCD8G, Xiaomi, 35]
+06-20 06:18:39.765 W/sicplayer.debug(23660): Accessing hidden method Landroid/media/AudioTrack;->getLatency()I (unsupported, reflection, allowed)
+06-20 06:18:39.793 I/MediaSessionImpl(23660): Init c7931d0 [AndroidXMedia3/1.6.1] [marble, 23049PCD8G, Xiaomi, 35]
+06-20 06:18:39.830 I/MediaController(23660): Init 5df585 [AndroidXMedia3/1.6.1] [marble, 23049PCD8G, Xiaomi, 35]
+06-20 06:18:39.888 I/Choreographer(23660): Skipped 40 frames!  The application may be doing too much work on its main thread.
+06-20 06:18:39.888 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:39.989 E/sicplayer.debug(23660): FrameInsert open fail: No such file or directory
+06-20 06:18:39.992 W/Looper  (23660): PerfMonitor doFrame : time=104ms vsyncFrame=3097149 latency=340ms procState=-1 historyMsgCount=14 (msgIndex=1 wall=176ms seq=902 late=72ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver) (msgIndex=9 wall=150ms seq=910 late=187ms h=android.app.ActivityThread$H w=114)
+06-20 06:18:40.004 D/QueueBoard(23660): Loading queue Topnejo into player. autoSeek = false shuffle state = false
+06-20 06:18:40.004 D/QueueBoard(23660): Setting current queue. in bounds: true, queuePos: 2, real queuePos: 2, ids: null, Ug-Q74srhAg
+06-20 06:18:40.004 D/QueueBoard(23660): Seamless is not supported. Loading songs in directly
+06-20 06:18:40.026 D/QueueBoard(23660): Starting database save task
+06-20 06:18:40.031 D/QueueBoard(23660): Starting database save task
+06-20 06:18:40.031 D/QueueBoard(23660): Database save task is already acive, aborting
+06-20 06:18:40.033 D/QueueBoard(23660): Starting database save task
+06-20 06:18:40.034 D/QueueBoard(23660): Database save task is already acive, aborting
+06-20 06:18:40.040 D/MusicService(23660): Playback ratio: 0.0 Min threshold: 0.3
+06-20 06:18:40.040 I/HandWritingStubImpl(23660): refreshLastKeyboardType: 1
+06-20 06:18:40.041 I/HandWritingStubImpl(23660): getCurrentKeyboardType: 1
+06-20 06:18:40.062 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:40.065 I/LocalMediaScanner(23660): Creating scanner instance with scannerImpl: TAGLIB
+06-20 06:18:40.065 I/LocalMediaScanner(23660): ------------ SCAN: Starting Full Scanner ------------
+06-20 06:18:40.116 D/Player  (23660): Audio Session ID: 2217
+06-20 06:18:40.116 D/Player  (23660): Initializing AudioEffects with session ID: 2217
+06-20 06:18:40.117 D/AudioEffects(23660): Initializing audio effects for session ID: 2217
+06-20 06:18:40.117 D/AudioEffects(23660): Starting initialization with valid session ID: 2217
+06-20 06:18:40.122 I/LocalMediaScanner(23660): ------------ SCAN: Finished Full Scanner ------------
+06-20 06:18:40.122 I/LocalMediaScanner(23660): ------------ SYNC: Starting Quick (additive delta) Library Sync ------------
+06-20 06:18:40.122 D/LocalMediaScanner(23660): Entries to process: 0
+06-20 06:18:40.125 D/AudioEffects(23660): BassBoost initialized successfully with strength support
+06-20 06:18:40.130 E/AudioEffect(23660): set(): AudioFlinger could not create effect 0bed4300-ddd6-11db-8f34-0002a5d5c51b / ec7178ec-e5e1-4432-a3f4-4657e6795210, status: -38
+06-20 06:18:40.130 E/AudioEffects-JNI(23660): AudioEffect initCheck failed -3
+06-20 06:18:40.130 E/AudioEffect-JAVA(23660): Error code -3 when initializing AudioEffect.
+06-20 06:18:40.133 E/AudioEffects(23660): Failed to initialize Equalizer
+06-20 06:18:40.133 E/AudioEffects(23660): java.lang.RuntimeException: Cannot initialize effect engine for type: 0bed4300-ddd6-11db-8f34-0002a5d5c51b Error: -3
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.media.audiofx.AudioEffect.<init>(AudioEffect.java:543)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.media.audiofx.AudioEffect.<init>(AudioEffect.java:501)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.media.audiofx.AudioEffect.<init>(AudioEffect.java:475)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.media.audiofx.Equalizer.<init>(Equalizer.java:139)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects.initializeEffects(AudioEffects.kt:74)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects.<init>(AudioEffects.kt:40)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects$Companion.getInstance(AudioEffects.kt:403)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.ui.player.PlayerKt.BottomSheetPlayer(Player.kt:310)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.MainActivity$onCreate$1$4$1$8$2.invoke(MainActivity.kt:917)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.richard.musicplayer.MainActivity$onCreate$1$4$1$8$2.invoke(MainActivity.kt:914)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.material3.ScaffoldKt$ScaffoldLayout$1$1$bottomBarPlaceables$1.invoke(Scaffold.kt:210)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.material3.ScaffoldKt$ScaffoldLayout$1$1$bottomBarPlaceables$1.invoke(Scaffold.kt:210)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$subcompose$3$1$1.invoke(SubcomposeLayout.kt:1042)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$subcompose$3$1$1.invoke(SubcomposeLayout.kt:523)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.Utils_jvmKt.invokeComposable(Utils.jvm.kt:27)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.ComposerImpl.doCompose-aFTiNEg(Composer.kt:3703)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.ComposerImpl.recompose-aFTiNEg$runtime_release(Composer.kt:3648)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.CompositionImpl.recompose(Composition.kt:1002)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer.performRecompose(Recomposer.kt:1266)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer.access$performRecompose(Recomposer.kt:142)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer$runRecomposeAndApplyChanges$2$1.invoke(Recomposer.kt:620)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer$runRecomposeAndApplyChanges$2$1.invoke(Recomposer.kt:591)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiFrameClock$withFrameNanos$2$callback$1.doFrame(AndroidUiFrameClock.android.kt:39)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher.performFrameDispatch(AndroidUiDispatcher.android.kt:108)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher.access$performFrameDispatch(AndroidUiDispatcher.android.kt:41)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1.doFrame(AndroidUiDispatcher.android.kt:69)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1745)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1756)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.view.Choreographer.doCallbacks(Choreographer.java:1270)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.view.Choreographer.doFrame(Choreographer.java:1159)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1710)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.os.Handler.handleCallback(Handler.java:959)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.os.Handler.dispatchMessage(Handler.java:100)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.os.Looper.loopOnce(Looper.java:249)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.os.Looper.loop(Looper.java:337)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at android.app.ActivityThread.main(ActivityThread.java:9631)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at java.lang.reflect.Method.invoke(Native Method)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+06-20 06:18:40.133 E/AudioEffects(23660): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+06-20 06:18:40.135 E/AudioEffect(23660): set(): AudioFlinger could not create effect e46b26a0-dddd-11db-8afd-0002a5d5c51b / NULL, status: -1
+06-20 06:18:40.135 E/visualizers-JNI(23660): Visualizer initCheck failed -3
+06-20 06:18:40.135 E/Visualizer-JAVA(23660): Error code -3 when initializing Visualizer.
+06-20 06:18:40.137 I/LocalMediaScanner(23660): Not syncing, no valid songs found!
+06-20 06:18:40.137 I/LocalMediaScanner(23660): Start finalize (disable songs) job. Number of valid songs: 0
+06-20 06:18:40.138 E/AudioEffects(23660): Failed to initialize Visualizer
+06-20 06:18:40.138 E/AudioEffects(23660): java.lang.RuntimeException: Cannot initialize Visualizer engine, error: -3
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.media.audiofx.Visualizer.<init>(Visualizer.java:247)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects.initializeEffects(AudioEffects.kt:107)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects.<init>(AudioEffects.kt:40)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.playback.AudioEffects$Companion.getInstance(AudioEffects.kt:403)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.ui.player.PlayerKt.BottomSheetPlayer(Player.kt:310)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.MainActivity$onCreate$1$4$1$8$2.invoke(MainActivity.kt:917)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.richard.musicplayer.MainActivity$onCreate$1$4$1$8$2.invoke(MainActivity.kt:914)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.material3.ScaffoldKt$ScaffoldLayout$1$1$bottomBarPlaceables$1.invoke(Scaffold.kt:210)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.material3.ScaffoldKt$ScaffoldLayout$1$1$bottomBarPlaceables$1.invoke(Scaffold.kt:210)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$subcompose$3$1$1.invoke(SubcomposeLayout.kt:1042)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.layout.LayoutNodeSubcompositionsState$subcompose$3$1$1.invoke(SubcomposeLayout.kt:523)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:121)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.ComposableLambdaImpl.invoke(ComposableLambda.kt:51)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.internal.Utils_jvmKt.invokeComposable(Utils.jvm.kt:27)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.ComposerImpl.doCompose-aFTiNEg(Composer.kt:3703)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.ComposerImpl.recompose-aFTiNEg$runtime_release(Composer.kt:3648)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.CompositionImpl.recompose(Composition.kt:1002)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer.performRecompose(Recomposer.kt:1266)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer.access$performRecompose(Recomposer.kt:142)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer$runRecomposeAndApplyChanges$2$1.invoke(Recomposer.kt:620)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.runtime.Recomposer$runRecomposeAndApplyChanges$2$1.invoke(Recomposer.kt:591)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiFrameClock$withFrameNanos$2$callback$1.doFrame(AndroidUiFrameClock.android.kt:39)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher.performFrameDispatch(AndroidUiDispatcher.android.kt:108)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher.access$performFrameDispatch(AndroidUiDispatcher.android.kt:41)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at androidx.compose.ui.platform.AndroidUiDispatcher$dispatchCallback$1.doFrame(AndroidUiDispatcher.android.kt:69)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1745)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1756)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.view.Choreographer.doCallbacks(Choreographer.java:1270)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.view.Choreographer.doFrame(Choreographer.java:1159)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1710)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.os.Handler.handleCallback(Handler.java:959)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.os.Handler.dispatchMessage(Handler.java:100)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.os.Looper.loopOnce(Looper.java:249)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.os.Looper.loop(Looper.java:337)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at android.app.ActivityThread.main(ActivityThread.java:9631)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at java.lang.reflect.Method.invoke(Native Method)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:615)
+06-20 06:18:40.138 E/AudioEffects(23660): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:936)
+06-20 06:18:40.138 D/AudioEffects(23660): Audio effects initialization completed. 1/3 effects available
+06-20 06:18:40.139 D/AudioEffects(23660): Final status:
+06-20 06:18:40.139 D/AudioEffects(23660): - BassBoost: available (enabled: true, strengthSupported: true)
+06-20 06:18:40.139 D/AudioEffects(23660): - Equalizer: null
+06-20 06:18:40.139 D/AudioEffects(23660): - Visualizer: null
+06-20 06:18:40.167 D/LocalMediaScanner(23660): Start finalize (duplicate removal) job. Number of candidates: 0
+06-20 06:18:40.174 I/LocalMediaScanner(23660): ------------ SYNC: Finished Quick (additive delta) Library Sync ------------
+06-20 06:18:40.174 I/LocalMediaScanner(23660): Scanner instance destroyed
+06-20 06:18:40.175 I/LocalMediaScanner(23660): ------------ SYNC: Starting youtubeArtistLookup job ------------
+06-20 06:18:40.178 I/LocalMediaScanner(23660): ------------ SYNC: youtubeArtistLookup job ended------------
+06-20 06:18:40.259 I/sicplayer.debug(23660): Compiler allocated 9740KB to compile void com.richard.musicplayer.ui.player.PlayerKt$BottomSheetPlayer$9$controlsContent$1.invoke(androidx.compose.foundation.layout.ColumnScope, com.richard.musicplayer.models.MediaMetadata, androidx.compose.runtime.Composer, int)
+06-20 06:18:40.340 D/ProfileInstaller(23660): Installing profile for com.richard.musicplayer.debug
+06-20 06:18:40.349 D/MiuiMultiWindowUtils(23660): freeform resolution args raw data:{  "wide_default":{    "freeform_args": {        "vertical_portrait":{"aspect_ratio":0.626, "original_ratio":0.5643,"original_scale":0.74,"top_margin":0.168,"left_margin":0.484},        "horizontal_portrait":{"aspect_ratio":0.626, "original_ratio":0.5643,"original_scale":0.74,"top_margin":0.1222,"left_margin":0.59745},        "vertical_landscape":{"aspect_ratio":1.6, "original_ratio":1,"original_scale":0.604,"top_margin":0.2596,"left_margin":0.2624},        "horizontal_landscape":{"aspect_ratio":1.6, "original_ratio":1,"original_scale":0.604,"top_margin":0.213,"left_margin":0.3758}    },    "mini_freeform_args":{        "vertical_portrait":{"original_ratio":0.147},        "horizontal_portrait":{"original_ratio":0.147},        "vertical_landscape":{"original_ratio":0.165},        "horizontal_landscape":{"original_ratio":0.165}    }  },  "narrow_default": {    "freeform_args": {        "vertical_portrait":{"aspect_ratio":0.626, "original_ratio":1,"original_scale":0.74,"top_margin":0.0753,"left_margin":-1},        "horizontal_portrait":{"aspect_ratio":0.626, "original_ratio":1,"original_scale":0.5756,"top_margin":-1,"left_margin":0.0753},        "vertical_landscape":{"aspect_ratio":1.6, "original_ratio":0.6847,"original_scale":0.587,"top_margin":0.0753,"left_margin":-1},        "horizontal_landscape":{"aspect_ratio":1.6, "original_ratio":0.6847,"original_scale":0.587,"top_margin":-1,"left_margin":0.0753}    },    "mini_freeform_args":{        "vertical_portrait":{"original_ratio":0.26},        "horizontal_portrait":{"original_ratio":0.26},        "vertical_landscape":{"original_ratio":0.293},        "horizontal_landscape":{"original_ratio":0.293}    }  },  "regular_default": {    "freeform_args": {      "vertical_portrait":{"aspect_ratio":0.625, "original_ratio":1,"original_scale":0.7,"top_margin":0.109,"left_margin":-1},      "horizontal_portrait":{"aspect_ratio":0.6667, "original_ratio":1,"original_scale":0.6102,"top_margin":-1,"left_margin":0.026},      "vertical_landscape":{"aspect_ratio":1.6, "original_ratio":1,"original_scale":0.4244,"top_margin":0.109,"left_margin":-1},      "horizontal_landscape":{"aspect_ratio":1.6, "original_ratio":1,"original_scale":0.4244,"top_margin":-1,"left_margin":0.026}    },    "mini_freeform_args":{      "vertical_portrait":{"original_ratio":0.25},      "horizontal_portrait":{"original_ratio":0.25},      "vertical_landscape":{"original_ratio":0.25},      "horizontal_landscape":{"original_ratio":0.25}    }  },  "pad_default": {    "freeform_args": {      "vertical_portrait":{"aspect_ratio":0.5625, "original_ratio":0.375,"original_scale":0.835,"top_margin":0.049,"left_margin":0.2775},      "horizontal_portrait":{"aspect_ratio":0.5625, "original_ratio":0.375,"original_scale":0.835,"top_margin":-1,"left_margin":0.6525},      "vertical_landscape":{"aspect_ratio":-1, "original_ratio":1,"original_scale":0.468,"top_margin":0.049,"left_margin":-1},      "horizontal_landscape":{"aspect_ratio":-1, "original_ratio":1,"original_scale":0.468,"top_margin":-1,"left_margin":0.4976}    },    "mini_freeform_args":{      "vertical_portrait":{"original_ratio":0.144},      "horizontal_portrait":{"original_ratio":0.144},      "vertical_landscape":{"original_ratio":0.2},      "horizontal_landscape":{"original_ratio":0.2}    }  }}
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 5] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 5] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 5] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 4] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 4] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.350 I/SkJpegCodec(23660): [mId: 4] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.352 I/SkJpegCodec(23660): [mId: 6] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.352 I/SkJpegCodec(23660): [mId: 6] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.352 I/SkJpegCodec(23660): [mId: 6] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.352 D/MiuiMultiWindowUtils(23660): initFreeFormResolutionArgs failed, device is marble
+06-20 06:18:40.352 D/IS_CTS_MODE(23660): false
+06-20 06:18:40.352 D/MULTI_WINDOW_SWITCH_ENABLED(23660): false
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 7] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 7] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 7] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 7] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:40.357 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 8] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 8] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 8] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.357 I/SkJpegCodec(23660): [mId: 8] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:40.357 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:40.358 I/SkJpegCodec(23660): [mId: 7] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:40.358 I/SkJpegCodec(23660): [mId: 7] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 8] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 8] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 9] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 9] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 9] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.360 I/SkJpegCodec(23660): [mId: 9] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:40.360 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:40.365 D/AudioEffects(23660): Setting bass level to: 0.0%
+06-20 06:18:40.366 D/AudioEffects(23660): BassBoost strength set to: 0
+06-20 06:18:40.366 I/SkJpegCodec(23660): [mId: 9] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:40.366 I/SkJpegCodec(23660): [mId: 9] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.366 D/AudioEffects(23660): Bass level successfully applied: 0.0%
+06-20 06:18:40.366 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.373 I/Choreographer(23660): Skipped 36 frames!  The application may be doing too much work on its main thread.
+06-20 06:18:40.373 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:40.394 W/Looper  (23660): PerfMonitor doFrame : time=21ms vsyncFrame=3097191 latency=308ms procState=-1 historyMsgCount=25 (msgIndex=1 wall=274ms seq=943 late=171ms h=android.view.Choreographer$FrameHandler c=android.view.Choreographer$FrameDisplayEventReceiver)
+06-20 06:18:40.394 D/VRI[SplashActivity](23660): visibilityChanged oldVisibility=true newVisibility=false
+06-20 06:18:40.410 W/WindowOnBackDispatcher(23660): sendCancelIfRunning: isInProgress=false callback=android.app.Activity$$ExternalSyntheticLambda0@99eabb2
+06-20 06:18:40.419 I/MediaController(23660): Init 5cdc505 [AndroidXMedia3/1.6.1] [marble, 23049PCD8G, Xiaomi, 35]
+06-20 06:18:40.429 W/EpFrameworkFactory(23660): activated: false jar exist: false
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 10] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 10] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 10] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 11] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 11] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 11] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.506 I/SkJpegCodec(23660): [mId: 11] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:40.506 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:40.508 I/SkJpegCodec(23660): [mId: 11] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:40.508 I/SkJpegCodec(23660): [mId: 11] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.552 I/sicplayer.debug(23660): Compiler allocated 5278KB to compile void com.richard.musicplayer.ui.player.MiniPlayerKt.MiniPlayer(long, long, androidx.compose.ui.Modifier, androidx.compose.runtime.Composer, int, int)
+06-20 06:18:40.600 I/SkJpegCodec(23660): [mId: 12] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.600 I/SkJpegCodec(23660): [mId: 12] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.600 I/SkJpegCodec(23660): [mId: 12] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.601 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.601 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.601 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.601 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.500000
+06-20 06:18:40.601 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1088, 
+06-20 06:18:40.601 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 272, Dimensions.height = 272};
+06-20 06:18:40.605 I/SkJpegCodec(23660): [mId: 13] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 272
+06-20 06:18:40.607 I/SkJpegCodec(23660): [mId: 13] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.607 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.608 I/SkJpegCodec(23660): [mId: 14] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.608 I/SkJpegCodec(23660): [mId: 14] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.608 I/SkJpegCodec(23660): [mId: 14] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.250000
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 15] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 15] skia-debug SkJpegCodec::ReadHeader: width = 426, height = 240, color = 10
+06-20 06:18:40.609 I/SkJpegCodec(23660): [mId: 15] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 800, 
+06-20 06:18:40.610 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 200, Dimensions.height = 112};
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::ReadHeader: width = 426, height = 240, color = 10
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.500000
+06-20 06:18:40.610 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 852, 
+06-20 06:18:40.610 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 213, Dimensions.height = 120};
+06-20 06:18:40.611 I/SkJpegCodec(23660): [mId: 17] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 120
+06-20 06:18:40.611 I/SkJpegCodec(23660): [mId: 17] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.611 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.613 I/SkJpegCodec(23660): [mId: 16] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 112
+06-20 06:18:40.613 I/SkJpegCodec(23660): [mId: 16] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.613 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 18] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 18] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 18] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.250000
+06-20 06:18:40.615 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 800, 
+06-20 06:18:40.615 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 200, Dimensions.height = 112};
+06-20 06:18:40.617 I/SkJpegCodec(23660): [mId: 19] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 112
+06-20 06:18:40.617 I/SkJpegCodec(23660): [mId: 19] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.617 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.618 I/SkJpegCodec(23660): [mId: 20] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.618 I/SkJpegCodec(23660): [mId: 20] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.618 I/SkJpegCodec(23660): [mId: 20] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.619 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.619 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:40.619 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.619 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.500000
+06-20 06:18:40.619 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1088, 
+06-20 06:18:40.619 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 272, Dimensions.height = 272};
+06-20 06:18:40.622 I/SkJpegCodec(23660): [mId: 21] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 272
+06-20 06:18:40.622 I/SkJpegCodec(23660): [mId: 21] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.622 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.624 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 24] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 24] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 24] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::onGetScaledDimensions: desiredScale = 0.250000
+06-20 06:18:40.627 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 800, 
+06-20 06:18:40.627 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 200, Dimensions.height = 112};
+06-20 06:18:40.630 I/SkJpegCodec(23660): [mId: 25] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 112
+06-20 06:18:40.630 I/SkJpegCodec(23660): [mId: 25] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.630 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.635 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.658 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:40.665 I/SkJpegCodec(23660): [mId: 28] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.665 I/SkJpegCodec(23660): [mId: 28] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.665 I/SkJpegCodec(23660): [mId: 28] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.668 I/SkJpegCodec(23660): [mId: 29] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.668 I/SkJpegCodec(23660): [mId: 29] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:40.668 I/SkJpegCodec(23660): [mId: 29] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.668 I/SkJpegCodec(23660): [mId: 29] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:40.668 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:40.669 I/SkJpegCodec(23660): [mId: 29] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:40.669 I/SkJpegCodec(23660): [mId: 29] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.750 I/SkJpegCodec(23660): [mId: 32] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.750 I/SkJpegCodec(23660): [mId: 32] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.750 I/SkJpegCodec(23660): [mId: 32] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.751 I/SkJpegCodec(23660): [mId: 33] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.751 I/SkJpegCodec(23660): [mId: 33] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.751 I/SkJpegCodec(23660): [mId: 33] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.751 I/SkJpegCodec(23660): [mId: 33] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 3200, 
+06-20 06:18:40.751 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 800, Dimensions.height = 450};
+06-20 06:18:40.751 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 34] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 34] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 34] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 35] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 35] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 35] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:40.752 I/SkJpegCodec(23660): [mId: 35] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 3200, 
+06-20 06:18:40.752 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 800, Dimensions.height = 450};
+06-20 06:18:40.755 I/SkJpegCodec(23660): [mId: 33] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 450
+06-20 06:18:40.757 I/SkJpegCodec(23660): [mId: 35] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 450
+06-20 06:18:40.758 I/SkJpegCodec(23660): [mId: 33] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.758 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.761 I/SkJpegCodec(23660): [mId: 35] skia-debug onGetGainmapInfo returns false
+06-20 06:18:40.761 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:40.791 W/sicplayer.debug(23660): Cleared Reference was only reachable from finalizer (only reported once)
+06-20 06:18:40.859 W/FinalizerDaemon(23660): type=1400 audit(0.0:77521): avc:  denied  { getopt } for  path="/dev/socket/usap_pool_primary" scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:r:zygote:s0 tclass=unix_stream_socket permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:40.878 W/System  (23660): A resource failed to call AbstractCursor.close. 
+06-20 06:18:40.985 W/WindowOnBackDispatcher(23660): sendCancelIfRunning: isInProgress=false callback=androidx.activity.OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1@4faf879
+06-20 06:18:41.527 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34560449, downTime=34560449, phoneEventTime=06:18:41.522 } moveCount:0
+06-20 06:18:41.581 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34560506, downTime=34560449, phoneEventTime=06:18:41.578 } moveCount:0
+06-20 06:18:41.593 D/MusicService(23660): PLAYING: song id = Ug-Q74srhAg
+06-20 06:18:41.593 D/MusicService(23660): PLAYING: remote song (online fetch)
+06-20 06:18:41.608 D/YTPlayerUtils(23660): Playback info requested: Ug-Q74srhAg
+06-20 06:18:41.652 I/SkJpegCodec(23660): [mId: 36] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 36] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 36] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 37] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 37] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 37] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 38] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 38] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 38] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 38] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.653 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.653 I/SkJpegCodec(23660): [mId: 39] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.654 I/SkJpegCodec(23660): [mId: 39] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.654 I/SkJpegCodec(23660): [mId: 39] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.654 I/SkJpegCodec(23660): [mId: 39] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.654 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.654 I/SkJpegCodec(23660): [mId: 38] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.654 I/SkJpegCodec(23660): [mId: 38] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.654 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.655 I/SkJpegCodec(23660): [mId: 39] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.655 I/SkJpegCodec(23660): [mId: 39] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.655 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 41] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 41] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 41] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 43] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 43] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 43] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.666 I/SkJpegCodec(23660): [mId: 43] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.666 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.667 I/SkJpegCodec(23660): [mId: 43] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.667 I/SkJpegCodec(23660): [mId: 43] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.667 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.668 I/SkJpegCodec(23660): [mId: 40] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.668 I/SkJpegCodec(23660): [mId: 40] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.668 I/SkJpegCodec(23660): [mId: 40] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 45] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 45] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 45] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 42] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 42] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 42] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 46] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 46] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.675 I/SkJpegCodec(23660): [mId: 46] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.676 I/SkJpegCodec(23660): [mId: 46] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.676 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.676 I/SkJpegCodec(23660): [mId: 47] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.676 I/SkJpegCodec(23660): [mId: 47] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.676 I/SkJpegCodec(23660): [mId: 47] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.676 I/SkJpegCodec(23660): [mId: 47] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.676 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 44] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 44] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 44] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 46] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 48] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.680 I/SkJpegCodec(23660): [mId: 46] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.680 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.681 I/SkJpegCodec(23660): [mId: 48] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.681 I/SkJpegCodec(23660): [mId: 48] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.681 I/SkJpegCodec(23660): [mId: 48] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.681 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.681 I/SkJpegCodec(23660): [mId: 47] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.681 I/SkJpegCodec(23660): [mId: 47] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.681 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.683 I/SkJpegCodec(23660): [mId: 49] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.683 I/SkJpegCodec(23660): [mId: 49] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.683 I/SkJpegCodec(23660): [mId: 49] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.683 I/SkJpegCodec(23660): [mId: 49] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.683 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.684 I/SkJpegCodec(23660): [mId: 49] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.684 I/SkJpegCodec(23660): [mId: 49] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.684 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.685 I/SkJpegCodec(23660): [mId: 48] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.685 I/SkJpegCodec(23660): [mId: 48] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.685 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 50] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 50] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 50] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 51] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 51] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.686 I/SkJpegCodec(23660): [mId: 51] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.687 I/SkJpegCodec(23660): [mId: 51] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.687 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.687 I/SkJpegCodec(23660): [mId: 52] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.687 I/SkJpegCodec(23660): [mId: 52] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.687 I/SkJpegCodec(23660): [mId: 52] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.688 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.688 I/SkJpegCodec(23660): [mId: 53] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.688 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.693 I/SkJpegCodec(23660): [mId: 51] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.693 I/SkJpegCodec(23660): [mId: 51] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.693 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.694 I/SkJpegCodec(23660): [mId: 54] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.694 I/SkJpegCodec(23660): [mId: 54] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.694 I/SkJpegCodec(23660): [mId: 54] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.695 I/SkJpegCodec(23660): [mId: 55] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.695 I/SkJpegCodec(23660): [mId: 55] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.695 I/SkJpegCodec(23660): [mId: 55] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.695 I/SkJpegCodec(23660): [mId: 55] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.695 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.696 I/SkJpegCodec(23660): [mId: 55] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.696 I/SkJpegCodec(23660): [mId: 55] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.697 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.697 I/SkJpegCodec(23660): [mId: 56] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.697 I/SkJpegCodec(23660): [mId: 56] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.697 I/SkJpegCodec(23660): [mId: 56] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.698 I/SkJpegCodec(23660): [mId: 58] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.698 I/SkJpegCodec(23660): [mId: 58] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.698 I/SkJpegCodec(23660): [mId: 58] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.698 I/SkJpegCodec(23660): [mId: 58] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.698 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 59] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 59] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 59] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 60] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 60] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 60] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 60] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.699 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 57] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 57] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 57] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 62] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 62] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.699 I/SkJpegCodec(23660): [mId: 62] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 62] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.700 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 61] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 61] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 61] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 63] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 63] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 63] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.700 I/SkJpegCodec(23660): [mId: 63] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.700 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.701 I/SkJpegCodec(23660): [mId: 62] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.701 I/SkJpegCodec(23660): [mId: 62] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.701 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.702 I/SkJpegCodec(23660): [mId: 60] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.702 I/SkJpegCodec(23660): [mId: 60] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.702 I/SkJpegCodec(23660): [mId: 63] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.702 I/SkJpegCodec(23660): [mId: 63] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.702 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.702 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.702 I/SkJpegCodec(23660): [mId: 58] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.703 I/SkJpegCodec(23660): [mId: 58] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.703 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.704 I/SkJpegCodec(23660): [mId: 64] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.704 I/SkJpegCodec(23660): [mId: 64] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.704 I/SkJpegCodec(23660): [mId: 64] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 65] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 65] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 65] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 66] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 66] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 66] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.705 I/SkJpegCodec(23660): [mId: 66] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.705 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 67] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 67] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 67] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 67] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.706 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 66] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.706 I/SkJpegCodec(23660): [mId: 66] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.706 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.708 I/SkJpegCodec(23660): [mId: 67] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.708 I/SkJpegCodec(23660): [mId: 67] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.708 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 68] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 68] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 68] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 69] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 69] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 69] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 71] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 71] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 71] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.709 I/SkJpegCodec(23660): [mId: 71] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.709 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.710 I/SkJpegCodec(23660): [mId: 71] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.710 I/SkJpegCodec(23660): [mId: 71] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.710 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.711 I/SkJpegCodec(23660): [mId: 73] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.711 I/SkJpegCodec(23660): [mId: 73] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.711 I/SkJpegCodec(23660): [mId: 73] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.711 I/SkJpegCodec(23660): [mId: 73] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.711 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 70] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 70] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 70] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 72] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 72] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.712 I/SkJpegCodec(23660): [mId: 72] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.713 I/SkJpegCodec(23660): [mId: 74] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.713 I/SkJpegCodec(23660): [mId: 74] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.713 I/SkJpegCodec(23660): [mId: 74] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.713 I/SkJpegCodec(23660): [mId: 74] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.713 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.715 I/SkJpegCodec(23660): [mId: 73] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.715 I/SkJpegCodec(23660): [mId: 73] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.715 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.716 I/SkJpegCodec(23660): [mId: 75] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:41.716 I/SkJpegCodec(23660): [mId: 75] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:41.716 I/SkJpegCodec(23660): [mId: 75] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:41.716 I/SkJpegCodec(23660): [mId: 75] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:41.716 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:41.717 I/SkJpegCodec(23660): [mId: 74] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.717 I/SkJpegCodec(23660): [mId: 74] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.717 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.717 I/SkJpegCodec(23660): [mId: 75] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:41.717 I/SkJpegCodec(23660): [mId: 75] skia-debug onGetGainmapInfo returns false
+06-20 06:18:41.718 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:41.963 D/YTPlayerUtils(23660): [Ug-Q74srhAg] signatureTimestamp: 20256, isLoggedIn: true
+06-20 06:18:41.970 I/WebViewFactory(23660): Loading com.google.android.webview version 138.0.7204.25 (code 720402543)
+06-20 06:18:41.978 W/ziparchive(23660): Unable to open '/data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.dm': No such file or directory
+06-20 06:18:41.978 W/ziparchive(23660): Unable to open '/data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.dm': No such file or directory
+06-20 06:18:41.978 W/sicplayer.debug(23660): Entry not found
+06-20 06:18:41.979 D/nativeloader(23660): Configuring clns-8 for other apk /data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.apk. target_sdk_version=35, uses_libraries=ALL, library_path=/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/lib/arm64:/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk!/lib/arm64-v8a:/data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+06-20 06:18:41.979 D/nativeloader(23660): Extending system_exposed_libraries: libbinauralrenderer_wrapper.qti.so:libhoaeffects.qti.so:libmisys_jni.xiaomi.so:libpag.hyperos.so:libffavc.hyperos.so:libxiaomi_modemdumpsdx55_jni.modem.so:libxiaomi_modemdump_jni.modem.so:libmodemsmartengine_jni.modem.so:libupdateprof.qti.so:libthermalclient.qti.so:libdiag_system.qti.so:libqape.qti.so:libqesdk_ndk_platform.qti.so:liblistenjni.qti.so
+06-20 06:18:41.981 D/ApplicationLoaders(23660): Returning zygote-cached class loader: /system_ext/framework/androidx.window.extensions.jar
+06-20 06:18:41.984 W/sicplayer.debug(23660): Loading /data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/oat/arm64/base.odex non-executable as it requires an image which we failed to load
+06-20 06:18:41.985 D/nativeloader(23660): Configuring clns-9 for other apk /data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/lib/arm64:/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk!/lib/arm64-v8a:/data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand
+06-20 06:18:42.013 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34560939, downTime=34560939, phoneEventTime=06:18:42.011 } moveCount:0
+06-20 06:18:42.042 I/cr_WVCFactoryProvider(23660): version=138.0.7204.25 (720402543) minSdkVersion=29 isBundle=false multiprocess=true packageId=2
+06-20 06:18:42.049 D/nativeloader(23660): Load /data/app/~~Faq9T0Qy48h84e8lMkSncw==/com.google.android.trichromelibrary_720402543-feBF94fVURuRs9Dw2v94Tw==/base.apk!/lib/arm64-v8a/libmonochrome_64.so using ns clns-9 from class loader (caller=/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk): ok
+06-20 06:18:42.051 D/nativeloader(23660): Load /system/lib64/libwebviewchromium_plat_support.so using ns clns-9 from class loader (caller=/data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk): ok
+06-20 06:18:42.059 I/chromium(23660): [0620/061842.056121:INFO:android_webview/browser/variations/variations_seed_loader.cc:67] Failed to open file for reading.: No such file or directory (2)
+06-20 06:18:42.070 I/cr_LibraryLoader(23660): Successfully loaded native library
+06-20 06:18:42.071 I/cr_CachingUmaRecorder(23660): Flushed 8 samples from 8 histograms, 0 samples were dropped.
+06-20 06:18:42.071 D/PoTokenGenerator(23660): Web poToken requested: Ug-Q74srhAg, 118373875466093526405
+06-20 06:18:42.086 I/cr_CombinedPProvider(23660): #registerProvider() provider:WV.e9@8b26b20 isPolicyCacheEnabled:false policyProvidersSize:0
+06-20 06:18:42.088 I/cr_PolicyProvider(23660): #setManagerAndSource() 0
+06-20 06:18:42.113 I/cr_CombinedPProvider(23660): #linkNativeInternal() 1
+06-20 06:18:42.114 I/cr_AppResProvider(23660): #getApplicationRestrictionsFromUserManager() Bundle[EMPTY_PARCEL]
+06-20 06:18:42.114 I/cr_PolicyProvider(23660): #notifySettingsAvailable() 0
+06-20 06:18:42.114 I/cr_CombinedPProvider(23660): #onSettingsAvailable() 0
+06-20 06:18:42.114 I/cr_CombinedPProvider(23660): #flushPolicies()
+06-20 06:18:42.148 W/libc    (23660): Access denied finding property "vendor.mivk.log.debug"
+06-20 06:18:42.148 D/vulkan  (23660): searching for layers in '/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/lib/arm64'
+06-20 06:18:42.148 D/vulkan  (23660): searching for layers in '/data/app/~~od_tBTFsbZ5rVXaR7wmSGA==/com.richard.musicplayer.debug-fKWYQbMY7AuxXSNHvCIe5A==/base.apk!/lib/arm64-v8a'
+06-20 06:18:42.158 I/AdrenoVK-0(23660): ===== BEGIN DUMP OF OVERRIDDEN SETTINGS =====
+06-20 06:18:42.158 I/AdrenoVK-0(23660): ===== END DUMP OF OVERRIDDEN SETTINGS =====
+06-20 06:18:42.159 I/SkJpegCodec(23660): [mId: 76] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.159 I/SkJpegCodec(23660): [mId: 76] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.159 I/SkJpegCodec(23660): [mId: 76] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.162 I/AdrenoVK-0(23660): QUALCOMM build          : 1daab2de43, I7911396b61
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Build Date              : 08/16/24
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Shader Compiler Version : EV031.36.08.30
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Local Branch            : 
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Remote Branch           : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.11.00.00.770.073
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Remote Branch           : NONE
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Reconstruct Branch      : NOTHING
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Build Config            : S P 12.1.1 AArch64
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Driver Path             : /vendor/lib64/hw/vulkan.adreno.so
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Driver Version          : 0615.90
+06-20 06:18:42.162 I/AdrenoVK-0(23660): PFP                     : 0x01730158
+06-20 06:18:42.162 I/AdrenoVK-0(23660): ME                      : 0x00000000
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Application Name    : 
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Application Version : 0x00000001
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Engine Name         : 
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Engine Version      : 0x00000001
+06-20 06:18:42.162 I/AdrenoVK-0(23660): Api Version         : 0x00403000
+06-20 06:18:42.163 I/SkJpegCodec(23660): [mId: 77] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.163 I/SkJpegCodec(23660): [mId: 77] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.163 I/SkJpegCodec(23660): [mId: 77] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.163 I/SkJpegCodec(23660): [mId: 77] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:42.163 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:42.170 I/SkJpegCodec(23660): [mId: 78] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.170 I/SkJpegCodec(23660): [mId: 78] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.170 I/SkJpegCodec(23660): [mId: 78] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.171 I/SkJpegCodec(23660): [mId: 77] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:42.171 D/CompatChangeReporter(23660): Compat change id reported: 312399441; UID 10398; state: ENABLED
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 79] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 79] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 79] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 80] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 80] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.172 I/SkJpegCodec(23660): [mId: 80] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.173 I/SkJpegCodec(23660): [mId: 79] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:42.173 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:42.173 I/SkJpegCodec(23660): [mId: 81] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.173 I/SkJpegCodec(23660): [mId: 81] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.173 I/SkJpegCodec(23660): [mId: 81] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.174 I/SkJpegCodec(23660): [mId: 81] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:42.174 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:42.174 I/SkJpegCodec(23660): [mId: 77] skia-debug onGetGainmapInfo returns false
+06-20 06:18:42.174 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:42.179 I/SkJpegCodec(23660): [mId: 79] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:42.179 W/chromium(23660): [WARNING:android_webview/browser/network_service/net_helpers.cc:143] HTTP Cache size is: 20971520
+06-20 06:18:42.180 I/SkJpegCodec(23660): [mId: 81] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:42.181 I/SkJpegCodec(23660): [mId: 79] skia-debug onGetGainmapInfo returns false
+06-20 06:18:42.181 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:42.182 I/SkJpegCodec(23660): [mId: 81] skia-debug onGetGainmapInfo returns false
+06-20 06:18:42.182 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:42.251 D/PoTokenWebView(23660): loadHtmlAndObtainBotguard() called
+06-20 06:18:42.253 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34561026, downTime=34560939, phoneEventTime=06:18:42.099 } moveCount:6
+06-20 06:18:42.256 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:42.257 I/CameraManagerGlobal(23660): Connecting to camera service
+06-20 06:18:42.266 D/CameraExtStub(23660): init android.hardware.camera2.impl.CameraExtImplXiaoMi
+06-20 06:18:42.267 D/CameraInjector(23660): waitForResult: 
+06-20 06:18:42.268 D/CameraInjector(23660): updateCloudCameraControllerInfoAsync: E
+06-20 06:18:42.280 I/AdrenoVK-0(23660): QUALCOMM build          : 1daab2de43, I7911396b61
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Build Date              : 08/16/24
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Shader Compiler Version : EV031.36.08.30
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Local Branch            : 
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Remote Branch           : refs/tags/AU_LINUX_ANDROID_LA.VENDOR.1.0.11.00.00.770.073
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Remote Branch           : NONE
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Reconstruct Branch      : NOTHING
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Build Config            : S P 12.1.1 AArch64
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Driver Path             : /vendor/lib64/hw/vulkan.adreno.so
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Driver Version          : 0615.90
+06-20 06:18:42.280 I/AdrenoVK-0(23660): PFP                     : 0x01730158
+06-20 06:18:42.280 I/AdrenoVK-0(23660): ME                      : 0x00000000
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Application Name    : 
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Application Version : 0x00000001
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Engine Name         : 
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Engine Version      : 0x00000001
+06-20 06:18:42.280 I/AdrenoVK-0(23660): Api Version         : 0x00403000
+06-20 06:18:42.284 W/cr_media(23660): BLUETOOTH_CONNECT permission is missing.
+06-20 06:18:42.285 W/cr_media(23660): getBluetoothAdapter() requires BLUETOOTH permission
+06-20 06:18:42.285 W/cr_media(23660): registerBluetoothIntentsIfNeeded: Requires BLUETOOTH permission
+06-20 06:18:42.293 D/CameraInjector(23660): updateCloudCameraControllerInfoAsync: X
+06-20 06:18:42.294 W/libc    (23660): Access denied finding property "vendor.camera.aux.packagelist"
+06-20 06:18:42.294 W/libc    (23660): Access denied finding property "vendor.camera.aux.packagelistext"
+06-20 06:18:42.294 W/CameraExtImplXiaoMi(23660): ignore the status update of camera: 2
+06-20 06:18:42.295 D/CameraInjector(23660): updateCloudCameraControllerInfoAsync: has aleardy start update task.
+06-20 06:18:42.295 D/CameraInjector(23660): waitForResult: 
+06-20 06:18:42.295 W/libc    (23660): Access denied finding property "vendor.camera.aux.packagelist"
+06-20 06:18:42.295 W/libc    (23660): Access denied finding property "vendor.camera.aux.packagelistext"
+06-20 06:18:42.296 W/CameraManagerGlobal(23660): ignore the torch status update of camera: 2
+06-20 06:18:42.340 D/PoTokenWebView(23660): downloadAndRunBotguard() called
+06-20 06:18:42.384 W/AudioCapabilities(23660): Unsupported mime audio/alac
+06-20 06:18:42.384 W/AudioCapabilities(23660): Unsupported mime audio/x-ape
+06-20 06:18:42.384 W/AudioCapabilities(23660): Unsupported mime audio/evrc
+06-20 06:18:42.384 W/AudioCapabilities(23660): Unsupported mime audio/qcelp
+06-20 06:18:42.384 W/AudioCapabilities(23660): Unsupported mime audio/dsd
+06-20 06:18:42.385 W/AudioCapabilities(23660): Unsupported mime audio/amr-wb-plus
+06-20 06:18:42.385 W/AudioCapabilities(23660): Unsupported mime audio/x-ms-wma
+06-20 06:18:42.385 W/AudioCapabilities(23660): Unsupported mime audio/evrc
+06-20 06:18:42.385 W/AudioCapabilities(23660): Unsupported mime audio/qcelp
+06-20 06:18:42.386 W/AudioCapabilities(23660): Unsupported mime audio/alac
+06-20 06:18:42.386 W/AudioCapabilities(23660): Unsupported mime audio/x-ape
+06-20 06:18:42.402 W/sicplayer.debug(23660): ApkAssets: Deleting an ApkAssets object '<empty> and /data/app/~~DLOOfbSUQR8OTxMniTbwcA==/com.google.android.webview-UorSGDa3hemxLO9DVPBJNQ==/base.apk' with 1 weak references
+06-20 06:18:42.420 W/VideoCapabilities(23660): Unsupported mime image/vnd.android.heic
+06-20 06:18:42.420 W/VideoCapabilities(23660): Unsupported mime image/vnd.android.heic
+06-20 06:18:42.423 W/VideoCapabilities(23660): Unsupported mime video/dolby-vision
+06-20 06:18:42.424 W/VideoCapabilities(23660): Unsupported mime video/dolby-vision
+06-20 06:18:42.434 W/cr_VAUtil(23660): Unknown level: 2048 for profile 32 of codec video/dolby-vision
+06-20 06:18:42.434 W/cr_VAUtil(23660): Unknown profile: 16 for codec video/dolby-vision
+06-20 06:18:42.434 W/cr_VAUtil(23660): Unknown level: 2048 for profile 256 of codec video/dolby-vision
+06-20 06:18:42.435 W/cr_VAUtil(23660): Unknown level: 2048 for profile 32 of codec video/dolby-vision
+06-20 06:18:42.435 W/cr_VAUtil(23660): Unknown profile: 16 for codec video/dolby-vision
+06-20 06:18:42.435 W/cr_VAUtil(23660): Unknown level: 2048 for profile 256 of codec video/dolby-vision
+06-20 06:18:42.723 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34561609, downTime=34561609, phoneEventTime=06:18:42.681 } moveCount:0
+06-20 06:18:42.725 D/UserSceneDetector(23660): invoke error.
+06-20 06:18:42.780 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34561696, downTime=34561609, phoneEventTime=06:18:42.768 } moveCount:2
+06-20 06:18:42.800 D/PoTokenWebView(23660): botguardResponse: $pDs5O2NRAAaKjHN1qozeiEXL7NtfwKanADQBEArZ1ITiPy2kPQbuaDUl_Kyv_t8g__4QH6UcjaUh0XuF-49YeBPLrzwbayRMguzn8jyWngAAADXOAAAAA_QBB-IAETyK6nbKIpGfNZpGERwwd2lwlgH8oQ0BRw_WKsOTUZbKft4jD8IlGwUg4RMidLw60tdNPuopwpRpoBQnnq2649uW2R5G0wVa8ISOvY9zy2wS341qNhkBDcqfbM6dqDbQ4m99PBxeLvCijFIlf7wrXqivN8WbeymJArNZ5Q45zeZIDOp7710FwX0_X8kMk2UkcEPsRPAz5sm3xTx44JIV9ydym7PEPkJCt5zME1o_uRXQG9cEwxVIMX1JcBh5XhcnvwL4uF1msZHHQ4_9A5OQRX2wShV6JRWA-CJ8D_R7u2iROrSK4x0eweDoRg2Rnmmgc8vOuKMjrWpvnBFOGGp1E7vp9Qdd8c-a1PLqcDfnfYjS1IvICEmCiQmQsp0XuTVZFNCxrfxQIBDQIXplOuT0m0D2T4SkPbSQWaVYZczqXF3p8uR_qYPFIbx4np7GhPGNpAkWb3F-fNy_CWi3UtWwd7ghaMxGixZSRV7e3Qaz9j39PzqVT5gBaOy74KL-fuglz-10VJky5vy6ClpIiBRMoyKFawYFYyxD_kjlOXPpWRQJFopBBR5OAOdkD8aKQhPbEubIRQ7Wqy-JDrTA1tIzPoKBY7-Nx6ucQ-Fu79jvnnmc4cSpA9Pqg7SZHLzqy-CWCWtgU2TWRmn90qEx9yRL_M4oZRMaRDEFtRNUC3_Oo52QJItY4tWJ2lsL4xZkPYIJsgUBRIFOFNFzlcAhiW03xk2jdizXBthjOLI-zc7lTRQ6BOjuj66OvbcnniHjfHeuVomax7T0GzowYC24KnYMb7coP7yufNNJOarQKWbA5TP6dX-_bPpXKNhiTqd4wg-PJcVXPyi73AHvkBX8oiwL0GcTDzN5tyFqG2EJQbUWmRYiunLxY8uC6fOFSoL5pDKEoPurCUO081MqfcTLcQ0BQI4RyKjqFf1m5OV1diNwZWK6mUNvzaPWPpGALaSf_JLS4Cf_3cuFT1wYB8kHUb4xmVPwYdV0Lg9zBFUsSa_a5rrqoT3iZR0ciPOcyQLgilAn3so3JOQ7BMCctEdi1b_b4__IPWxG9ga9m_hGP92RTsGViefqj-Kz4ApN_iN5yhjTl9nIYOSl6jxb8TbNmQq3tVXJ5c2wlE6XmJ4T53ugwMgsdWb_r8ZeIg
+06-20 06:18:42.909 D/PoTokenWebView(23660): GenerateIT response: ["dLVJXUjO9Uq8lJNcX+GjRSPWC5R/FVBvv8abBwMTs/L0hg2nmBWrlhKqcEmKkC8FscGMlZi31Cs=",43200,100]
+06-20 06:18:42.921 D/PoTokenWebView(23660): initialization finished, expiration=43200s
+06-20 06:18:42.922 D/PoTokenWebView(23660): generatePoToken() called with identifier 118373875466093526405
+06-20 06:18:42.931 D/PoTokenWebView(23660): Generated poToken (before decoding): identifier=118373875466093526405 poTokenU8=50,89,250,8,233,38,135,207,250,140,250,48,157,147,206,146,178,66,15,66,85,178,20,147,165,109,89,77,202,240,140,91,133,153,170,103,86,224,28,200,249,159,73,250,29,160,138,104,98,153,81,158,251,140,247,134,112,28,213,13,88,231,11,90,98,59,46,35,250,200,33,62,241,21,240,40,7,112,15,61,148,167,150,243,86,161,183,160,30,47,3
+06-20 06:18:42.933 D/PoTokenWebView(23660): Generated poToken: identifier=118373875466093526405 poToken=Mln6COkmh8_6jPownZPOkrJCD0JVshSTpW1ZTcrwjFuFmapnVuAcyPmfSfodoIpoYplRnvuM94ZwHNUNWOcLWmI7LiP6yCE-8RXwKAdwDz2Up5bzVqG3oB4vAw==
+06-20 06:18:42.936 D/PoTokenWebView(23660): generatePoToken() called with identifier Ug-Q74srhAg
+06-20 06:18:42.938 D/PoTokenWebView(23660): Generated poToken (before decoding): identifier=Ug-Q74srhAg poTokenU8=50,137,1,123,204,158,58,37,64,125,157,123,244,234,143,108,29,53,83,142,134,34,174,182,28,34,124,216,137,189,236,46,212,2,136,43,163,33,252,190,71,126,142,200,62,106,188,40,231,229,136,208,90,140,144,85,9,247,13,84,201,47,251,169,213,229,42,175,231,158,2,81,245,52,192,51,2,107,112,153,212,238,193,36,45,61,127,6,150,118,9,4,217,206,85,154,134,230,154,120,223,45,200,209,198,112,58,227,217,53,172,55,234,13,212,241,92,177,63,148,129,241,8,227,123,74,17,59,165,179,129,180,184,70,171,37,148,171,141,100
+06-20 06:18:42.939 D/PoTokenWebView(23660): Generated poToken: identifier=Ug-Q74srhAg poToken=MokBe8yeOiVAfZ179OqPbB01U46GIq62HCJ82Im97C7UAogroyH8vkd-jsg-arwo5-WI0FqMkFUJ9w1UyS_7qdXlKq_nngJR9TTAMwJrcJnU7sEkLT1_BpZ2CQTZzlWahuaaeN8tyNHGcDrj2TWsN-oN1PFcsT-UgfEI43tKETuls4G0uEarJZSrjWQ=
+06-20 06:18:42.940 D/PoTokenGenerator(23660): [Ug-Q74srhAg] playerPot=MokBe8yeOiVAfZ179OqPbB01U46GIq62HCJ82Im97C7UAogroyH8vkd-jsg-arwo5-WI0FqMkFUJ9w1UyS_7qdXlKq_nngJR9TTAMwJrcJnU7sEkLT1_BpZ2CQTZzlWahuaaeN8tyNHGcDrj2TWsN-oN1PFcsT-UgfEI43tKETuls4G0uEarJZSrjWQ=, streamingPot=Mln6COkmh8_6jPownZPOkrJCD0JVshSTpW1ZTcrwjFuFmapnVuAcyPmfSfodoIpoYplRnvuM94ZwHNUNWOcLWmI7LiP6yCE-8RXwKAdwDz2Up5bzVqG3oB4vAw==
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 82] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 82] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 82] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 83] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 83] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 83] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:42.984 I/SkJpegCodec(23660): [mId: 83] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:42.984 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:42.987 I/SkJpegCodec(23660): [mId: 83] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:42.990 I/SkJpegCodec(23660): [mId: 83] skia-debug onGetGainmapInfo returns false
+06-20 06:18:42.990 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.001 I/SkJpegCodec(23660): [mId: 84] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.001 I/SkJpegCodec(23660): [mId: 84] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.001 I/SkJpegCodec(23660): [mId: 84] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.003 I/SkJpegCodec(23660): [mId: 85] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.003 I/SkJpegCodec(23660): [mId: 85] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.003 I/SkJpegCodec(23660): [mId: 85] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.004 I/SkJpegCodec(23660): [mId: 85] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:43.004 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:43.009 I/SkJpegCodec(23660): [mId: 85] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:43.009 I/SkJpegCodec(23660): [mId: 86] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.009 I/SkJpegCodec(23660): [mId: 86] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.009 I/SkJpegCodec(23660): [mId: 86] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.010 I/SkJpegCodec(23660): [mId: 87] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.010 I/SkJpegCodec(23660): [mId: 87] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.010 I/SkJpegCodec(23660): [mId: 87] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.010 I/SkJpegCodec(23660): [mId: 87] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:43.010 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:43.011 I/SkJpegCodec(23660): [mId: 85] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.011 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.018 I/SkJpegCodec(23660): [mId: 87] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:43.020 I/SkJpegCodec(23660): [mId: 87] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.020 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.034 I/SkJpegCodec(23660): [mId: 88] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.034 I/SkJpegCodec(23660): [mId: 88] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.034 I/SkJpegCodec(23660): [mId: 88] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.035 I/SkJpegCodec(23660): [mId: 89] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.035 I/SkJpegCodec(23660): [mId: 89] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.035 I/SkJpegCodec(23660): [mId: 89] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.035 I/SkJpegCodec(23660): [mId: 89] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:43.035 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:43.037 I/SkJpegCodec(23660): [mId: 89] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:43.039 I/SkJpegCodec(23660): [mId: 89] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.039 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 90] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 90] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 90] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 91] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 91] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 91] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.043 I/SkJpegCodec(23660): [mId: 91] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:43.043 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:43.047 I/SkJpegCodec(23660): [mId: 91] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:43.049 I/SkJpegCodec(23660): [mId: 91] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.049 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 92] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 92] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 92] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 93] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 93] skia-debug SkJpegCodec::ReadHeader: width = 544, height = 544, color = 10
+06-20 06:18:43.056 I/SkJpegCodec(23660): [mId: 93] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.057 I/SkJpegCodec(23660): [mId: 93] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2176, 
+06-20 06:18:43.057 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 544, Dimensions.height = 544};
+06-20 06:18:43.059 I/SkJpegCodec(23660): [mId: 93] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 544
+06-20 06:18:43.061 I/SkJpegCodec(23660): [mId: 93] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.061 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.140 I/SkJpegCodec(23660): [mId: 94] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.140 I/SkJpegCodec(23660): [mId: 94] skia-debug SkJpegCodec::ReadHeader: width = 600, height = 600, color = 10
+06-20 06:18:43.140 I/SkJpegCodec(23660): [mId: 94] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.141 I/SkJpegCodec(23660): [mId: 95] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.141 I/SkJpegCodec(23660): [mId: 95] skia-debug SkJpegCodec::ReadHeader: width = 600, height = 600, color = 10
+06-20 06:18:43.141 I/SkJpegCodec(23660): [mId: 95] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.141 I/SkJpegCodec(23660): [mId: 95] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2400, 
+06-20 06:18:43.141 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 600, Dimensions.height = 600};
+06-20 06:18:43.145 I/SkJpegCodec(23660): [mId: 95] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 600
+06-20 06:18:43.145 I/SkJpegCodec(23660): [mId: 96] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.145 I/SkJpegCodec(23660): [mId: 96] skia-debug SkJpegCodec::ReadHeader: width = 600, height = 600, color = 10
+06-20 06:18:43.145 I/SkJpegCodec(23660): [mId: 96] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.146 I/SkJpegCodec(23660): [mId: 97] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.146 I/SkJpegCodec(23660): [mId: 97] skia-debug SkJpegCodec::ReadHeader: width = 600, height = 600, color = 10
+06-20 06:18:43.146 I/SkJpegCodec(23660): [mId: 97] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.146 I/SkJpegCodec(23660): [mId: 97] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 2400, 
+06-20 06:18:43.146 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 600, Dimensions.height = 600};
+06-20 06:18:43.148 I/SkJpegCodec(23660): [mId: 95] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.148 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.148 I/SkJpegCodec(23660): [mId: 97] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 600
+06-20 06:18:43.150 I/SkJpegCodec(23660): [mId: 97] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.150 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.240 D/YTPlayerUtils(23660): Trying client: WEB_REMIX
+06-20 06:18:43.240 D/YTPlayerUtils(23660): [Ug-Q74srhAg] stream client: WEB_REMIX, playabilityStatus: OK
+06-20 06:18:43.319 I/SkJpegCodec(23660): [mId: 98] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.319 I/SkJpegCodec(23660): [mId: 98] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:43.319 I/SkJpegCodec(23660): [mId: 98] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.320 I/SkJpegCodec(23660): [mId: 99] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.320 I/SkJpegCodec(23660): [mId: 99] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:43.320 I/SkJpegCodec(23660): [mId: 99] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.320 I/SkJpegCodec(23660): [mId: 99] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 3200, 
+06-20 06:18:43.320 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 800, Dimensions.height = 450};
+06-20 06:18:43.321 W/System.err(23660): org.schabi.newpipe.extractor.exceptions.ParsingException: Could not parse deobfuscation function
+06-20 06:18:43.321 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeSignatureUtils.getDeobfuscationCode(YoutubeSignatureUtils.java:103)
+06-20 06:18:43.322 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeJavaScriptPlayerManager.deobfuscateSignature(YoutubeJavaScriptPlayerManager.java:145)
+06-20 06:18:43.322 W/System.err(23660): 	at com.zionhuang.innertube.NewPipeUtils.getStreamUrl-gIAlu-s(NewPipe.kt:85)
+06-20 06:18:43.322 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils.findUrlOrNull(YTPlayerUtils.kt:274)
+06-20 06:18:43.322 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils.playerResponseForPlayback-yxL6bBk(YTPlayerUtils.kt:157)
+06-20 06:18:43.323 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils$playerResponseForPlayback$1.invokeSuspend(Unknown Source:18)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+06-20 06:18:43.323 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+06-20 06:18:43.323 W/System.err(23660): Caused by: org.schabi.newpipe.extractor.utils.Parser$RegexException: Failed to find pattern ";([A-Za-z0-9_\$]{2,})\...\(" inside of "n6H=function(B){B=B[H[30]](H[9]);Be[H[6]](B,2);Be[H[31]](B,64);Be[H[51]](B,43);Be[H[6]](B,2);Be[H[31]](B,57);Be[H[31]](B,1);return B[H[27]](H[9])}"
+06-20 06:18:43.323 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup(Parser.java:75)
+06-20 06:18:43.323 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup(Parser.java:60)
+06-20 06:18:43.323 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup1(Parser.java:49)
+06-20 06:18:43.323 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeSignatureUtils.getDeobfuscationCode(YoutubeSignatureUtils.java:92)
+06-20 06:18:43.323 W/System.err(23660): 	... 13 more
+06-20 06:18:43.324 D/YTPlayerUtils(23660): Trying fallback client: TVHTML5_SIMPLY_EMBEDDED_PLAYER
+06-20 06:18:43.324 I/SkJpegCodec(23660): [mId: 99] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 450
+06-20 06:18:43.329 I/SkJpegCodec(23660): [mId: 99] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.329 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.454 I/SkJpegCodec(23660): [mId: 100] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.454 I/SkJpegCodec(23660): [mId: 100] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:43.454 I/SkJpegCodec(23660): [mId: 100] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.455 I/SkJpegCodec(23660): [mId: 101] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.455 I/SkJpegCodec(23660): [mId: 101] skia-debug SkJpegCodec::ReadHeader: width = 800, height = 450, color = 10
+06-20 06:18:43.455 I/SkJpegCodec(23660): [mId: 101] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.455 I/SkJpegCodec(23660): [mId: 101] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 3200, 
+06-20 06:18:43.455 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 800, Dimensions.height = 450};
+06-20 06:18:43.458 I/SkJpegCodec(23660): [mId: 101] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 450
+06-20 06:18:43.461 I/SkJpegCodec(23660): [mId: 101] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.462 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 102] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 102] skia-debug SkJpegCodec::ReadHeader: width = 320, height = 180, color = 10
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 102] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 103] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 103] skia-debug SkJpegCodec::ReadHeader: width = 320, height = 180, color = 10
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 103] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:43.509 I/SkJpegCodec(23660): [mId: 103] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1280, 
+06-20 06:18:43.509 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 320, Dimensions.height = 180};
+06-20 06:18:43.510 I/SkJpegCodec(23660): [mId: 103] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 180
+06-20 06:18:43.510 I/SkJpegCodec(23660): [mId: 103] skia-debug onGetGainmapInfo returns false
+06-20 06:18:43.510 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:43.515 D/YTPlayerUtils(23660): [Ug-Q74srhAg] stream client: TVHTML5_SIMPLY_EMBEDDED_PLAYER, playabilityStatus: OK
+06-20 06:18:43.526 W/System.err(23660): org.schabi.newpipe.extractor.exceptions.ParsingException: Could not parse deobfuscation function
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeSignatureUtils.getDeobfuscationCode(YoutubeSignatureUtils.java:103)
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeJavaScriptPlayerManager.deobfuscateSignature(YoutubeJavaScriptPlayerManager.java:145)
+06-20 06:18:43.527 W/System.err(23660): 	at com.zionhuang.innertube.NewPipeUtils.getStreamUrl-gIAlu-s(NewPipe.kt:85)
+06-20 06:18:43.527 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils.findUrlOrNull(YTPlayerUtils.kt:274)
+06-20 06:18:43.527 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils.playerResponseForPlayback-yxL6bBk(YTPlayerUtils.kt:157)
+06-20 06:18:43.527 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils$playerResponseForPlayback$1.invokeSuspend(Unknown Source:18)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+06-20 06:18:43.527 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+06-20 06:18:43.527 W/System.err(23660): Caused by: org.schabi.newpipe.extractor.utils.Parser$RegexException: Failed to find pattern ";([A-Za-z0-9_\$]{2,})\...\(" inside of "n6H=function(B){B=B[H[30]](H[9]);Be[H[6]](B,2);Be[H[31]](B,64);Be[H[51]](B,43);Be[H[6]](B,2);Be[H[31]](B,57);Be[H[31]](B,1);return B[H[27]](H[9])}"
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup(Parser.java:75)
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup(Parser.java:60)
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.utils.Parser.matchGroup1(Parser.java:49)
+06-20 06:18:43.527 W/System.err(23660): 	at org.schabi.newpipe.extractor.services.youtube.YoutubeSignatureUtils.getDeobfuscationCode(YoutubeSignatureUtils.java:92)
+06-20 06:18:43.527 W/System.err(23660): 	... 13 more
+06-20 06:18:43.527 D/YTPlayerUtils(23660): Trying fallback client: IOS
+06-20 06:18:43.637 D/YTPlayerUtils(23660): [Ug-Q74srhAg] stream client: IOS, playabilityStatus: LOGIN_REQUIRED - Faça login para confirmar que você não é um bot
+06-20 06:18:43.639 E/LoadTask(23660): Unexpected exception loading stream
+06-20 06:18:43.639 E/LoadTask(23660):   androidx.media3.common.PlaybackException: Faça login para confirmar que você não é um bot
+06-20 06:18:43.639 E/LoadTask(23660):       at com.richard.musicplayer.utils.YTPlayerUtils.playerResponseForPlayback-yxL6bBk(YTPlayerUtils.kt:183)
+06-20 06:18:43.639 E/LoadTask(23660):       at com.richard.musicplayer.utils.YTPlayerUtils$playerResponseForPlayback$1.invokeSuspend(Unknown Source:18)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+06-20 06:18:43.639 E/LoadTask(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660): Playback error
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):   androidx.media3.exoplayer.ExoPlaybackException: Source error
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at androidx.media3.exoplayer.ExoPlayerImplInternal.handleIoException(ExoPlayerImplInternal.java:864)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at androidx.media3.exoplayer.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:840)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at android.os.Handler.dispatchMessage(Handler.java:103)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at android.os.Looper.loopOnce(Looper.java:249)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at android.os.Looper.loop(Looper.java:337)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at android.os.HandlerThread.run(HandlerThread.java:85)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):   Caused by: androidx.media3.exoplayer.upstream.Loader$UnexpectedLoaderException: Unexpected PlaybackException: Faça login para confirmar que você não é um bot
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at androidx.media3.exoplayer.upstream.Loader$LoadTask.run(Loader.java:474)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at java.lang.Thread.run(Thread.java:1012)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):   Caused by: androidx.media3.common.PlaybackException: Faça login para confirmar que você não é um bot
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at com.richard.musicplayer.utils.YTPlayerUtils.playerResponseForPlayback-yxL6bBk(YTPlayerUtils.kt:183)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at com.richard.musicplayer.utils.YTPlayerUtils$playerResponseForPlayback$1.invokeSuspend(Unknown Source:18)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+06-20 06:18:43.647 E/ExoPlayerImplInternal(23660):       at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+06-20 06:18:43.652 W/System.err(23660): androidx.media3.exoplayer.ExoPlaybackException: Source error
+06-20 06:18:43.652 W/System.err(23660): 	at androidx.media3.exoplayer.ExoPlayerImplInternal.handleIoException(ExoPlayerImplInternal.java:864)
+06-20 06:18:43.652 W/System.err(23660): 	at androidx.media3.exoplayer.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:840)
+06-20 06:18:43.652 W/System.err(23660): 	at android.os.Handler.dispatchMessage(Handler.java:103)
+06-20 06:18:43.652 W/System.err(23660): 	at android.os.Looper.loopOnce(Looper.java:249)
+06-20 06:18:43.652 W/System.err(23660): 	at android.os.Looper.loop(Looper.java:337)
+06-20 06:18:43.652 W/System.err(23660): 	at android.os.HandlerThread.run(HandlerThread.java:85)
+06-20 06:18:43.652 W/System.err(23660): Caused by: androidx.media3.exoplayer.upstream.Loader$UnexpectedLoaderException: Unexpected PlaybackException: Faça login para confirmar que você não é um bot
+06-20 06:18:43.652 W/System.err(23660): 	at androidx.media3.exoplayer.upstream.Loader$LoadTask.run(Loader.java:474)
+06-20 06:18:43.652 W/System.err(23660): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+06-20 06:18:43.652 W/System.err(23660): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+06-20 06:18:43.652 W/System.err(23660): 	at java.lang.Thread.run(Thread.java:1012)
+06-20 06:18:43.652 W/System.err(23660): Caused by: androidx.media3.common.PlaybackException: Faça login para confirmar que você não é um bot
+06-20 06:18:43.652 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils.playerResponseForPlayback-yxL6bBk(YTPlayerUtils.kt:183)
+06-20 06:18:43.652 W/System.err(23660): 	at com.richard.musicplayer.utils.YTPlayerUtils$playerResponseForPlayback$1.invokeSuspend(Unknown Source:18)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:100)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:124)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:586)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:820)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:717)
+06-20 06:18:43.652 W/System.err(23660): 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:704)
+06-20 06:18:44.067 D/SyncUtils(23660): Starting auto sync job
+06-20 06:18:44.072 D/SyncUtils(23660): Liked songs synchronization started
+06-20 06:18:44.074 I/SyncUtils(23660): Artist subscriptions synchronization started
+06-20 06:18:44.075 I/SyncUtils(23660): Library playlist synchronization started
+06-20 06:18:44.076 I/SyncUtils(23660): Library songs synchronization started
+06-20 06:18:44.083 I/SyncUtils(23660): Library albums synchronization started
+06-20 06:18:44.761 I/SyncUtils(23660): Library albums synchronization ended
+06-20 06:18:44.811 I/SyncUtils(23660): Library songs synchronization ended
+06-20 06:18:44.945 I/SyncUtils(23660): Library playlist synchronization ended
+06-20 06:18:45.027 D/QueueBoard(23660): Running database save task
+06-20 06:18:45.027 D/QueueBoard(23660): Exiting database save task
+06-20 06:18:45.300 I/SyncUtils(23660): Artist subscriptions synchronization ended
+06-20 06:18:45.709 I/SyncUtils(23660): Liked songs synchronization ended
+06-20 06:18:50.532 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34569457, downTime=34569457, phoneEventTime=06:18:50.529 } moveCount:0
+06-20 06:18:50.582 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34569506, downTime=34569457, phoneEventTime=06:18:50.579 } moveCount:4
+06-20 06:18:52.743 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34571665, downTime=34571665, phoneEventTime=06:18:52.737 } moveCount:0
+06-20 06:18:52.799 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34571722, downTime=34571665, phoneEventTime=06:18:52.795 } moveCount:0
+06-20 06:18:53.245 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34572172, downTime=34572172, phoneEventTime=06:18:53.244 } moveCount:0
+06-20 06:18:53.270 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34572196, downTime=34572172, phoneEventTime=06:18:53.268 } moveCount:0
+06-20 06:18:53.329 I/sicplayer.debug(23660): Compiler allocated 10MB to compile void com.richard.musicplayer.ui.player.QueueKt$Queue$4.invoke(androidx.compose.foundation.layout.BoxScope, androidx.compose.runtime.Composer, int)
+06-20 06:18:53.339 I/sicplayer.debug(23660): Compiler allocated 5079KB to compile void com.richard.musicplayer.ui.player.QueueKt$Queue$4$bottomNav$1.invoke(androidx.compose.foundation.layout.ColumnScope, androidx.compose.runtime.Composer, int)
+06-20 06:18:53.350 I/SkJpegCodec(23660): [mId: 104] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.350 I/SkJpegCodec(23660): [mId: 104] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.350 I/SkJpegCodec(23660): [mId: 104] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.351 I/SkJpegCodec(23660): [mId: 105] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.351 I/SkJpegCodec(23660): [mId: 105] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.351 I/SkJpegCodec(23660): [mId: 105] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.351 I/SkJpegCodec(23660): [mId: 105] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.351 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.352 I/SkJpegCodec(23660): [mId: 105] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.353 I/SkJpegCodec(23660): [mId: 105] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.353 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.355 I/SkJpegCodec(23660): [mId: 106] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.355 I/SkJpegCodec(23660): [mId: 106] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.355 I/SkJpegCodec(23660): [mId: 106] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.356 I/SkJpegCodec(23660): [mId: 107] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.356 I/SkJpegCodec(23660): [mId: 107] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.356 I/SkJpegCodec(23660): [mId: 107] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.356 I/SkJpegCodec(23660): [mId: 107] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.356 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.358 I/SkJpegCodec(23660): [mId: 107] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.358 I/SkJpegCodec(23660): [mId: 107] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.358 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 108] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 108] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 108] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 109] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 109] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 109] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.363 I/SkJpegCodec(23660): [mId: 109] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.363 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.364 I/SkJpegCodec(23660): [mId: 109] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.365 I/SkJpegCodec(23660): [mId: 109] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.365 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 110] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 110] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 110] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 111] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 111] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 111] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.368 I/SkJpegCodec(23660): [mId: 111] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.368 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.370 I/SkJpegCodec(23660): [mId: 111] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.370 I/SkJpegCodec(23660): [mId: 111] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.370 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 112] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 112] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 112] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 113] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 113] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 113] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.374 I/SkJpegCodec(23660): [mId: 113] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.374 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.375 I/SkJpegCodec(23660): [mId: 113] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.376 I/SkJpegCodec(23660): [mId: 113] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.376 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.378 I/SkJpegCodec(23660): [mId: 114] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.378 I/SkJpegCodec(23660): [mId: 114] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.378 I/SkJpegCodec(23660): [mId: 114] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.379 I/SkJpegCodec(23660): [mId: 115] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.379 I/SkJpegCodec(23660): [mId: 115] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.379 I/SkJpegCodec(23660): [mId: 115] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.379 I/SkJpegCodec(23660): [mId: 115] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.379 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.380 I/SkJpegCodec(23660): [mId: 115] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.381 I/SkJpegCodec(23660): [mId: 115] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.381 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 116] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 116] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 116] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 117] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 117] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 117] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.383 I/SkJpegCodec(23660): [mId: 117] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.383 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.385 I/SkJpegCodec(23660): [mId: 117] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.385 I/SkJpegCodec(23660): [mId: 117] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.385 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 118] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 118] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 118] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 119] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 119] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 119] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.414 I/SkJpegCodec(23660): [mId: 119] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.414 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.415 I/SkJpegCodec(23660): [mId: 119] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.416 I/SkJpegCodec(23660): [mId: 119] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.416 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:53.421 I/SkJpegCodec(23660): [mId: 120] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.421 I/SkJpegCodec(23660): [mId: 120] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.421 I/SkJpegCodec(23660): [mId: 120] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.422 I/SkJpegCodec(23660): [mId: 121] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:53.422 I/SkJpegCodec(23660): [mId: 121] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:53.422 I/SkJpegCodec(23660): [mId: 121] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:53.422 I/SkJpegCodec(23660): [mId: 121] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:53.422 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:53.423 I/SkJpegCodec(23660): [mId: 121] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:53.423 I/SkJpegCodec(23660): [mId: 121] skia-debug onGetGainmapInfo returns false
+06-20 06:18:53.423 I/AHardwareBuffer(23660): proc name :com.richard.musicplayer.debug
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 122] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 122] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 122] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 123] skia-debug SkJpegCodec::+SkJpegCodec
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 123] skia-debug SkJpegCodec::ReadHeader: width = 400, height = 225, color = 10
+06-20 06:18:55.361 I/SkJpegCodec(23660): [mId: 123] skia-debug SkJpegCodec::ReadHeader: progressive_mode = 0, streamType: SkStreamRewindable
+06-20 06:18:55.362 I/SkJpegCodec(23660): [mId: 123] skia-debug SkJpegCodec::onGetPixels: dstRowBytes = 1600, 
+06-20 06:18:55.362 I/SkJpegCodec(23660): dstInfo: SkImageInfo: {IsRGB = 1, ColorType = 4, AlphaType = 1, Dimensions.width = 400, Dimensions.height = 225};
+06-20 06:18:55.362 I/SkJpegCodec(23660): [mId: 123] skia-debug SkJpegCodec::onGetPixels ends with rowsDecodec = 225
+06-20 06:18:55.362 I/SkJpegCodec(23660): [mId: 123] skia-debug onGetGainmapInfo returns false
+06-20 06:18:56.009 W/WindowOnBackDispatcher(23660): sendCancelIfRunning: isInProgress=false callback=androidx.activity.OnBackPressedDispatcher$Api34Impl$createOnBackAnimationCallback$1@4faf879
+06-20 06:18:56.652 D/VRI[MainActivity](23660): visibilityChanged oldVisibility=true newVisibility=false
+06-20 06:18:58.215 D/AppScoutStateMachine(23660): 23660-ScoutStateMachinecreated
+06-20 06:18:58.218 D/ActivityThread(23660): handleBoundsCompatInfoChanged remove: name=com.richard.musicplayer.debug
+06-20 06:18:58.271 D/SecurityManager(23660): checkAccessControl flag0
+06-20 06:18:58.291 W/libc    (23660): Access denied finding property "vendor.display.enable_optimal_refresh_rate"
+06-20 06:18:58.291 W/libc    (23660): Access denied finding property "vendor.gpp.create_frc_extension"
+06-20 06:18:58.287 W/sicplayer.debug(23660): type=1400 audit(0.0:77592): avc:  denied  { read } for  name="u:object_r:vendor_display_prop:s0" dev="tmpfs" ino=460 scontext=u:r:untrusted_app:s0:c142,c257,c512,c768 tcontext=u:object_r:vendor_display_prop:s0 tclass=file permissive=0 app=com.richard.musicplayer.debug
+06-20 06:18:58.293 D/VRI[MainActivity](23660): vri.reportNextDraw android.view.ViewRootImpl.performTraversals:4963 android.view.ViewRootImpl.doTraversal:3568 android.view.ViewRootImpl$TraversalRunnable.run:11594 android.view.Choreographer$CallbackRecord.run:1747 android.view.Choreographer$CallbackRecord.run:1756 
+06-20 06:18:58.293 D/VRI[MainActivity](23660): vri.Setup new sync=wmsSync-VRI[MainActivity]#4
+06-20 06:18:58.332 D/VRI[MainActivity](23660): vri.reportDrawFinished
+06-20 06:18:58.352 I/HandWritingStubImpl(23660): refreshLastKeyboardType: 1
+06-20 06:18:58.353 I/HandWritingStubImpl(23660): getCurrentKeyboardType: 1
+06-20 06:18:58.937 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34577862, downTime=34577862, phoneEventTime=06:18:58.934 } moveCount:0
+06-20 06:18:58.977 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34577903, downTime=34577862, phoneEventTime=06:18:58.975 } moveCount:0
+06-20 06:18:59.538 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34578462, downTime=34578462, phoneEventTime=06:18:59.534 } moveCount:0
+06-20 06:18:59.584 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_UP, id[0]=0, pointerCount=1, eventTime=34578510, downTime=34578462, phoneEventTime=06:18:59.582 } moveCount:0
+06-20 06:19:02.129 I/MIUIInput(23660): [MotionEvent] ViewRootImpl windowName 'com.richard.musicplayer.debug/com.richard.musicplayer.MainActivity', { action=ACTION_DOWN, id[0]=0, pointerCount=1, eventTime=34581050, downTime=34581050, phoneEventTime=06:19:02.122 } moveCount:0

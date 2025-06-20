@@ -1,18 +1,19 @@
 [versions]
-androidGradlePlugin = "8.9.1"
+androidGradlePlugin = "8.10.1"
 annotation = "1.9.1"
-kotlin = "2.1.20"
-compose = "1.8.0"
-lifecycle = "2.8.7"
-material3 = "1.3.2"
+kotlin = "2.1.21"
+compose = "1.8.2"
+lifecycle = "2.9.1"
+material3 = "1.4.0-alpha15"
 media3 = "1.6.1"
 room = "2.7.1"
 hilt = "2.56.2"
-ktor = "3.1.2"
-ksp = "2.1.20-2.0.0"
+ktor = "3.1.3"
+ksp = "2.1.21-2.0.1"
 taglib = "1.0.0"
 
 [libraries]
+adaptive = { module = "androidx.compose.material3.adaptive:adaptive", version = "1.1.0" }
 annotation = { module = "androidx.annotation:annotation", version.ref = "annotation" }
 error-prone-core = { module = "com.google.errorprone:error_prone_core", version = "2.38.0" }
 guava = { group = "com.google.guava", name = "guava", version = "33.4.8-android" }
@@ -21,9 +22,9 @@ concurrent-futures = { group = "androidx.concurrent", name = "concurrent-futures
 
 gradle = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 activity = { group = "androidx.activity", name = "activity-compose", version = "1.10.1" }
-navigation = { group = "androidx.navigation", name = "navigation-compose", version = "2.8.9" }
+navigation = { group = "androidx.navigation", name = "navigation-compose", version = "2.9.0" }
 hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
-datastore = { group = "androidx.datastore", name = "datastore-preferences", version = "1.1.4" }
+datastore = { group = "androidx.datastore", name = "datastore-preferences", version = "1.1.7" }
 
 compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "compose" }
 compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "compose" }
@@ -41,7 +42,7 @@ material3 = { group = "androidx.compose.material3", name = "material3", version.
 
 coil = { group = "io.coil-kt", name = "coil-compose", version = "2.7.0" }
 
-shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version = "1.3.2" }
+shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version = "1.3.3" }
 
 palette = { group = "androidx.palette", name = "palette", version = "1.0.0" }
 
@@ -74,7 +75,7 @@ junit = { group = "junit", name = "junit", version = "4.13.2" }
 taglib = { group = "com.github.Kyant0", name = "taglib", version.ref = "taglib" }
 
 #newpipe-extractor = { group = "com.github.TeamNewPipe", name = "NewPipeExtractor", version = "v0.24.5" }
-newpipe-extractor = { group = "com.github.libre-tube", name = "NewPipeExtractor", version = "bc9a5a220e" }
+newpipe-extractor = { group = "com.github.libre-tube", name = "NewPipeExtractor", version = "bcb7705" }
 
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

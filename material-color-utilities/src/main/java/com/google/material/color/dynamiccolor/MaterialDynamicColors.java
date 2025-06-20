@@ -40,9 +40,6 @@ public final class MaterialDynamicColors {
         this.isExtendedFidelity = false;
     }
 
-    // Temporary constructor to support extended fidelity experiment.
-    // TODO(b/291720794): Once schemes that will permanently use fidelity are identified,
-    // remove this and default to the decided behavior.
     public MaterialDynamicColors(boolean isExtendedFidelity) {
         this.isExtendedFidelity = isExtendedFidelity;
     }

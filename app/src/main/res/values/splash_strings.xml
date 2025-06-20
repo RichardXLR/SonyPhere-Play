@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="splash_loading">Carregando...</string>
+    <string name="splash_ready">Pronto!</string>
+    <string name="splash_initializing">Inicializando...</string>
+    <string name="splash_loading_library">Carregando biblioteca...</string>
+    <string name="splash_preparing_player">Preparando player...</string>
+    <string name="splash_optimizing">Otimizando experiência...</string>
+    <string name="splash_almost_ready">Quase pronto...</string>
+</resources> 

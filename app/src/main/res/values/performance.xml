@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Configurações de Performance Ultra -->
+    <bool name="high_refresh_rate_enabled">true</bool>
+    <integer name="target_frame_rate">120</integer>
+    <integer name="min_frame_rate">60</integer>
+    
+    <!-- Configurações de Animação -->
+    <integer name="animation_duration_short">150</integer>
+    <integer name="animation_duration_medium">300</integer>
+    <integer name="animation_duration_long">500</integer>
+    
+    <!-- Configurações de Scroll -->
+    <bool name="smooth_scrolling">true</bool>
+    <integer name="scroll_friction">8</integer>
+    
+    <!-- Configurações de UI -->
+    <bool name="enable_ui_optimizations">true</bool>
+    <bool name="enable_gpu_acceleration">true</bool>
+    <bool name="reduce_overdraw">true</bool>
+</resources> 
