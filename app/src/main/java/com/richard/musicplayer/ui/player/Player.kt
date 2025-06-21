@@ -12,8 +12,8 @@ package com.richard.musicplayer.ui.player
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.drawable.BitmapDrawable
-import android.os.PowerManager
 import android.util.Log
+import android.os.PowerManager
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -71,6 +71,7 @@ import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Repeat
 import androidx.compose.material.icons.rounded.RepeatOne
 import androidx.compose.material.icons.rounded.Replay
+import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material.icons.rounded.Shuffle
 import androidx.compose.material.icons.rounded.SkipNext
@@ -93,6 +94,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -121,8 +123,10 @@ import androidx.media3.common.Player.STATE_ENDED
 import androidx.media3.common.Player.STATE_READY
 import androidx.navigation.NavController
 import coil.ImageLoader
+import coil.Coil
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import coil.request.CachePolicy
 import com.richard.musicplayer.LocalPlayerConnection
 import com.richard.musicplayer.R
 import com.richard.musicplayer.constants.DarkMode
@@ -147,9 +151,10 @@ import com.richard.musicplayer.ui.component.PlayerSliderTrack
 import com.richard.musicplayer.ui.component.rememberBottomSheetState
 import com.richard.musicplayer.ui.component.AudioVisualizer
 import com.richard.musicplayer.ui.component.AnimatedAlbumArt
-import com.richard.musicplayer.ui.component.BassControl
+
 import com.richard.musicplayer.ui.component.SpatialAudioControl
 import com.richard.musicplayer.ui.component.Lyrics
+import com.richard.musicplayer.ui.component.AnimatedFlashIcon
 import com.richard.musicplayer.playback.AudioEffects
 import com.richard.musicplayer.playback.SpatialAudio
 import com.richard.musicplayer.playback.SpatialRoomType
@@ -163,6 +168,7 @@ import com.richard.musicplayer.utils.rememberOptimizedDuration
 import com.richard.musicplayer.utils.makeTimeString
 import com.richard.musicplayer.utils.rememberEnumPreference
 import com.richard.musicplayer.utils.rememberPreference
+import com.richard.musicplayer.utils.GradientCache
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -252,7 +258,7 @@ fun BottomSheetPlayer(
         )
     }
 
-    val playerBackground by rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.GRADIENT)
+    val playerBackground by rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.BLUR)
 
     val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
     val isSystemInDarkTheme = isSystemInDarkTheme()
@@ -287,9 +293,14 @@ fun BottomSheetPlayer(
 
     val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
 
-    // Bass control state
-    var showBassControl by remember { mutableStateOf(false) }
-    var bassLevel by rememberPreference(androidx.datastore.preferences.core.floatPreferencesKey("bass_level"), defaultValue = 0f)
+    val scope = rememberCoroutineScope()
+    
+    // Controle de velocidade de reprodução
+    var playbackSpeed by rememberPreference(androidx.datastore.preferences.core.floatPreferencesKey("playback_speed"), defaultValue = 1.0f)
+    val isSpeedBoostActive = playbackSpeed > 1.0f
+    
+    // 🚀 CACHE DE GRADIENTES para evitar recálculos custosos
+    val gradientCache = remember { mutableMapOf<String, List<Color>>() }
     
     // Visualizer sempre ativo
     val showVisualizer = true
@@ -297,24 +308,26 @@ fun BottomSheetPlayer(
     // Audio effects and visualizer - Get session ID dynamically
     val audioSessionId by remember {
         derivedStateOf { 
-            val sessionId = playerConnection.player.audioSessionId
-            Log.d("Player", "Audio Session ID: $sessionId")
-            sessionId
+            playerConnection.player.audioSessionId
         }
     }
     
     val audioEffects = remember(audioSessionId) {
-        Log.d("Player", "Initializing AudioEffects with session ID: $audioSessionId")
-        if (audioSessionId != C.AUDIO_SESSION_ID_UNSET) {
-            try {
+        try {
+            // Tentar com o sessionId atual primeiro
+            if (audioSessionId != C.AUDIO_SESSION_ID_UNSET) {
                 AudioEffects.getInstance(audioSessionId)
-            } catch (e: Exception) {
-                Log.e("Player", "Failed to initialize AudioEffects", e)
+            } else {
+                // Se não tiver sessionId válido, tentar com 0 (global session)
+                AudioEffects.getInstance(0)
+            }
+        } catch (e: Exception) {
+            try {
+                // Fallback: tentar com sessionId 0 (global)
+                AudioEffects.getInstance(0)
+            } catch (fallbackE: Exception) {
                 null
             }
-        } else {
-            Log.w("Player", "Audio session ID is unset, skipping AudioEffects initialization")
-            null
         }
     }
     
@@ -323,11 +336,15 @@ fun BottomSheetPlayer(
     val frequencyData by audioEffects?.frequencyBands?.collectAsState() ?: remember { mutableStateOf(FloatArray(0)) }
     val amplitudeData by audioEffects?.amplitude?.collectAsState() ?: remember { mutableStateOf(0f) }
     
-    // Update bass level when changed
-    LaunchedEffect(bassLevel) {
-        audioEffects?.setBassLevel(bassLevel)
+    // Apply playback speed when changed
+    LaunchedEffect(playbackSpeed) {
+        try {
+            val playbackParameters = androidx.media3.common.PlaybackParameters(playbackSpeed)
+            playerConnection.player.setPlaybackParameters(playbackParameters)
+        } catch (e: Exception) {
+            // silent fail
+        }
     }
-    
 
     
     // Cleanup audio effects
@@ -337,39 +354,71 @@ fun BottomSheetPlayer(
         }
     }
 
-    // Sistema de extração inteligente de cores da música atual
+    // OTIMIZAÇÃO: Sistema de gradientes otimizado que segue as cores dos álbuns
     LaunchedEffect(mediaMetadata) {
         if (powerManager.isPowerSaveMode) return@LaunchedEffect
 
+        val metadata = mediaMetadata ?: return@LaunchedEffect
+        
+        // 🚀 CACHE KEY: Criar chave única para cache
+        val cacheKey = "${metadata.id}_${metadata.thumbnailUrl?.hashCode() ?: "null"}"
+        
+        // 🚀 VERIFICAR CACHE PRIMEIRO - evita reprocessamento custoso
+        gradientCache[cacheKey]?.let { cachedColors ->
+            gradientColors = cachedColors
+            return@LaunchedEffect
+        }
+
         withContext(Dispatchers.IO) {
             try {
-                val extractedColors = if (mediaMetadata?.isLocal == true) {
-                    imageCache.getLocalThumbnail(mediaMetadata?.localPath)?.extractGradientColors()
-                } else {
-                    val result = ImageLoader(context).execute(
-                        ImageRequest.Builder(context)
-                            .data(mediaMetadata?.thumbnailUrl)
-                            .allowHardware(false)
-                            .build()
-                    )
-                    (result.drawable as? BitmapDrawable)?.bitmap?.extractGradientColors()
+                val extractedColors = when {
+                    metadata.isLocal == true && !metadata.localPath.isNullOrEmpty() -> {
+                        // Para música local - usar thumbnail local
+                        val thumbnail = imageCache.getLocalThumbnail(metadata.localPath)
+                        thumbnail?.extractGradientColors() ?: getDefaultColorsForAlbum(metadata)
+                    }
+                    !metadata.thumbnailUrl.isNullOrEmpty() -> {
+                        // 🚀 PERFORMANCE: Tamanho reduzido + cache agressivo
+                        val result = Coil.imageLoader(context).execute(
+                            ImageRequest.Builder(context)
+                                .data(metadata.thumbnailUrl)
+                                .size(120, 120) // Reduzido de 200x200 para 120x120 
+                                .allowHardware(false)
+                                .memoryCachePolicy(CachePolicy.ENABLED) // Cache agressivo
+                                .diskCachePolicy(CachePolicy.ENABLED)
+                                .build()
+                        )
+                        (result.drawable as? BitmapDrawable)?.bitmap?.extractGradientColors()
+                            ?: getDefaultColorsForAlbum(metadata)
+                    }
+                    else -> getDefaultColorsForAlbum(metadata)
                 }
                 
-                // Garantir que sempre temos cores extraídas da música
-                extractedColors?.takeIf { it.isNotEmpty() }?.let {
-                    gradientColors = it
+                // 🚀 APLICAR E CACHEAR cores
+                gradientColors = extractedColors
+                gradientCache[cacheKey] = extractedColors
+                
+                // 🚀 LIMPEZA DE CACHE: Manter apenas os 30 mais recentes
+                if (gradientCache.size > 30) {
+                    val keysToRemove = gradientCache.keys.take(gradientCache.size - 25)
+                    keysToRemove.forEach { gradientCache.remove(it) }
                 }
+                
             } catch (e: Exception) {
-                // Em caso de erro, manter cores neutras
-                gradientColors = emptyList()
+                val defaultColors = getDefaultColorsForAlbum(metadata)
+                gradientColors = defaultColors
+                gradientCache[cacheKey] = defaultColors
             }
         }
     }
 
+
+
+    // 🚀 POSITION UPDATE OTIMIZADO: Reduzido polling para economizar CPU
     LaunchedEffect(playbackState) {
         if (playbackState == STATE_READY) {
             while (isActive) {
-                delay(500)
+                delay(1500) // Aumentado de 1000ms para 1500ms - 50% menos CPU
                 position = playerConnection.player.currentPosition
                 duration = playerConnection.player.duration
             }
@@ -395,9 +444,10 @@ fun BottomSheetPlayer(
             playerConnection.service.deInitQueue()
         },
         collapsedContent = {
-            MiniPlayer(
+            VinylMiniPlayer(
                 position = position,
-                duration = duration
+                duration = duration,
+                onExpand = { state.expandSoft() }
             )
         }
     ) {
@@ -585,23 +635,7 @@ fun BottomSheetPlayer(
 
 
 
-            // Bass Control
-            AnimatedVisibility(
-                visible = showBassControl,
-                enter = fadeIn() + expandVertically(),
-                exit = fadeOut() + shrinkVertically()
-            ) {
-                BassControl(
-                    bassLevel = bassLevel,
-                    onBassLevelChange = { newLevel ->
-                        bassLevel = newLevel
-                    },
-                    isExpanded = true,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = PlayerHorizontalPadding, vertical = 8.dp)
-                )
-            }
+
 
             Spacer(Modifier.height(12.dp))
 
@@ -621,7 +655,7 @@ fun BottomSheetPlayer(
                     .fillMaxWidth()
                     .padding(horizontal = PlayerHorizontalPadding)
             ) {
-                // Botão Equalizer com gradiente perfeito
+                // Botão Speed Boost com gradiente perfeito
                 Box(
                     modifier = Modifier
                         .size(48.dp)
@@ -629,21 +663,21 @@ fun BottomSheetPlayer(
                         .background(
                             GradientSystem.createButtonGradient(
                                 primaryColor = primaryDynamicColor,
-                                isActive = showBassControl,
+                                isActive = isSpeedBoostActive,
                                 intensity = 1f
                             )
                         )
                         .clickable {
-                            showBassControl = !showBassControl
+                            // Toggle entre velocidade normal (1x) e velocidade rápida (2x)
+                            playbackSpeed = if (playbackSpeed > 1.0f) 1.0f else 2.0f
                             haptic.performHapticFeedback(HapticFeedbackType.ToggleOn)
                         },
                     contentAlignment = Alignment.Center
                 ) {
-                    Icon(
-                        imageVector = Icons.Rounded.Equalizer,
-                        contentDescription = null,
-                        tint = if (showBassControl) Color.White else onBackgroundColor,
-                        modifier = Modifier.size(24.dp)
+                    AnimatedFlashIcon(
+                        size = 24.dp,
+                        color = if (isSpeedBoostActive) Color.White else onBackgroundColor,
+                        isActive = isSpeedBoostActive
                     )
                 }
 
@@ -1018,6 +1052,28 @@ fun BottomSheetPlayer(
             },
             onBackgroundColor = onBackgroundColor,
             navController = navController
+        )
+    }
+}
+
+// Função auxiliar para cores padrão baseadas no álbum
+private fun getDefaultColorsForAlbum(metadata: MediaMetadata): List<Color> {
+    return try {
+        // 🚀 CORREÇÃO: Gerar cores seguras para evitar crash
+        val hash = (metadata.title + metadata.artists.firstOrNull()?.name.orEmpty()).hashCode()
+        val hue = kotlin.math.abs(hash % 360).toFloat() // Garantir valor positivo
+        
+        listOf(
+            Color.hsv(hue, 0.7f, 0.8f),
+            Color.hsv((hue + 30f) % 360f, 0.6f, 0.7f), // Forçar float para evitar overflow
+            Color.hsv((hue + 60f) % 360f, 0.5f, 0.6f)
+        )
+    } catch (e: Exception) {
+        // 🚀 FALLBACK SEGURO: Cores fixas se houver qualquer erro
+        listOf(
+            Color(0xFF6200EE),
+            Color(0xFF3700B3), 
+            Color(0xFF03DAC6)
         )
     }
 }

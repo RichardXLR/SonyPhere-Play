@@ -20,8 +20,11 @@ import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.Looper
+import android.view.Display
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
@@ -54,9 +57,10 @@ import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.Language
 import androidx.compose.material.icons.rounded.LibraryMusic
-import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.AlertDialogDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -118,6 +122,7 @@ import androidx.navigation.navArgument
 import coil.imageLoader
 import coil.request.ImageRequest
 import com.richard.musicplayer.constants.AppBarHeight
+import com.richard.musicplayer.constants.SearchBarHeight
 import com.richard.musicplayer.constants.AutomaticScannerKey
 import com.richard.musicplayer.constants.DarkMode
 import com.richard.musicplayer.constants.DarkModeKey
@@ -127,6 +132,7 @@ import com.richard.musicplayer.constants.MaterialYouKey
 import com.richard.musicplayer.constants.EnabledTabsKey
 import com.richard.musicplayer.constants.ExcludedScanPathsKey
 import com.richard.musicplayer.constants.FirstSetupPassed
+import com.richard.musicplayer.constants.NotificationPermissionAsked
 import com.richard.musicplayer.constants.LibraryFilterKey
 import com.richard.musicplayer.constants.LocalLibraryEnableKey
 import com.richard.musicplayer.constants.LookupYtmArtistsKey
@@ -155,6 +161,7 @@ import com.richard.musicplayer.playback.MusicService.MusicBinder
 import com.richard.musicplayer.playback.PlayerConnection
 import com.richard.musicplayer.ui.component.BottomSheetMenu
 import com.richard.musicplayer.ui.component.LocalMenuState
+import com.richard.musicplayer.ui.component.NotificationPermissionDialog
 import com.richard.musicplayer.ui.component.SearchBar
 import com.richard.musicplayer.ui.component.rememberBottomSheetState
 import com.richard.musicplayer.ui.component.shimmer.ShimmerTheme
@@ -169,7 +176,7 @@ import com.richard.musicplayer.ui.screens.LoginScreen
 import com.richard.musicplayer.ui.screens.MoodAndGenresScreen
 import com.richard.musicplayer.ui.screens.Screens
 import com.richard.musicplayer.ui.screens.Screens.LibraryFilter
-import com.richard.musicplayer.ui.screens.SetupWizard
+
 import com.richard.musicplayer.ui.screens.StatsScreen
 import com.richard.musicplayer.ui.screens.YouTubeBrowseScreen
 import com.richard.musicplayer.ui.screens.artist.ArtistAlbumsScreen
@@ -216,6 +223,7 @@ import com.richard.musicplayer.ui.utils.NavigationTransitions
 import com.richard.musicplayer.utils.ActivityLauncherHelper
 import com.richard.musicplayer.utils.NetworkConnectivityObserver
 import com.richard.musicplayer.utils.ApplyPerformanceOptimizations
+import com.richard.musicplayer.utils.ApplyHighRefreshRateOptimizations
 import com.richard.musicplayer.utils.SyncUtils
 import com.richard.musicplayer.utils.dataStore
 import com.richard.musicplayer.utils.get
@@ -241,9 +249,12 @@ import com.richard.musicplayer.ui.screens.settings.PrivacySecuritySettings
 import com.richard.musicplayer.ui.screens.settings.PinChangeScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.richard.musicplayer.viewmodels.PrivacySecurityViewModel
+import com.richard.musicplayer.ui.screens.AuthScreen
+import com.richard.musicplayer.utils.AudioFeedbackManager
+import androidx.biometric.BiometricManager
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : FragmentActivity() {
     @Inject
     lateinit var database: MusicDatabase
 
@@ -252,6 +263,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var syncUtils: SyncUtils
+    
+    @Inject
+    lateinit var audioFeedbackManager: AudioFeedbackManager
 
     lateinit var activityLauncher: ActivityLauncherHelper
     lateinit var connectivityObserver: NetworkConnectivityObserver
@@ -322,13 +336,23 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // CORREÇÃO: Garantir fundo escuro imediato para eliminar tela branca
+        window.statusBarColor = android.graphics.Color.parseColor("#0D0E1F")
+        window.navigationBarColor = android.graphics.Color.parseColor("#0D0E1F")
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        
+        // 🚀 SISTEMA DE TAXA MÁXIMA DE ATUALIZAÇÃO - FORÇA 120Hz/144Hz/165Hz
+        setupMaxRefreshRate()
 
         activityLauncher = ActivityLauncherHelper(this)
 
         setContent {
             // Aplicar otimizações de performance ultra para 60/90/120 FPS
             ApplyPerformanceOptimizations()
+            
+            // 🚀 APLICAR OTIMIZAÇÕES ESPECÍFICAS PARA ALTA TAXA DE ATUALIZAÇÃO
+            ApplyHighRefreshRateOptimizations()
             
             val haptic = LocalHapticFeedback.current
 
@@ -349,7 +373,7 @@ class MainActivity : ComponentActivity() {
 
             val playerBackground by rememberEnumPreference(
                 key = PlayerBackgroundStyleKey,
-                defaultValue = PlayerBackgroundStyle.GRADIENT
+                defaultValue = PlayerBackgroundStyle.BLUR
             )
 
             try {
@@ -391,8 +415,12 @@ class MainActivity : ComponentActivity() {
                 }
             }
 
-            val (firstSetupPassed) = rememberPreference(FirstSetupPassed, defaultValue = false)
+            val (firstSetupPassed) = rememberPreference(FirstSetupPassed, defaultValue = true)
+            val (notificationPermissionAsked, setNotificationPermissionAsked) = rememberPreference(NotificationPermissionAsked, defaultValue = false)
             val (localLibEnable) = rememberPreference(LocalLibraryEnableKey, defaultValue = true)
+            
+            // Estado do diálogo de permissão de notificação
+            var showNotificationDialog by remember { mutableStateOf(false) }
 
             // auto scanner
             val (scannerSensitivity) = rememberEnumPreference(
@@ -470,15 +498,138 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
+            // Estado de autenticação melhorado com carregamento adequado
+            val privacySecurityViewModel: PrivacySecurityViewModel = hiltViewModel()
+            val privacySecurityState by privacySecurityViewModel.state.collectAsState()
+            
+            // Estados de controle - CORRIGIDO: isAuthenticated sempre inicia como false
+            var isAuthenticated by remember { mutableStateOf(false) }
+            var hasStateLoaded by remember { mutableStateOf(false) }
+            var hasInitialized by remember { mutableStateOf(false) }
+            
+            // Verificar se o SplashActivity indicou que auth é necessária
+            val requireAuth = intent?.getBooleanExtra("REQUIRE_AUTH", false) ?: false
+            
+            // IMPORTANTE: Verificar se splash enviou requisição de auth
+            LaunchedEffect(Unit) {
+                println("🔄 VERIFICANDO REQUISIÇÃO DE AUTH DO SPLASH: requireAuth=$requireAuth")
+                android.util.Log.e("SonsPhere", "🔄 VERIFICANDO REQUISIÇÃO DE AUTH DO SPLASH: requireAuth=$requireAuth")
+                
+                if (requireAuth) {
+                    // SplashActivity indicou que auth é necessária
+                    isAuthenticated = false
+                    hasInitialized = true
+                    hasStateLoaded = true
+                    println("🔒 SPLASH REQUISITOU AUTH - DIRECIONANDO PARA AUTENTICAÇÃO")
+                    android.util.Log.e("SonsPhere", "🔒 SPLASH REQUISITOU AUTH - DIRECIONANDO PARA AUTENTICAÇÃO")
+                } else {
+                    // SplashActivity indicou que não precisa de auth
+                    isAuthenticated = true
+                    hasInitialized = true
+                    hasStateLoaded = true
+                    println("🔓 SPLASH LIBEROU ACESSO - DIRECIONANDO PARA APP PRINCIPAL")
+                    android.util.Log.e("SonsPhere", "🔓 SPLASH LIBEROU ACESSO - DIRECIONANDO PARA APP PRINCIPAL")
+                }
+            }
+            
+            // Aguardar o estado carregar completamente (apenas se não foi inicializado pelo splash)
+            LaunchedEffect(privacySecurityState) {
+                println("📊 ESTADO RECEBIDO: biometricLock=${privacySecurityState.biometricLock}, hasInitialized=$hasInitialized, requireAuth=$requireAuth")
+                android.util.Log.e("SonsPhere", "📊 ESTADO RECEBIDO: biometricLock=${privacySecurityState.biometricLock}, hasInitialized=$hasInitialized, requireAuth=$requireAuth")
+                
+                // Se o splash já inicializou o estado, não fazer nada aqui
+                if (hasInitialized) {
+                    println("⏭️ SPLASH JÁ INICIALIZOU - IGNORANDO ESTADO CARREGADO")
+                    android.util.Log.e("SonsPhere", "⏭️ SPLASH JÁ INICIALIZOU - IGNORANDO ESTADO CARREGADO")
+                    return@LaunchedEffect
+                }
+                
+                // Fallback: se não veio do splash, usar lógica antiga
+                hasStateLoaded = true
+                
+                if (privacySecurityState.biometricLock) {
+                    // Biometria ATIVADA = usuário PRECISA se autenticar
+                    isAuthenticated = false
+                    println("✅ FALLBACK COM BIOMETRIA: biometricLock=true, isAuthenticated=false - REQUER AUTH")
+                    android.util.Log.e("SonsPhere", "✅ FALLBACK COM BIOMETRIA: biometricLock=true, isAuthenticated=false - REQUER AUTH")
+                } else {
+                    // Biometria DESATIVADA = acesso direto
+                    isAuthenticated = true
+                    println("✅ FALLBACK SEM BIOMETRIA: biometricLock=false, isAuthenticated=true - ACESSO LIVRE")
+                    android.util.Log.e("SonsPhere", "✅ FALLBACK SEM BIOMETRIA: biometricLock=false, isAuthenticated=true - ACESSO LIVRE")
+                }
+                hasInitialized = true
+            }
+            
+            // REMOVIDO: LaunchedEffect que reagia incorretamente a mudanças na biometria
+            // A autenticação para desabilitar já é tratada na própria tela de configurações
+            // Quando usuário ATIVA biometria, deve continuar no app normalmente
+            // Quando usuário DESATIVA biometria, a tela de configurações já cuida da autenticação
+            
             OuterTuneTheme(
                 darkTheme = useDarkTheme,
                 pureBlack = pureBlack,
                 themeColor = themeColor
             ) {
-                BoxWithConstraints( // Deprecated. please use the scaffold
-                    modifier = Modifier
-                        .fillMaxSize()
-                ) {
+                // DEBUG: Log do estado atual antes de decidir qual tela mostrar
+                LaunchedEffect(hasStateLoaded, isAuthenticated, requireAuth) {
+                    val telaEscolhida = when {
+                        !hasStateLoaded -> "CARREGAMENTO"
+                        !isAuthenticated -> "TELA DE AUTH"
+                        else -> "APP PRINCIPAL"
+                    }
+                    println("🎯 DECISÃO DE TELA: hasStateLoaded=$hasStateLoaded, isAuthenticated=$isAuthenticated, requireAuth=$requireAuth, Vai mostrar=$telaEscolhida")
+                    android.util.Log.e("SonsPhere", "🎯 DECISÃO DE TELA: hasStateLoaded=$hasStateLoaded, isAuthenticated=$isAuthenticated, requireAuth=$requireAuth, Vai mostrar=$telaEscolhida")
+                }
+                
+                // Aguardar estado carregar antes de decidir o que mostrar
+                if (!hasStateLoaded) {
+                    println("🔄 MOSTRANDO TELA DE CARREGAMENTO")
+                    android.util.Log.e("SonsPhere", "🔄 MOSTRANDO TELA DE CARREGAMENTO")
+                    // Tela de carregamento simples
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator(
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    }
+                } else if (!isAuthenticated) {
+                    println("🔒 MOSTRANDO TELA DE AUTENTICAÇÃO")
+                    android.util.Log.e("SonsPhere", "🔒 MOSTRANDO TELA DE AUTENTICAÇÃO")
+                    
+                    // Mostrar tela de autenticação biométrica
+                    AuthScreen(
+                        onAuthenticated = { 
+                            println("✅ AUTENTICAÇÃO REALIZADA COM SUCESSO")
+                            android.util.Log.e("SonsPhere", "✅ AUTENTICAÇÃO REALIZADA COM SUCESSO")
+                            isAuthenticated = true 
+                        },
+                        onBackPressed = { 
+                            println("🚪 USUÁRIO SAIU DA AUTENTICAÇÃO")
+                            android.util.Log.e("SonsPhere", "🚪 USUÁRIO SAIU DA AUTENTICAÇÃO")
+                            finish() 
+                        },
+                        audioFeedbackManager = audioFeedbackManager
+                    )
+                } else {
+                    println("🏠 MOSTRANDO APP PRINCIPAL")
+                    android.util.Log.e("SonsPhere", "🏠 MOSTRANDO APP PRINCIPAL")
+                    
+                    // Verificar se deve mostrar o diálogo de permissão de notificação
+                    LaunchedEffect(firstSetupPassed, notificationPermissionAsked) {
+                        if (firstSetupPassed && !notificationPermissionAsked) {
+                            // Primeira execução completa - solicitar permissão de notificação
+                            showNotificationDialog = true
+                        }
+                    }
+                    
+                    // Mostrar app principal
+                    BoxWithConstraints( // Deprecated. please use the scaffold
+                        modifier = Modifier
+                            .fillMaxSize()
+                    ) {
                     val focusManager = LocalFocusManager.current
                     val density = LocalDensity.current
                     val windowsInsets = WindowInsets.systemBars
@@ -628,9 +779,10 @@ class MainActivity : ComponentActivity() {
                         }
                     }
 
+                    // OTIMIZAÇÃO: Animação de altura simplificada
                     val navigationBarHeight by animateDpAsState(
                         targetValue = if (shouldShowNavigationBar) NavigationBarHeight else 0.dp,
-                        animationSpec = NavigationBarAnimationSpec,
+                        animationSpec = tween(150), // Simplificado para melhor performance
                         label = ""
                     )
 
@@ -641,13 +793,17 @@ class MainActivity : ComponentActivity() {
                     )
 
                     val playerAwareWindowInsets =
-                        remember(bottomInset, shouldShowNavigationBar, playerBottomSheetState.isDismissed) {
+                        remember(bottomInset, shouldShowNavigationBar, playerBottomSheetState.isDismissed, shouldShowSearchBar) {
                             var bottom = bottomInset
                             if (shouldShowNavigationBar) bottom += NavigationBarHeight
                             if (!playerBottomSheetState.isDismissed) bottom += MiniPlayerHeight
+                            
+                            // Usar altura da SearchBar quando visível, senão AppBarHeight padrão
+                            val topHeight = if (shouldShowSearchBar) SearchBarHeight else AppBarHeight
+                            
                             windowsInsets
                                 .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top)
-                                .add(WindowInsets(top = AppBarHeight, bottom = bottom))
+                                .add(WindowInsets(top = topHeight, bottom = bottom))
                         }
 
                     val scrollBehavior = appBarScrollBehavior(
@@ -787,18 +943,20 @@ class MainActivity : ComponentActivity() {
                                                     }
                                                 },
                                             ) {
-                                                Icon(
-                                                    imageVector =
                                                     if (active || navBackStackEntry?.destination?.route?.startsWith(
                                                             "search"
                                                         ) == true
                                                     ) {
-                                                        Icons.AutoMirrored.Rounded.ArrowBack
+                                                    Icon(
+                                                        imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
+                                                        contentDescription = null
+                                                    )
                                                     } else {
-                                                        Icons.Rounded.Search
-                                                    },
+                                                    Icon(
+                                                        painter = painterResource(R.drawable.ic_search_modern),
                                                     contentDescription = null
                                                 )
+                                                }
                                             }
                                         },
                                         trailingIcon = {
@@ -843,8 +1001,10 @@ class MainActivity : ComponentActivity() {
                                         focusRequester = searchBarFocusRequester,
                                         modifier = Modifier.align(Alignment.TopCenter),
                                     ) {
+                                        // OTIMIZAÇÃO: Crossfade simplificado para melhor performance
                                         Crossfade(
                                             targetState = searchSource,
+                                            animationSpec = tween(100), // Reduzido drasticamente
                                             label = "",
                                             modifier = Modifier
                                                 .fillMaxSize()
@@ -930,25 +1090,16 @@ class MainActivity : ComponentActivity() {
                                         modifier = Modifier
                                             .align(Alignment.BottomCenter)
                                             .height(bottomInset + getNavPadding())
+                                            // OTIMIZAÇÃO: Offset simplificado para melhor performance
                                             .offset {
-                                                if (navigationBarHeight == 0.dp) {
-                                                    IntOffset(
-                                                        x = 0,
-                                                        y = (bottomInset + NavigationBarHeight).roundToPx()
-                                                    )
+                                                val yOffset = if (navigationBarHeight == 0.dp) {
+                                                    (bottomInset + NavigationBarHeight).roundToPx()
                                                 } else {
-                                                    val slideOffset =
-                                                        (bottomInset + NavigationBarHeight) * playerBottomSheetState.progress.coerceIn(
-                                                            0f,
-                                                            1f
-                                                        )
-                                                    val hideOffset =
-                                                        (bottomInset + NavigationBarHeight) * (1 - navigationBarHeight / NavigationBarHeight)
-                                                    IntOffset(
-                                                        x = 0,
-                                                        y = (slideOffset + hideOffset).roundToPx()
-                                                    )
+                                                    // Simplificado: apenas usar o progresso básico
+                                                    val progress = playerBottomSheetState.progress.coerceIn(0f, 1f)
+                                                    ((bottomInset + NavigationBarHeight) * progress).roundToPx()
                                                 }
+                                                IntOffset(x = 0, y = yOffset)
                                             }
                                             .background(MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp))
                                     ) {
@@ -989,7 +1140,8 @@ class MainActivity : ComponentActivity() {
                                                         }
                                                     }
 
-                                                    haptic.performHapticFeedback(HapticFeedbackType.ContextClick)
+                                                    // OTIMIZAÇÃO: Haptic mais leve para melhor performance
+                                                    haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove)
                                                 }
                                             )
                                         }
@@ -1007,30 +1159,16 @@ class MainActivity : ComponentActivity() {
                                     .find { it.route == defaultOpenTab })?.route
                                     ?: Screens.Home.route,
                                 enterTransition = {
-                                    // Smooth slide with fade
-                                    slideInHorizontally(
-                                        initialOffsetX = { it / 3 },
-                                        animationSpec = tween(400)
-                                    ) + fadeIn(animationSpec = tween(400))
+                                    fadeIn(animationSpec = tween(150))
                                 },
                                 exitTransition = {
-                                    // Smooth slide with fade
-                                    slideOutHorizontally(
-                                        targetOffsetX = { -it / 3 },
-                                        animationSpec = tween(400)
-                                    ) + fadeOut(animationSpec = tween(400))
+                                    fadeOut(animationSpec = tween(150))
                                 },
                                 popEnterTransition = {
-                                    slideInHorizontally(
-                                        initialOffsetX = { -it / 3 },
-                                        animationSpec = tween(400)
-                                    ) + fadeIn(animationSpec = tween(400))
+                                    fadeIn(animationSpec = tween(150))
                                 },
                                 popExitTransition = {
-                                    slideOutHorizontally(
-                                        targetOffsetX = { it / 3 },
-                                        animationSpec = tween(400)
-                                    ) + fadeOut(animationSpec = tween(400))
+                                    fadeOut(animationSpec = tween(150))
                                 },
                                 modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
                             ) {
@@ -1242,18 +1380,31 @@ class MainActivity : ComponentActivity() {
                                 composable("settings/about") {
                                     AboutScreen(navController, scrollBehavior)
                                 }
-                                composable("logs") {
-                                    com.richard.musicplayer.ui.screens.LogsScreen(
-                                        onBackClick = { navController.navigateUp() }
-                                    )
+                                composable("privacy_policy") {
+                                    com.richard.musicplayer.ui.screens.settings.PrivacyPolicyScreen(navController, scrollBehavior)
+                                }
+                                composable("terms_of_use") {
+                                    com.richard.musicplayer.ui.screens.settings.TermsOfUseScreen(navController, scrollBehavior)
+                                }
+                                composable("open_source_licenses") {
+                                    com.richard.musicplayer.ui.screens.settings.OpenSourceLicensesScreen(navController, scrollBehavior)
+                                }
+                                composable("changelog") {
+                                    com.richard.musicplayer.ui.screens.settings.ChangelogScreen(navController, scrollBehavior)
+                                }
+                                // Logs screen - Only available in debug builds
+                                if (BuildConfig.DEBUG) {
+                                    composable("logs") {
+                                        com.richard.musicplayer.ui.screens.LogsScreen(
+                                            onBackClick = { navController.navigateUp() }
+                                        )
+                                    }
                                 }
                                 composable("login") {
                                     LoginScreen(navController)
                                 }
 
-                                composable("setup_wizard") {
-                                    SetupWizard(navController)
-                                }
+
 
                                 composable("settings/pin_change") {
                                     PinChangeScreen(
@@ -1269,12 +1420,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.align(Alignment.BottomCenter)
                         )
 
-                        // Setup wizard
-                        LaunchedEffect(Unit) {
-                            if (!firstSetupPassed) {
-                                navController.navigate("setup_wizard")
-                            }
-                        }
+
 
                         sharedSong?.let { song ->
                             playerConnection?.let {
@@ -1311,6 +1457,27 @@ class MainActivity : ComponentActivity() {
                         }
                     }
                 }
+                
+                // Diálogo de permissão de notificação na primeira execução
+                NotificationPermissionDialog(
+                    isVisible = showNotificationDialog,
+                    onPermissionResult = { granted ->
+                        setNotificationPermissionAsked(true)
+                        showNotificationDialog = false
+                        if (granted) {
+                            println("✅ PERMISSÃO DE NOTIFICAÇÃO CONCEDIDA")
+                            android.util.Log.d("SonsPhere", "✅ PERMISSÃO DE NOTIFICAÇÃO CONCEDIDA")
+                        } else {
+                            println("❌ PERMISSÃO DE NOTIFICAÇÃO NEGADA")
+                            android.util.Log.d("SonsPhere", "❌ PERMISSÃO DE NOTIFICAÇÃO NEGADA")
+                        }
+                    },
+                    onDismiss = {
+                        setNotificationPermissionAsked(true)
+                        showNotificationDialog = false
+                    }
+                )
+                } // Fechamento do bloco if-else de autenticação
             }
         }
     }
@@ -1319,6 +1486,73 @@ class MainActivity : ComponentActivity() {
         WindowCompat.getInsetsController(window, window.decorView.rootView).apply {
             isAppearanceLightStatusBars = !isDark
             isAppearanceLightNavigationBars = !isDark
+        }
+    }
+
+    /**
+     * 🚀 SISTEMA DE TAXA MÁXIMA DE ATUALIZAÇÃO
+     * Força o app a usar sempre a maior taxa de atualização disponível no dispositivo
+     * Suporta: 60Hz, 90Hz, 120Hz, 144Hz, 165Hz+
+     */
+    private fun setupMaxRefreshRate() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                // Android 11+ (API 30+) - Método moderno
+                val display = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    display
+                } else {
+                    @Suppress("DEPRECATION")
+                    windowManager.defaultDisplay
+                }
+                
+                display?.let { d ->
+                    val supportedModes = d.supportedModes
+                    
+                    // Encontrar o modo com maior refresh rate
+                    val maxRefreshRateMode = supportedModes.maxByOrNull { mode ->
+                        mode.refreshRate
+                    }
+                    
+                    maxRefreshRateMode?.let { mode ->
+                        val layoutParams = window.attributes
+                        layoutParams.preferredDisplayModeId = mode.modeId
+                        window.attributes = layoutParams
+                        
+                        // Log para debug
+                        android.util.Log.d("RefreshRate", 
+                            "🚀 Taxa máxima configurada: ${mode.refreshRate}Hz " +
+                            "(${mode.physicalWidth}x${mode.physicalHeight})")
+                    }
+                }
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                // Android 6+ (API 23+) - Método legado
+                @Suppress("DEPRECATION")
+                val display = windowManager.defaultDisplay
+                val supportedRefreshRates = display.supportedRefreshRates
+                
+                val maxRefreshRate = supportedRefreshRates.maxOrNull()
+                maxRefreshRate?.let { rate ->
+                    val layoutParams = window.attributes
+                    layoutParams.preferredRefreshRate = rate
+                    window.attributes = layoutParams
+                    
+                    android.util.Log.d("RefreshRate", 
+                        "🚀 Taxa máxima configurada (legado): ${rate}Hz")
+                }
+            }
+            
+            // Configurações adicionais de performance para alta taxa de atualização
+            window.statusBarColor = android.graphics.Color.TRANSPARENT
+            window.navigationBarColor = android.graphics.Color.TRANSPARENT
+            
+            // Habilitar hardware acceleration se não estiver habilitado
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+                WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
+            )
+            
+        } catch (e: Exception) {
+            android.util.Log.w("RefreshRate", "⚠️ Erro ao configurar taxa máxima: ${e.message}")
         }
     }
 

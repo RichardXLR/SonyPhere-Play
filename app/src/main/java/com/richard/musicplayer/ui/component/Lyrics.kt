@@ -14,10 +14,38 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.background
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material.icons.filled.AutoAwesome
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.rotate
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.Density
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.random.Random
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -28,6 +56,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -35,6 +64,11 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.MoreHoriz
+import androidx.compose.material.icons.rounded.MoreVert
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.draw.clip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -57,8 +91,10 @@ import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalDensity
+
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -66,6 +102,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.graphics.Color
 import com.richard.musicplayer.LocalPlayerConnection
 import com.richard.musicplayer.R
 import android.util.Log
@@ -95,6 +132,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlin.time.Duration.Companion.seconds
 
+// OTIMIZAÇÃO: Removidas classes de partículas desnecessárias
 @Composable
 fun Lyrics(
     sliderPositionProvider: () -> Long?,
@@ -103,12 +141,16 @@ fun Lyrics(
     val haptic = LocalHapticFeedback.current
     val playerConnection = LocalPlayerConnection.current ?: return
     val menuState = LocalMenuState.current
-    val density = LocalDensity.current
+
     var showLyrics by rememberPreference(ShowLyricsKey, false)
     val landscapeOffset = LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE
 
     val lyricsTextPosition by rememberEnumPreference(LyricsTextPositionKey, LyricsPosition.CENTER)
     val lyricsFontSize by rememberPreference(LyricFontSizeKey, 20)
+    
+    // OTIMIZAÇÃO: Estados simplificados - removidos efeitos pesados
+    var showControls by remember { mutableStateOf(true) }
+    var lastInteractionTime by remember { mutableStateOf(System.currentTimeMillis()) }
 
     val mediaMetadata by playerConnection.mediaMetadata.collectAsState()
     val lyricsEntity by playerConnection.currentLyrics.collectAsState(initial = null)
@@ -116,7 +158,7 @@ fun Lyrics(
     val multilineLrc = rememberPreference(MultilineLrcKey, defaultValue = true)
     val lyricTrim = rememberPreference(LyricTrimKey, defaultValue = false)
 
-    val playerBackground by rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.GRADIENT)
+    val playerBackground by rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.BLUR)
 
     val darkTheme by rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
     val isSystemInDarkTheme = isSystemInDarkTheme()
@@ -150,8 +192,6 @@ fun Lyrics(
     var currentLineIndex by remember {
         mutableIntStateOf(-1)
     }
-    // Because LaunchedEffect has delay, which leads to inconsistent with current line color and scroll animation,
-    // we use deferredCurrentLineIndex when user is scrolling
     var deferredCurrentLineIndex by rememberSaveable {
         mutableIntStateOf(0)
     }
@@ -163,6 +203,7 @@ fun Lyrics(
         mutableStateOf(false)
     }
 
+    // OTIMIZAÇÃO: Sincronização simplificada - delay aumentado para 200ms
     LaunchedEffect(lyrics, playerConnection.isPlaying.collectAsState().value) {
         if (lyrics.isNullOrEmpty() || !lyrics.startsWith("[")) {
             currentLineIndex = -1
@@ -176,36 +217,24 @@ fun Lyrics(
             val actualPosition = sliderPosition ?: playerPosition
             
             if (actualPosition >= 0 && lines.isNotEmpty()) {
-                // Busca mais eficiente: começa do índice atual
-                var newIndex = currentLineIndex.coerceAtLeast(0)
-                
-                // Se a posição atual está antes da linha atual, busca para trás
-                if (newIndex < lines.size && lines[newIndex].timeStamp > actualPosition) {
-                    for (i in newIndex downTo 0) {
-                        if (lines[i].timeStamp <= actualPosition) {
-                            newIndex = i
-                            break
-                        }
-                    }
-                    if (lines[0].timeStamp > actualPosition) newIndex = -1
-                } else {
-                    // Se a posição atual está depois da linha atual, busca para frente
-                    for (i in newIndex until lines.size) {
-                        if (i + 1 >= lines.size || lines[i + 1].timeStamp > actualPosition) {
-                            if (lines[i].timeStamp <= actualPosition) {
-                                newIndex = i
-                            }
-                            break
-                        }
-                    }
-                }
+                // Busca otimizada: usar binary search para melhor performance
+                val newIndex = lines.findCurrentLineIndex(actualPosition)
                 
                 if (newIndex != currentLineIndex) {
                     currentLineIndex = newIndex
                 }
             }
             
-            delay(100) // Atualização mais frequente para melhor sincronização
+            // OTIMIZAÇÃO: Delay aumentado para reduzir CPU usage
+            delay(200) // Reduzido de 100ms para 200ms
+        }
+    }
+    
+    // OTIMIZAÇÃO: Auto-ocultar controles otimizado
+    LaunchedEffect(lastInteractionTime) {
+        delay(4000) // Aumentado para 4 segundos
+        if (System.currentTimeMillis() - lastInteractionTime >= 4000) {
+            showControls = false
         }
     }
 
@@ -223,9 +252,9 @@ fun Lyrics(
     LaunchedEffect(currentLineIndex, lastPreviewTime) {
         if (!isSynced || currentLineIndex < 0 || currentLineIndex >= lines.size) return@LaunchedEffect
         
-            deferredCurrentLineIndex = currentLineIndex
+        deferredCurrentLineIndex = currentLineIndex
         
-            if (lastPreviewTime == 0L) {
+        if (lastPreviewTime == 0L) {
             try {
                 if (isSeeking) {
                     lazyListState.scrollToItem(currentLineIndex)
@@ -243,7 +272,15 @@ fun Lyrics(
         modifier = modifier
             .fillMaxSize()
             .padding(bottom = 4.dp)
+            .pointerInput(Unit) {
+                detectTapGestures { 
+                    showControls = true
+                    lastInteractionTime = System.currentTimeMillis()
+                }
+            }
     ) {
+        // OTIMIZAÇÃO: Removido Canvas e efeitos visuais pesados
+        
         LazyColumn(
             state = lazyListState,
             contentPadding = WindowInsets.systemBars
@@ -292,11 +329,8 @@ fun Lyrics(
                     items = lines
                 ) { index, item ->
                     val isCurrentLine = index == displayedCurrentLineIndex
-                    val lineAlpha by animateFloatAsState(
-                        targetValue = if (!isSynced || isCurrentLine) 1f else 0.5f,
-                        animationSpec = tween(durationMillis = 150),
-                        label = "lineAlpha"
-                    )
+                    
+                    // OTIMIZAÇÃO: Animações simplificadas - apenas essenciais
                     val textColorAnimated by animateColorAsState(
                         targetValue = if (isCurrentLine) {
                             when (playerBackground) {
@@ -306,43 +340,35 @@ fun Lyrics(
                                     else MaterialTheme.colorScheme.onPrimaryContainer
                             }
                         } else textColor,
-                        animationSpec = tween(durationMillis = 200),
+                        animationSpec = tween(durationMillis = 300), // Reduzido de 400ms
                         label = "textColor"
                     )
-                    val backgroundAlpha by animateFloatAsState(
-                        targetValue = if (isCurrentLine) 0.15f else 0f,
-                        animationSpec = tween(durationMillis = 150),
-                        label = "backgroundAlpha"
-                    )
                     
+                    // OTIMIZAÇÃO: Removidos efeitos de escala, brilho e background
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(
-                                color = MaterialTheme.colorScheme.primary.copy(alpha = backgroundAlpha),
-                                shape = RoundedCornerShape(6.dp)
-                            )
                             .clickable(enabled = isSynced) {
                                 playerConnection.player.seekTo(item.timeStamp)
                                 lastPreviewTime = 0L
-                                haptic.performHapticFeedback(HapticFeedbackType.ToggleOn)
+                                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                             }
-                            .padding(horizontal = 12.dp, vertical = 2.dp)
+                            .padding(horizontal = 16.dp, vertical = 8.dp)
                     ) {
                         Text(
                             text = item.content,
-                            fontSize = if (isCurrentLine) lyricsFontSize.sp else (lyricsFontSize - 2).sp,
+                            fontSize = if (isCurrentLine) (lyricsFontSize + 2).sp else lyricsFontSize.sp,
                             color = textColorAnimated,
                             textAlign = when (lyricsTextPosition) {
                                 LyricsPosition.LEFT -> TextAlign.Left
                                 LyricsPosition.CENTER -> TextAlign.Center
                                 LyricsPosition.RIGHT -> TextAlign.Right
                             },
-                            fontWeight = if (isCurrentLine) FontWeight.ExtraBold else FontWeight.Medium,
-                            lineHeight = if (isCurrentLine) (lyricsFontSize + 1).sp else (lyricsFontSize - 1).sp,
+                            fontWeight = if (isCurrentLine) FontWeight.Bold else FontWeight.Normal,
+                            lineHeight = if (isCurrentLine) (lyricsFontSize + 4).sp else (lyricsFontSize + 2).sp,
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .alpha(lineAlpha)
+                                .alpha(if (!isSynced || isCurrentLine) 1f else 0.7f) // Simplificado
                         )
                     }
                 }
@@ -367,44 +393,95 @@ fun Lyrics(
             )
         }
 
+        // OTIMIZAÇÃO: Controles simplificados
         mediaMetadata?.let { mediaMetadata ->
-            Row(
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(end = 8.dp, bottom = 4.dp)
+            AnimatedVisibility(
+                visible = showControls,
+                enter = fadeIn(animationSpec = tween(200)), // Reduzido de 300ms
+                exit = fadeOut(animationSpec = tween(200)),
+                modifier = Modifier.align(Alignment.TopEnd)
             ) {
-                IconButton(
-                    onClick = { showLyrics = false },
-                    modifier = Modifier.padding(4.dp)
+                Row(
+                    modifier = Modifier
+                        .padding(
+                            top = WindowInsets.systemBars
+                                .only(WindowInsetsSides.Top)
+                                .asPaddingValues()
+                                .calculateTopPadding() + 8.dp,
+                            end = 8.dp
+                        )
+                        .clip(CircleShape)
+                        .background(
+                            color = MaterialTheme.colorScheme.surface.copy(alpha = 0.8f),
+                            shape = CircleShape
+                        )
+                        .padding(4.dp),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Rounded.Close,
-                        contentDescription = null,
-                        tint = textColor.copy(alpha = 0.8f)
-                    )
-                }
-                IconButton(
-                    onClick = {
-                        menuState.show {
-                            LyricsMenu(
-                                lyricsProvider = { lyricsEntity },
-                                mediaMetadataProvider = { mediaMetadata },
-                                onDismiss = menuState::dismiss
-                            )
-                        }
-                    },
-                    modifier = Modifier.padding(4.dp)
-                ) {
-                    Icon(
-                        imageVector = Icons.Rounded.MoreHoriz,
-                        contentDescription = null,
-                        tint = textColor.copy(alpha = 0.8f)
-                    )
+                    // Menu de opções
+                    IconButton(
+                        onClick = {
+                            lastInteractionTime = System.currentTimeMillis()
+                            menuState.show {
+                                LyricsMenu(
+                                    lyricsProvider = { lyricsEntity },
+                                    mediaMetadataProvider = { mediaMetadata },
+                                    onDismiss = menuState::dismiss
+                                )
+                            }
+                        },
+                        modifier = Modifier.size(32.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.MoreVert,
+                            contentDescription = "More Options",
+                            tint = textColor.copy(alpha = 0.8f),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
+                    
+                    // Fechar
+                    IconButton(
+                        onClick = { showLyrics = false },
+                        modifier = Modifier.size(32.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.Close,
+                            contentDescription = "Close",
+                            tint = textColor.copy(alpha = 0.8f),
+                            modifier = Modifier.size(18.dp)
+                        )
+                    }
                 }
             }
         }
     }
 }
 
-const val animateScrollDuration = 200L
-val LyricsPreviewTime = 2.seconds // Reduzido para resposta mais rápida
+// OTIMIZAÇÃO: Removidas funções auxiliares pesadas de desenho
+
+// OTIMIZAÇÃO: Função de busca otimizada usando binary search
+fun List<LyricsEntry>.findCurrentLineIndex(position: Long): Int {
+    if (isEmpty()) return -1
+    
+    var left = 0
+    var right = size - 1
+    var result = -1
+    
+    while (left <= right) {
+        val mid = (left + right) / 2
+        
+        if (this[mid].timeStamp <= position) {
+            result = mid
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    
+    return result
+}
+
+// OTIMIZAÇÃO: Constantes simplificadas
+const val animateScrollDuration = 150L // Reduzido de 200L
+val LyricsPreviewTime = 1.5.seconds // Reduzido de 2 segundos

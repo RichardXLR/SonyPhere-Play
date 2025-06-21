@@ -9,7 +9,6 @@
 
 package com.richard.musicplayer.ui.screens.settings
 
-import android.os.Build
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -42,11 +41,9 @@ import com.richard.musicplayer.R
 import com.richard.musicplayer.constants.DarkMode
 import com.richard.musicplayer.constants.DarkModeKey
 import com.richard.musicplayer.constants.DynamicThemeKey
-import com.richard.musicplayer.constants.MaterialYouKey
 import com.richard.musicplayer.constants.PlayerBackgroundStyle
 import com.richard.musicplayer.constants.PlayerBackgroundStyleKey
 import com.richard.musicplayer.constants.PureBlackKey
-import com.richard.musicplayer.constants.SlimNavBarKey
 import com.richard.musicplayer.ui.component.EnumListPreference
 import com.richard.musicplayer.ui.component.IconButton
 import com.richard.musicplayer.ui.component.PreferenceGroupTitle
@@ -62,14 +59,10 @@ fun AppearanceSettings(
     scrollBehavior: TopAppBarScrollBehavior,
 ) {
     val (dynamicTheme, onDynamicThemeChange) = rememberPreference(DynamicThemeKey, defaultValue = true)
-    val (materialYou, onMaterialYouChange) = rememberPreference(MaterialYouKey, defaultValue = false)
-    val (playerBackground, onPlayerBackgroundChange) = rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.GRADIENT)
+    val (playerBackground, onPlayerBackgroundChange) = rememberEnumPreference(key = PlayerBackgroundStyleKey, defaultValue = PlayerBackgroundStyle.BLUR)
     val (darkMode, onDarkModeChange) = rememberEnumPreference(DarkModeKey, defaultValue = DarkMode.AUTO)
     val (pureBlack, onPureBlackChange) = rememberPreference(PureBlackKey, defaultValue = true)
-    val (slimNav, onSlimNavChange) = rememberPreference(SlimNavBarKey, defaultValue = false)
-    val availableBackgroundStyles = PlayerBackgroundStyle.entries.filter {
-        it != PlayerBackgroundStyle.BLUR || Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-    }
+    val availableBackgroundStyles = PlayerBackgroundStyle.entries
 
     Column(
         Modifier
@@ -78,24 +71,12 @@ fun AppearanceSettings(
     ) {
         PreferenceGroupTitle(title = stringResource(R.string.theme))
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            SwitchPreference(
-                title = { Text("Material You") },
-                description = "Usa cores do wallpaper do sistema (Android 12+)\n\n⚠️ O Material You não é muito legal - recomendamos usar só o Tema Dinâmico que extrai cores da música para uma experiência visual mais rica e personalizada",
-                icon = { Icon(Icons.Rounded.AutoAwesome, null) },
-                checked = materialYou,
-                onCheckedChange = onMaterialYouChange
-            )
-        }
-
         SwitchPreference(
             title = { Text(stringResource(R.string.enable_dynamic_theme)) },
             description = "Extrai cores da arte do álbum em reprodução",
             icon = { Icon(Icons.Rounded.Palette, null) },
-            checked = dynamicTheme && !materialYou,
-            onCheckedChange = { 
-                if (!materialYou) onDynamicThemeChange(it)
-            }
+            checked = dynamicTheme,
+            onCheckedChange = onDynamicThemeChange
         )
 
         EnumListPreference(
@@ -133,14 +114,6 @@ fun AppearanceSettings(
                 }
             },
             values = availableBackgroundStyles
-        )
-
-        SwitchPreference(
-            title = { Text(stringResource(R.string.slim_navbar_title)) },
-            description = stringResource(R.string.slim_navbar_description),
-            icon = { Icon(Icons.Rounded.MoreHoriz, null) },
-            checked = slimNav,
-            onCheckedChange = onSlimNavChange
         )
 
         PreferenceGroupTitle(title = stringResource(R.string.player))
