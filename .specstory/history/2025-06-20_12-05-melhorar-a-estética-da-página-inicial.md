@@ -622,7 +622,1233 @@ _**Assistant**_
 
 ---
 
+Vou enviar o projeto completo para o GitHub! Primeiro vou fazer commit de todas as mudanças e depois fazer push:
 
+---
+
+```bash
+git commit -m "Refactor: Move arquivos para módulo core"
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ git commit -m "Refactor: Move arquivos par
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ git commit -m "Refactor: Move arquivos par
+a módulo core"
+[master e045eba] Refactor: Move arquivos para módulo core
+ 31 files changed, 0 insertions(+), 0 deletions(-)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/ContextExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/CoroutineExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/FileExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/ListExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/MediaItemExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/PlayerExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/StringExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/extensions/UtilExt.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/ActivityLaunchHelper.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/AudioAnalyzer.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/CacheManager.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/CloudSyncManager.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/CoilBitmapLoader.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/ComposeDebugUtils.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/DataStore.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/LmImageCacheMgr.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/NetworkConnectivityObserver.kt (1
+00%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/SmartRecommendationEngine.kt (100
+%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/StringUtils.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/SyncUtils.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/Utils.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/YTPlayerUtils.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/potoken/JavaScriptUtil.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenException.kt (100%
+)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenGenerator.kt (100%
+)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenResult.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/potoken/PoTokenWebView.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/scanners/FFMpegScanner.kt (100%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/scanners/LocalMediaScanner.kt (10
+0%)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/scanners/MetadataScanner.kt (100%
+)
+ rename {app => core}/src/main/java/com/dd3boh/outertune/utils/scanners/TagLibScanner.kt (100%)
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$
+```
+
+---
+
+
+
+---
+
+```bash
+git add .
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ 
+
+```
+
+---
+
+
+
+---
+
+```bash
+git commit -m "Update: Aplicar todas as modificações restantes do projeto ASK-PI"
+```
+
+```
+/LibraryArtistsScreen.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/library
+/LibraryFolderScreen.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/library
+/LibraryPlaylistsScreen.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/library/Li
+braryScreen.kt (92%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/library/Li
+brarySongsScreen.kt (95%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/playlist/A
+utoPlaylistScreen.kt (98%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/playlist/L
+ocalPlaylistScreen.kt (97%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/playlist/O
+nlinePlaylistScreen.kt (98%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/search/Loc
+alSearchScreen.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/search/Onl
+ineSearchResult.kt (99%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/search/Onl
+ineSearchScreen.kt (99%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/settings/A
+boutScreen.kt (66%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/AccountSyncSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/AppearanceSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/AttributionScreen.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/BackupAndRestore.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/settings/E
+xperimentalSettings.kt (66%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/InterfaceSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/LibrariesScreen.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/LibrarySettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/LocalPlayerSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/LyricsSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/PlayerSettings.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/SettingsScreen.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/StorageSettings.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/settings/f
+ragments/AccountFrag.kt (99%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/AppearanceFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/InterfaceFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/LibraryFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/LocalMediaSettingsFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/LyricFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/PlayerFrag.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/StorageFrag.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/screens/settings/f
+ragments/SyncFrag.kt (93%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/screens/setting
+s/fragments/ThemeFrag.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/theme/Theme.kt (95
+%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/AppBar.kt (1
+00%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/FadingEdge.k
+t (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/LazyGridSnap
+LayoutInfoProvider.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/LocalMediaUt
+ils.kt (97%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/NavControlle
+rUtils.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/ScrollUtils.
+kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/ShapeUtils.k
+t (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/StringUtils.
+kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/ui/utils/Updater.k
+t
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/ui/utils/YouTubeUtils
+.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/ActivityLaunch
+Helper.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/CoilBitmapLo
+ader.kt
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/ComposeDebugUt
+ils.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/DataStore.kt (
+100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/LmImageCacheMg
+r.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/NetworkConnect
+ivityObserver.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/StringUtils.
+kt
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/SyncUtils.kt (
+100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/Utils.kt (100%
+)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/YTPlayerUtils.
+kt (96%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/potoken/JavaSc
+riptUtil.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/potoken/PoToke
+nException.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/potoken/PoToke
+nGenerator.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/potoken/PoToke
+nResult.kt (100%)
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/potoken/PoToke
+nWebView.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/scanners/FFM
+pegScanner.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/scanners/Loc
+alMediaScanner.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/scanners/Met
+adataScanner.kt
+ rename {core => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/utils/scanners/TagLi
+bScanner.kt (97%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/utils/scanners/Uri
+FileUtils.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/viewmodels/Account
+ViewModel.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/AlbumViewM
+odel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/ArtistAlbu
+msViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/ArtistItem
+sViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/ArtistView
+Model.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/AutoPlayli
+stViewModel.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/viewmodels/BackupR
+estoreViewModel.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/viewmodels/BrowseV
+iewModel.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/HistoryVie
+wModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/HomeViewMo
+del.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/LibraryVie
+wModels.kt (96%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/LocalPlayl
+istViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/LocalSearc
+hViewModel.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/com/dd3boh/outertune/viewmodels/LyricsM
+enuViewModel.kt
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/MoodAndGen
+resViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/OnlinePlay
+listViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/OnlineSear
+chSuggestionViewModel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/OnlineSear
+chViewModel.kt (98%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/StatsViewM
+odel.kt (100%)
+ rename {app => OuterTune-0.9.0-a3/app}/src/main/java/com/dd3boh/outertune/viewmodels/YouTubeBro
+wseViewModel.kt (100%)
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/org/akanework/gramophone/logic/Gramopho
+neExtensions.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/org/akanework/gramophone/logic/utils/Ly
+ricsUtils.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/org/akanework/gramophone/logic/utils/Me
+diaStoreUtils.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/java/org/akanework/gramophone/logic/utils/Se
+manticLyrics.kt
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/album.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/artist.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/buymeacoffee.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/close.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/download.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/error.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/favorite.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/favorite_border.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/github.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/launcher_foreground.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/launcher_monochrome.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/library_add_check.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/library_music.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/music_note.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/pause.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/play.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/queue_music.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/radio.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/repeat.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/repeat_on.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/repeat_one.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/repeat_one_on.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/replay.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shortcut_albums.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shortcut_playlists.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shortcut_search.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shortcut_songs.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shuffle.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/shuffle_on.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/skip_next.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/skip_previous.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/drawable/small_icon.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/mipmap-anydpi/ic_launcher.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/resources.properties
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ar/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ar/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-az/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-b+sr+Latn/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-be/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-bg/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-bg/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-bn-rIN/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-bn/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-bs/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ca/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-cs/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-de/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-de/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-el/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-el/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-en-rCA/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-en-rCA/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-es-rUS/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-es/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-es/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-et/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-et/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-fa/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-fi/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-fr/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-fr/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-hi/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-hi/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-hr/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-hu/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-in/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-it/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-it/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-iw/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-iw/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ja/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ja/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ko/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ko/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ml/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-nb-rNO/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ne/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-nl/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-nn/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-or/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pa/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pl/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pl/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pt-rBR/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pt-rBR/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-pt/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ru/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ru/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-sv/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-ta/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-tr/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-uk/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-uk/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-vi/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-vi/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-zh-rCN/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-zh-rCN/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values-zh-rTW/strings.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values/app_name.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values/ic_launcher_background.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values/strings-ot.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values/strings.xml
+ create mode 100755 OuterTune-0.9.0-a3/app/src/main/res/values/styles.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/values/values.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/xml/automotive_app_desc.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/xml/backup_rules.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/xml/data_extraction_rules.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/xml/provider_paths.xml
+ create mode 100644 OuterTune-0.9.0-a3/app/src/main/res/xml/shortcuts.xml
+ rename {assets => OuterTune-0.9.0-a3/assets}/IzzyOnDroidButtonGreyBorder.svg (100%)
+ create mode 100644 OuterTune-0.9.0-a3/assets/badge_github.png
+ rename {assets => OuterTune-0.9.0-a3/assets}/badge_obtainium.png (100%)
+ rename {assets => OuterTune-0.9.0-a3/assets}/main-interface.webp (100%)
+ rename {assets => OuterTune-0.9.0-a3/assets}/outertune.webp (100%)
+ rename {assets => OuterTune-0.9.0-a3/assets}/paypal.png (100%)
+ rename {assets => OuterTune-0.9.0-a3/assets}/player.webp (100%)
+ rename {assets => OuterTune-0.9.0-a3/assets}/ytm-sync.webp (100%)
+ create mode 100755 OuterTune-0.9.0-a3/build.gradle.kts
+ create mode 100755 OuterTune-0.9.0-a3/gradle.properties
+ create mode 100644 OuterTune-0.9.0-a3/gradle/libs.versions.toml
+ create mode 100755 OuterTune-0.9.0-a3/gradle/wrapper/gradle-wrapper.jar
+ create mode 100755 OuterTune-0.9.0-a3/gradle/wrapper/gradle-wrapper.properties
+ create mode 100755 OuterTune-0.9.0-a3/gradlew
+ create mode 100755 OuterTune-0.9.0-a3/gradlew.bat
+ create mode 100644 OuterTune-0.9.0-a3/innertube/.gitignore
+ create mode 100644 OuterTune-0.9.0-a3/innertube/build.gradle.kts
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/InnerTube
+.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/NewPipe.k
+t
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/YouTube.k
+t
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Ac
+countInfo.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Au
+tomixPreviewVideoRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Ba
+dges.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Bu
+tton.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Co
+ntext.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Co
+ntinuation.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Co
+ntinuationItemRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/En
+dpoint.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Gr
+idRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Ic
+on.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Me
+nu.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicCardShelfRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicCarouselShelfRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicDescriptionShelfRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicEditablePlaylistDetailHeaderRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicNavigationButtonRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicPlaylistShelfRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicQueueRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicResponsiveHeaderRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicResponsiveListItemRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicShelfRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Mu
+sicTwoRowItemRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Na
+vigationEndpoint.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Pl
+aylistPanelRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Pl
+aylistPanelVideoRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Re
+sponseContext.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Ru
+ns.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Se
+archSuggestions.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Se
+archSuggestionsSectionRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Se
+ctionListRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Su
+bscriptionButton.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Ta
+bs.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Th
+umbnailRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Th
+umbnails.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Tw
+oColumnBrowseResultsRenderer.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/YT
+Item.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Yo
+uTubeClient.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/Yo
+uTubeLocale.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/AccountMenuBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/BrowseBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/CreatePlaylistBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/EditPlaylistBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/GetQueueBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/GetSearchSuggestionsBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/GetTranscriptBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/LikeBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/NextBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/PlayerBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/PlaylistDeleteBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/SearchBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/bo
+dy/SubscribeBody.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/AccountMenuResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/BrowseResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/CreatePlaylistResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/GetQueueResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/GetSearchSuggestionsResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/GetTranscriptResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/NextResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/PlayerResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/models/re
+sponse/SearchResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Alb
+umPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Art
+istItemsContinuationPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Art
+istItemsPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Art
+istPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Bro
+wseResult.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Exp
+lorePage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/His
+toryPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Hom
+ePage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Lib
+raryContinuationPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Lib
+raryPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Moo
+dAndGenres.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/New
+ReleaseAlbumPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Nex
+tPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Pag
+eHelper.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Pla
+ylistContinuationPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Pla
+ylistPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Rel
+atedPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Sea
+rchPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Sea
+rchSuggestionPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/pages/Sea
+rchSummaryPage.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/main/java/com/zionhuang/innertube/utils/Uti
+ls.kt
+ create mode 100644 OuterTune-0.9.0-a3/innertube/src/test/java/com/zionhuang/innertube/YouTubeTe
+st.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/.gitignore
+ create mode 100644 OuterTune-0.9.0-a3/kugou/build.gradle.kts
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/main/java/com/zionhuang/kugou/KuGou.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/main/java/com/zionhuang/kugou/models/DownloadLy
+ricsResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/main/java/com/zionhuang/kugou/models/Keyword.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/main/java/com/zionhuang/kugou/models/SearchLyri
+csResponse.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/main/java/com/zionhuang/kugou/models/SearchSong
+Response.kt
+ create mode 100644 OuterTune-0.9.0-a3/kugou/src/test/java/Test.kt
+ create mode 100644 OuterTune-0.9.0-a3/lint.xml
+ create mode 100644 OuterTune-0.9.0-a3/lrclib/.gitignore
+ create mode 100644 OuterTune-0.9.0-a3/lrclib/build.gradle.kts
+ create mode 100644 OuterTune-0.9.0-a3/lrclib/src/main/java/com/dd3boh/lrclib/LrcLib.kt
+ create mode 100644 OuterTune-0.9.0-a3/lrclib/src/main/java/com/dd3boh/lrclib/models/Track.kt
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/.gitignore
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/build.gradle.kts
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/LICENSE
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/blend/Blend.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/contrast/Contrast.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dislike/DislikeAnalyzer.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ColorSpec.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ColorSpec2021.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ColorSpec2025.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ColorSpecs.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ContrastCurve.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/DynamicColor.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/DynamicScheme.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/MaterialDynamicColors.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/ToneDeltaPair.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/TonePolarity.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/dynamiccolor/Variant.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/hct/Cam16.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/hct/Hct.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/hct/HctSolver.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/hct/ViewingConditions.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/palettes/CorePalette.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/palettes/CorePalettes.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/palettes/TonalPalette.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/PointProvider.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/PointProviderLab.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/Quantizer.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/QuantizerCelebi.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/QuantizerMap.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/QuantizerResult.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/QuantizerWsmeans.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/quantize/QuantizerWu.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/Scheme.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeContent.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeExpressive.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeFidelity.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeFruitSalad.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeMonochrome.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeNeutral.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeRainbow.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeTonalSpot.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/scheme/SchemeVibrant.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/score/Score.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/temperature/TemperatureCache.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/utils/ColorUtils.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/utils/MathUtils.java
+ create mode 100644 OuterTune-0.9.0-a3/material-color-utilities/src/main/java/com/google/materia
+l/color/utils/StringUtils.java
+ create mode 100755 OuterTune-0.9.0-a3/settings.gradle.kts
+ create mode 100644 app/debug.keystore
+ create mode 100644 app/lint-baseline.xml
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/1.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/10.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/11.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/12.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/13.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/14.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/15.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/16.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/17.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/18.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/19.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/2.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/3.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/4.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/5.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/6.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/7.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/8.json
+ create mode 100644 app/schemas/com.richard.musicplayer.db.InternalDatabase/9.json
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/constants/Dimensions.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/component/AudioVisualizer.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/component/NavigationTile.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/screens/AboutScreen.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/screens/HomeScreen.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/screens/SmartRecommendationsScreen
+.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/ui/screens/settings/PrivacySecuritySe
+ttings.kt
+ delete mode 100644 app/src/main/java/com/dd3boh/outertune/viewmodels/SmartRecommendationsViewMo
+del.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/App.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/MainActivity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/SplashActivity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/constants/Dimensions.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/constants/HistorySource.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/constants/MediaSessionConstants.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/constants/PreferenceKeys
+.kt (98%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/constants/Settings.kt (9
+8%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/constants/StatPeriod.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/constants/Vars.kt (88%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/Converters.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/DatabaseDao.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/MusicDatabase.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/PrivacySecurityRepository.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/daos/AlbumsDao.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/daos/ArtistsDao.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/daos/PlaylistsDao.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/daos/QueueDao.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/db/daos/SongsDao.kt (97%
+)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/Album.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/AlbumArtistMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/AlbumEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/AlbumWithSongs.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/Artist.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/ArtistEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/Event.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/EventWithSong.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/FormatEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/GenreEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/LocalItem.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/db/entities/LyricsEntity
+.kt (85%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/PlayCountEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/Playlist.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/PlaylistEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/PlaylistSong.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/PlaylistSongMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/PlaylistSongMapPreview
+.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/QueueEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/QueueSongMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/RecentActivityEntity.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/RelatedSongMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SearchHistory.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/Song.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SongAlbumMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SongArtistMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SongEntity.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SongGenreMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SortedSongAlbumMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/db/entities/SortedSongArtistMap.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/di/AppModule.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/di/PrivacySecurityModule.kt
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/e
+xtensions/ContextExt.kt (71%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/CoroutineExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/FileExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/ListExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/MediaItemExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/PlayerExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/StringExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/extensions/UtilExt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/lyrics/KuGouLyricsProvider.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/lyrics/LocalLyricsProvid
+er.kt (95%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/lyrics/LrcLibLyricsProvider.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/lyrics/LyricsEntry.kt (8
+8%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/lyrics/LyricsHelper.kt (
+92%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/lyrics/LyricsProvider.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/lyrics/LyricsUtils.kt (9
+7%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/lyrics/SemanticLyrics.kt
+ (98%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/lyrics/YouTubeLyricsProvider.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/lyrics/YouTubeSubtitleLyricsProvid
+er.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/DirectoryTree.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/HybridCacheDataSinkFactory.
+kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/ImageCache.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/ItemsPage.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/MediaMetadata.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/MultiQueueObject.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/SimilarRecommendation.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/models/SongTempData.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/AudioEffects.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/playback/DownloadUtil.kt
+ (88%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/playback/ExoDownloadServ
+ice.kt (98%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/MediaLibrarySessionCallba
+ck.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/playback/MusicService.kt
+ (89%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/PlayerConnection.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/playback/QueueBoard.kt (
+98%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/SleepTimer.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/SpatialAudio.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/queues/EmptyQueue.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/queues/ListQueue.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/queues/Queue.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/queues/YouTubeAlbumRadio.
+kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/playback/queues/YouTubeQueue.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/AnchorDraggable.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/AnimatedAlbumArt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/AsyncImageLocal.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/AudioVisualizer.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/AutoResizeText.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/BassControl.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/BigSeekBar.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/BottomSheet.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/BottomSheetMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ChipsRow.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/CreatePlaylistDialog.
+kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/component/Dialog.kt (
+98%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/EmptyPlaceholder.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/FloatingFooter.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/GridCard.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/GridMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/HideOnScrollFAB.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/component/IconButton.
+kt (99%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/Items.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/Library.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ListItem.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/component/Lyrics.kt (
+57%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ModernButton.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ModernComponents.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ModernMiniPlayer.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/ModernNavigationBar.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/NavigationTile.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/component/NavigationT
+itle.kt (98%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/PlayerSlider.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/PlayingIndicator.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/Preference.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/SearchBar.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/SelectHeader.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/SettingsClickToReveal
+.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/SortHeader.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/SpatialAudioControl.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/ArtistPagePla
+ceholder.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/ButtonPlaceho
+lder.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/GridItemPlace
+holder.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/ListItemPlace
+holder.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/ShimmerHost.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/component/shimmer/TextPlacehold
+er.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/menu/AddToPlaylistDia
+log.kt (91%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/AddToQueueDialog.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/AlbumMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/ArtistMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/FolderMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/LyricsMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/PlayerMenu.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/menu/PlaylistMenu.kt 
+(92%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/QueueMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/SelectionSongsMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/SongMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/YouTubeAlbumMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/YouTubeArtistMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/YouTubePlaylistMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/menu/YouTubeSongMenu.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/player/MiniPlayer.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/player/PlaybackError.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/player/Player.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/player/Queue.kt (97%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/player/Thumbnail.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/AccountScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/AlbumScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/BrowseScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/HistoryScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/HomeScreen.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/HomeScreen.kt
+.backup (95%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/LoginScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/LogsScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/MoodAndGenresScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/Screens.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/SetupWizard.k
+t (93%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/SplashScreen.
+kt (99%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/StatsScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/YouTubeBrowseScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/artist/ArtistAlbumsScre
+en.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/artist/ArtistItemsScree
+n.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/artist/ArtistScreen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/artist/ArtistSongsScree
+n.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/library/Folde
+rScreen.kt (91%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/library/Libra
+ryAlbumsScreen.kt (89%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/library/Libra
+ryArtistsScreen.kt (89%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/library/Libra
+ryFolderScreen.kt (90%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/library/Libra
+ryPlaylistsScreen.kt (90%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/library/LibraryScreen.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/library/LibrarySongsScr
+een.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/playlist/AutoPlaylistSc
+reen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/playlist/LocalPlaylistS
+creen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/playlist/OnlinePlaylist
+Screen.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/search/LocalSearchScree
+n.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/search/OnlineSearchResu
+lt.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/search/OnlineSearchScre
+en.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/settings/AboutScreen.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Acco
+untSyncSettings.kt (81%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Appe
+aranceSettings.kt (73%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Back
+upAndRestore.kt (92%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Inte
+rfaceSettings.kt (84%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Libr
+arySettings.kt (79%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Loca
+lPlayerSettings.kt (78%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Lyri
+csSettings.kt (79%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/settings/PinChangeScree
+n.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Play
+erSettings.kt (83%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/settings/PrivacySecurit
+ySettings.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Sett
+ingsScreen.kt (88%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/Stor
+ageSettings.kt (90%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/settings/fragments/Acco
+untFrag.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/frag
+ments/LocalScannerExtraFrag.kt (83%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/frag
+ments/LocalScannerFrag.kt (90%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/frag
+ments/LyricFormatFrag.kt (82%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/frag
+ments/LyricParserFrag.kt (82%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/ui/screens/settings/frag
+ments/LyricSourceFrag.kt (82%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/screens/settings/fragments/Sync
+Frag.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/theme/GradientSystem.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/theme/Theme.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/theme/Typography.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/AppBar.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/FadingEdge.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/LazyGridSnapLayoutInfoPro
+vider.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/LocalMediaUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/ModernAnimations.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/NavControllerUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/NavigationTransitions.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/ScrollUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/ShapeUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/StringUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/ui/utils/YouTubeUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/ActivityLaunchHelper.kt
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/AudioAnalyzer.kt (99%)
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/CacheManager.kt (98%)
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/CloudSyncManager.kt (98%)
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/CoilBitmapLoader.kt (95%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/ComposeDebugUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/DataStore.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/LmImageCacheMgr.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/LogManager.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/NetworkConnectivityObserver.
+kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/PerformanceOptimizer.kt
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/StringUtils.kt (96%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/SyncUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/Utils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/YTPlayerUtils.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/potoken/JavaScriptUtil.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/potoken/PoTokenException.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/potoken/PoTokenGenerator.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/potoken/PoTokenResult.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/potoken/PoTokenWebView.kt
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/scanners/FFMpegScanner.kt (90%)
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/scanners/LocalMediaScanner.kt (97%)
+ rename {core/src/main/java/com/dd3boh/outertune => app/src/main/java/com/richard/musicplayer}/u
+tils/scanners/MetadataScanner.kt (78%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/utils/scanners/TagLibScanner.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/viewmodels/AccountViewMo
+del.kt (93%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/AlbumViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/ArtistAlbumsViewModel.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/ArtistItemsViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/ArtistViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/AutoPlaylistViewModel.k
+t
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/viewmodels/BackupRestore
+ViewModel.kt (89%)
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/viewmodels/BrowseViewMod
+el.kt (90%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/HistoryViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/HomeViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/LibraryViewModels.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/LocalPlaylistViewModel.
+kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/LocalSearchViewModel.kt
+ rename app/src/main/java/com/{dd3boh/outertune => richard/musicplayer}/viewmodels/LyricsMenuVie
+wModel.kt (83%)
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/MoodAndGenresViewModel.
+kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/OnlinePlaylistViewModel
+.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/OnlineSearchSuggestionV
+iewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/OnlineSearchViewModel.k
+t
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/PrivacySecurityViewMode
+l.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/StatsViewModel.kt
+ create mode 100644 app/src/main/java/com/richard/musicplayer/viewmodels/YouTubeBrowseViewModel.
+kt
+ create mode 100644 app/src/main/res/drawable/app_icon.png
+ create mode 100644 app/src/main/res/drawable/volume.xml
+ create mode 100644 app/src/main/res/font/inter_variable.ttf
+ create mode 100644 app/src/main/res/font/sora_variable.ttf
+ create mode 100644 app/src/main/res/mipmap-hdpi/ic_launcher.png
+ create mode 100644 app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+ create mode 100644 app/src/main/res/mipmap-mdpi/ic_launcher.png
+ create mode 100644 app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+ create mode 100644 app/src/main/res/mipmap-xhdpi/ic_launcher.png
+ create mode 100644 app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+ create mode 100644 app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+ create mode 100644 app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+ create mode 100644 app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+ create mode 100644 app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+ create mode 100644 app/src/main/res/values/performance.xml
+ create mode 100644 app/src/main/res/values/splash_strings.xml
+ create mode 100644 app/src/main/res/values/themes.xml
+ delete mode 100644 assets/badge_github.png
+ delete mode 100644 core/src/main/java/com/dd3boh/outertune/utils/SmartRecommendationEngine.kt
+ create mode 100755 instalar_app.sh
+ create mode 100755 install_app.sh
+ create mode 100644 musicplayer_logs.txt
+ create mode 100644 new_icon.png
+ create mode 100644 new_logs.txt
+ create mode 100644 outertune_ytplayerutils.kt
+ create mode 100644 temp_ytplayerutils_backup.kt
+ create mode 100755 testar_app.sh
+
+```
+
+---
+
+
+
+---
+
+```bash
+git push -u origin master
+```
+
+```
+Enumerating objects: 1512, done.
+Counting objects: 100% (1512/1512), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (1368/1368), done.
+Writing objects: 100% (1512/1512), 126.81 MiB | 16.01 MiB/s, done.
+Total 1512 (delta 699), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (699/699), done.
+remote: error: Trace: 4a8c613b821c86cfde3ee1592f424339644f630d4b50d6e5f122453384187a92
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File commandlinetools-linux-10406996_latest.zip is 141.94 MB; this exceeds GitHub
+'s file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https:/
+/git-lfs.github.com.
+To https://github.com/RichardXLR/ASK-PI.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/RichardXLR/ASK-PI.git'
+
+```
+
+---
+
+
+
+---
+
+Vejo que tem um arquivo muito grande que está impedindo o push! Vou remover esse arquivo desnecessário:
+
+---
+
+```bash
+rm commandlinetools-linux-10406996_latest.zip
+```
+
+```
+richard@richard-A520M-HVS:~/Vídeos/Player moderno BK$ 
+
+```
+
+---
+
+
+
+---
+
+```bash
+git add . && git commit -m "Remove arquivo grande desnecessário"
+```
+
+```
+[master c8848e7] Remove arquivo grande desnecessário
+ 2 files changed, 584 insertions(+)
+ delete mode 100644 commandlinetools-linux-10406996_latest.zip
+
+```
+
+---
+
+
+
+---
+
+```bash
+git push -u origin master
+```
+
+```
+Enumerating objects: 1517, done.
+Counting objects: 100% (1517/1517), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (1373/1373), done.
+Writing objects: 100% (1517/1517), 126.81 MiB | 16.31 MiB/s, done.
+Total 1517 (delta 704), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (704/704), done.
+remote: error: Trace: 68f629e39711cdfe270cc2f9a5670e26032557848c129ca664f1352c46cf255e
+remote: error: See https://gh.io/lfs for more information.
+remote: error: File commandlinetools-linux-10406996_latest.zip is 141.94 MB; this exceeds GitHub
+'s file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https:/
+/git-lfs.github.com.
+To https://github.com/RichardXLR/ASK-PI.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/RichardXLR/ASK-PI.git'
+
+```
+
+---
+
+
+
+---
+
+O arquivo ainda está no histórico do Git. Vou limpar completamente o histórico desse arquivo:
+
+---
+
+```bash
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch commandlinetools-linux-10406996_latest.zip' --prune-empty --tag-name-filter cat -- --all
+```
+
+```
+WARNING: git-filter-branch has a glut of gotchas generating mangled history
+         rewrites.  Hit Ctrl-C before proceeding to abort, then use an
+         alternative filtering tool such as 'git filter-repo'
+         (https://github.com/newren/git-filter-repo/) instead.  See the
+         filter-branch manual page for more details; to squelch this warning,
+         set FILTER_BRANCH_SQUELCH_WARNING=1.
+Proceeding with filter-branch...
+
+Rewrite a3b6ba4658aeb9ac1df7e1e63dc1ff6743e14d7b (1/4) (0 seconds passed, remaining 0 predicted)
+    rm 'commandlinetools-linux-10406996_latest.zip'
+Rewrite e045eba7ff8908bbe3fec738ceac3df507b5e8f2 (2/4) (0 seconds passed, remaining 0 predicted)
+    rm 'commandlinetools-linux-10406996_latest.zip'
+Rewrite f19603dda111d82efbbd3b9e9cd51502919766a9 (3/4) (0 seconds passed, remaining 0 predicted)
+    rm 'commandlinetools-linux-10406996_latest.zip'
+Rewrite c8848e7be2b9d10f5d6037b22c0e331ddbb886b0 (4/4) (0 seconds passed, remaining 0 predicted)
+
+Ref 'refs/heads/master' was rewritten
+
+```
+
+---
+
+
+
+---
+
+```bash
+git push -u origin master
+```
 
 ---
 
@@ -642,6 +1868,14 @@ _**Assistant**_
 
 ---
 
+_**User**_
+
+use o brackground
+
+---
+
+_**Assistant**_
+
 
 
 ---
@@ -653,6 +1887,14 @@ _**Assistant**_
 
 
 ---
+
+_**User**_
+
+do cursror ai
+
+---
+
+_**Assistant**_
 
 
 

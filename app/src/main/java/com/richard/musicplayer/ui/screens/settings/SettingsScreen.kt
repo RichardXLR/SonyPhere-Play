@@ -28,6 +28,7 @@ import androidx.compose.material.icons.rounded.Security
 import androidx.compose.material.icons.rounded.BugReport
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import com.richard.musicplayer.BuildConfig
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -92,11 +93,14 @@ fun SettingsScreen(
             onClick = { navController.navigate("settings/privacy_security") }
         )
 
-        PreferenceEntry(
-            title = { Text("Logs do Sistema") },
-            icon = { Icon(Icons.Rounded.BugReport, null) },
-            onClick = { navController.navigate("logs") }
-        )
+        // Logs screen - Only available in debug builds
+        if (BuildConfig.DEBUG) {
+            PreferenceEntry(
+                title = { Text("Logs do Sistema") },
+                icon = { Icon(Icons.Rounded.BugReport, null) },
+                onClick = { navController.navigate("logs") }
+            )
+        }
         PreferenceEntry(
             title = { Text(stringResource(R.string.about)) },
             icon = { Icon(Icons.Rounded.Info, null) },

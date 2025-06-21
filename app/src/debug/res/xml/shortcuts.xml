@@ -12,7 +12,7 @@
     </shortcut>
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/music_note"
+        android:icon="@mipmap/ic_launcher"
         android:shortcutId="songs"
         android:shortcutShortLabel="@string/songs">
         <intent

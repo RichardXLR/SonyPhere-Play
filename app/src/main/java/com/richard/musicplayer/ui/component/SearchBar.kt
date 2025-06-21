@@ -340,7 +340,7 @@ val InputFieldHeight = 56.dp
 private val SearchBarCornerRadius: Dp = 28.dp
 internal val SearchBarMinWidth: Dp = 360.dp
 private val SearchBarMaxWidth: Dp = 720.dp
-internal val SearchBarVerticalPadding: Dp = 12.dp
+internal val SearchBarVerticalPadding: Dp = 20.dp
 internal val SearchBarHorizontalPadding: Dp = 16.dp
 
 // Search bar has 16dp padding between icons and start/end, while by default text field has 12dp.

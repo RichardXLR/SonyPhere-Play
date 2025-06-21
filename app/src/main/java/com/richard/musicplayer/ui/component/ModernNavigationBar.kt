@@ -12,23 +12,16 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.richard.musicplayer.ui.theme.AccentColor
-import com.richard.musicplayer.ui.theme.GradientColor1
-import com.richard.musicplayer.ui.theme.GradientColor2
 
-@OptIn(ExperimentalAnimationApi::class)
+// OTIMIZAÇÃO: Navegação ultra-simplificada para máxima performance
 @Composable
 fun ModernNavigationBar(
     selectedTab: String,
@@ -41,80 +34,65 @@ fun ModernNavigationBar(
     Surface(
         modifier = modifier
             .fillMaxWidth()
-            .height(80.dp),
-        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.95f),
-        tonalElevation = 8.dp,
-        shadowElevation = 12.dp,
-        shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+            .height(72.dp), // Reduzido de 80dp para 72dp
+        color = MaterialTheme.colorScheme.surface.copy(alpha = 0.98f), // Mais opaco para melhor performance
+        tonalElevation = 4.dp, // Reduzido de 8dp
+        shadowElevation = 6.dp, // Reduzido de 12dp
+        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp) // Reduzido de 24dp
     ) {
-        Box(
+        Row(
             modifier = Modifier
                 .fillMaxSize()
-                .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color.White.copy(alpha = 0.05f),
-                            Color.White.copy(alpha = 0.02f)
-                        )
-                    )
-                )
+                .padding(horizontal = 12.dp, vertical = 8.dp), // Padding otimizado
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 8.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                tabs.forEach { tab ->
-                    ModernNavigationItem(
-                        tab = tab,
-                        selected = selectedTab == tab.route,
-                        onClick = {
-                            haptic.performHapticFeedback(HapticFeedbackType.LongPress)
-                            onTabSelected(tab.route)
-                        },
-                        modifier = Modifier.weight(1f)
-                    )
-                }
+            tabs.forEach { tab ->
+                OptimizedNavigationItem(
+                    tab = tab,
+                    selected = selectedTab == tab.route,
+                    onClick = {
+                        haptic.performHapticFeedback(HapticFeedbackType.TextHandleMove) // Haptic mais leve
+                        onTabSelected(tab.route)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
             }
         }
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
+// OTIMIZAÇÃO: Item de navegação ultra-otimizado
 @Composable
-private fun ModernNavigationItem(
+private fun OptimizedNavigationItem(
     tab: NavigationTab,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val animatedScale by animateFloatAsState(
-        targetValue = if (selected) 1.15f else 1f,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
-        )
+    // OTIMIZAÇÃO: Apenas animação de cor essencial
+    val iconColor by animateColorAsState(
+        targetValue = if (selected) 
+            MaterialTheme.colorScheme.primary 
+        else 
+            MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.7f),
+        animationSpec = tween(200), // Reduzido de 300ms
+        label = "iconColor"
     )
     
-    val animatedIconScale by animateFloatAsState(
-        targetValue = if (selected) 1.2f else 1f,
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioLowBouncy,
-            stiffness = Spring.StiffnessLow
-        )
-    )
-    
-    val animatedAlpha by animateFloatAsState(
-        targetValue = if (selected) 1f else 0.6f,
-        animationSpec = tween(300)
+    val textColor by animateColorAsState(
+        targetValue = if (selected) 
+            MaterialTheme.colorScheme.primary 
+        else 
+            MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.6f),
+        animationSpec = tween(200), // Reduzido de 300ms
+        label = "textColor"
     )
     
     Box(
         modifier = modifier
             .fillMaxHeight()
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(12.dp)) // Reduzido de 16dp
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null,
@@ -122,120 +100,39 @@ private fun ModernNavigationItem(
             ),
         contentAlignment = Alignment.Center
     ) {
-        // Background indicator
-        AnimatedVisibility(
-            visible = selected,
-            enter = fadeIn(tween(300)) + scaleIn(
-                initialScale = 0.8f,
-                animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
-                )
-            ),
-            exit = fadeOut(tween(200)) + scaleOut(targetScale = 0.8f)
-        ) {
+        // OTIMIZAÇÃO: Background simplificado apenas se selecionado
+        if (selected) {
             Box(
                 modifier = Modifier
-                    .size(56.dp)
+                    .size(48.dp) // Reduzido de 56dp
                     .background(
-                        brush = Brush.radialGradient(
-                            colors = listOf(
-                                MaterialTheme.colorScheme.primary.copy(alpha = 0.2f),
-                                MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
-                                Color.Transparent
-                            )
-                        ),
+                        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.12f), // Simplificado
                         shape = CircleShape
                     )
-                    .blur(8.dp)
             )
         }
         
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier
-                .scale(animatedScale)
-                .graphicsLayer { alpha = animatedAlpha }
+            verticalArrangement = Arrangement.Center
         ) {
-            Box(
-                contentAlignment = Alignment.Center
-            ) {
-                // Glow effect for selected icon
-                if (selected) {
-                    Icon(
-                        imageVector = tab.icon,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(24.dp)
-                            .scale(animatedIconScale)
-                            .blur(16.dp),
-                        tint = MaterialTheme.colorScheme.primary
-                    )
-                }
-                
-                // Main icon
-                Icon(
-                    imageVector = tab.icon,
-                    contentDescription = tab.label,
-                    modifier = Modifier
-                        .size(24.dp)
-                        .scale(animatedIconScale),
-                    tint = if (selected) 
-                        MaterialTheme.colorScheme.primary 
-                    else 
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                )
-            }
-            
-            Spacer(modifier = Modifier.height(4.dp))
-            
-            // Animated text
-            AnimatedContent(
-                targetState = selected,
-                transitionSpec = {
-                    fadeIn(tween(300)) with fadeOut(tween(200))
-                }
-            ) { isSelected ->
-                Text(
-                    text = tab.label,
-                    fontSize = if (isSelected) 12.sp else 11.sp,
-                    fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
-                    color = if (isSelected) 
-                        MaterialTheme.colorScheme.primary 
-                    else 
-                        MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.graphicsLayer {
-                        alpha = if (isSelected) 1f else 0.7f
-                    }
-                )
-            }
-        }
-        
-        // Ripple effect on selection
-        if (selected) {
-            val infiniteTransition = rememberInfiniteTransition()
-            val animatedRadius by infiniteTransition.animateFloat(
-                initialValue = 0f,
-                targetValue = 1f,
-                animationSpec = infiniteRepeatable(
-                    animation = tween(1500, easing = LinearEasing),
-                    repeatMode = RepeatMode.Restart
-                )
+            // OTIMIZAÇÃO: Ícone simplificado sem efeitos
+            Icon(
+                imageVector = tab.icon,
+                contentDescription = tab.label,
+                modifier = Modifier.size(22.dp), // Reduzido de 24dp
+                tint = iconColor
             )
             
-            Box(
-                modifier = Modifier
-                    .size(60.dp)
-                    .graphicsLayer {
-                        scaleX = animatedRadius * 2f
-                        scaleY = animatedRadius * 2f
-                        alpha = (1f - animatedRadius) * 0.3f
-                    }
-                    .background(
-                        color = MaterialTheme.colorScheme.primary,
-                        shape = CircleShape
-                    )
+            Spacer(modifier = Modifier.height(2.dp)) // Reduzido de 4dp
+            
+            // OTIMIZAÇÃO: Texto simplificado
+            Text(
+                text = tab.label,
+                fontSize = 11.sp, // Padronizado
+                fontWeight = if (selected) FontWeight.Medium else FontWeight.Normal, // Simplificado
+                color = textColor,
+                maxLines = 1
             )
         }
     }
@@ -247,24 +144,4 @@ data class NavigationTab(
     val icon: ImageVector
 )
 
-// Extensão para adicionar efeito de vibração sutil
-@Composable
-fun Modifier.subtleVibration(enabled: Boolean): Modifier {
-    return if (enabled) {
-        val infiniteTransition = rememberInfiniteTransition()
-        val offsetX by infiniteTransition.animateFloat(
-            initialValue = -0.5f,
-            targetValue = 0.5f,
-            animationSpec = infiniteRepeatable(
-                animation = tween(100),
-                repeatMode = RepeatMode.Reverse
-            )
-        )
-        
-        this.graphicsLayer {
-            translationX = offsetX
-        }
-    } else {
-        this
-    }
-} 
+// OTIMIZAÇÃO: Função desnecessária removida para melhor performance 

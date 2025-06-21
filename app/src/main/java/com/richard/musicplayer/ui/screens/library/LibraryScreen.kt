@@ -22,6 +22,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.List
 import androidx.compose.material.icons.rounded.CloudDownload
 import androidx.compose.material.icons.rounded.Favorite
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material.icons.rounded.GridView
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -215,7 +216,9 @@ fun LibraryScreen(
                     else
                         LibraryFilter.ALL
                 },
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(top = 8.dp, bottom = 4.dp),
                 selected = { it == filterSelected },
                 isLoading = { filter ->
                     (filter == LibraryFilter.PLAYLISTS && isSyncingRemotePlaylists)
@@ -350,7 +353,7 @@ fun LibraryScreen(
                                 ) {
                                     AutoPlaylistListItem(
                                         playlist = likedPlaylist,
-                                        thumbnail = Icons.Rounded.Favorite,
+                                        thumbnailRes = R.drawable.ic_favorite_modern,
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .clickable {
@@ -366,7 +369,7 @@ fun LibraryScreen(
                                 ) {
                                     AutoPlaylistListItem(
                                         playlist = downloadedPlaylist,
-                                        thumbnail = Icons.Rounded.CloudDownload,
+                                        thumbnailRes = R.drawable.ic_download_modern,
                                         modifier = Modifier
                                             .fillMaxWidth()
                                             .clickable {
@@ -461,7 +464,7 @@ fun LibraryScreen(
                                 ) {
                                     AutoPlaylistGridItem(
                                         playlist = likedPlaylist,
-                                        thumbnail = Icons.Rounded.Favorite,
+                                        thumbnailRes = R.drawable.ic_favorite_modern,
                                         fillMaxWidth = true,
                                         modifier = Modifier
                                             .fillMaxWidth()
@@ -478,7 +481,7 @@ fun LibraryScreen(
                                 ) {
                                     AutoPlaylistGridItem(
                                         playlist = downloadedPlaylist,
-                                        thumbnail = Icons.Rounded.CloudDownload,
+                                        thumbnailRes = R.drawable.ic_download_modern,
                                         fillMaxWidth = true,
                                         modifier = Modifier
                                             .fillMaxWidth()

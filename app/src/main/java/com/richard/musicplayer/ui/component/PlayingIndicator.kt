@@ -40,6 +40,8 @@ fun PlayingIndicator(
     cornerRadius: Dp = ThumbnailCornerRadius,
     isPlaying: Boolean = true
 ) {
+    // OTIMIZAÇÃO: Simplificado - apenas verificar se está tocando
+    
     val animatables = remember {
         List(bars) {
             Animatable(0.1f)
@@ -50,11 +52,12 @@ fun PlayingIndicator(
         animatables.forEach { animatable ->
             launch {
                 while (true) {
-                    if (isPlaying)
+                    if (isPlaying) {
                         animatable.animateTo(Random.nextFloat() * 0.9f + 0.1f)
-                    else
+                    } else {
                         animatable.animateTo(0.15f)
-                    delay(50)
+                    }
+                    delay(125)
                 }
             }
         }

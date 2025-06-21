@@ -40,7 +40,7 @@ class SpatialAudio private constructor(
     // Audio effects
     private var virtualizer: Virtualizer? = null
     private var environmentalReverb: EnvironmentalReverb? = null
-    private var bassBoost: BassBoost? = null
+
     private var equalizer: Equalizer? = null
     private var presetReverb: PresetReverb? = null
     
@@ -109,15 +109,7 @@ class SpatialAudio private constructor(
                 Log.w(TAG, "Preset Reverb not available", e)
             }
             
-            // Initialize Bass Boost for low-frequency enhancement
-            try {
-                bassBoost = BassBoost(0, audioSessionId).apply {
-                    enabled = false
-                }
-                Log.d(TAG, "Bass Boost initialized")
-            } catch (e: Exception) {
-                Log.w(TAG, "Bass Boost not available", e)
-            }
+
             
             // Initialize Equalizer for frequency adjustment
             try {
@@ -237,7 +229,7 @@ class SpatialAudio private constructor(
                     val numBands = eq.numberOfBands
                     if (numBands >= 5) {
                         // Create a spatial-like frequency response
-                        eq.setBandLevel(0.toShort(), 200.toShort())           // Slight bass boost
+                        eq.setBandLevel(0.toShort(), 200.toShort())           // Slight low-frequency boost
                         eq.setBandLevel(1.toShort(), (-100).toShort())        // Slight low-mid cut
                         eq.setBandLevel((numBands / 2).toShort(), 300.toShort()) // Mid boost for presence
                         eq.setBandLevel((numBands - 2).toShort(), 400.toShort()) // High-mid boost
@@ -506,19 +498,7 @@ class SpatialAudio private constructor(
         // Simulate distance attenuation - more pronounced effect
         val attenuationFactor = (1f / (1f + distance * 0.3f)).coerceIn(0.2f, 1f)
         
-        // Apply bass reduction for distance with more noticeable effect
-        try {
-            bassBoost?.let { bass ->
-                if (bass.enabled) {
-                    val bassReduction = ((1f - attenuationFactor) * 800).toInt()
-                    val finalStrength = (1000 - bassReduction).coerceIn(0, 1000)
-                    bass.setStrength(finalStrength.toShort())
-                    Log.v(TAG, "Distance effect: bass strength set to $finalStrength (distance: $distance)")
-                }
-            }
-        } catch (e: Exception) {
-            Log.w(TAG, "Error applying distance effect to bass", e)
-        }
+
         
         // Apply distance effect to reverb intensity
         try {
@@ -644,20 +624,20 @@ class SpatialAudio private constructor(
                     val verticalFactor = cos(angle * 0.7f)
                     
                     // More aggressive frequency adjustments for clear 8D effect
-                    val bassShift = (panFactor * 800).toInt().coerceIn(-1500, 1500)       // Low freq
+                    val lowFreqShift = (panFactor * 800).toInt().coerceIn(-1500, 1500)    // Low freq
                     val midShift = (-panFactor * 1000).toInt().coerceIn(-1500, 1500)     // Mid freq
                     val highShift = (verticalFactor * 1200).toInt().coerceIn(-1500, 1500) // High freq
                     
                     val numBands = eq.numberOfBands
                     if (numBands >= 5) {
                                                  // Apply dramatic frequency shifts across spectrum
-                         eq.setBandLevel(0.toShort(), bassShift.toShort())                    // Bass
-                         eq.setBandLevel(1.toShort(), (bassShift * 0.7f).toInt().toShort())  // Low-mid  
+                                             eq.setBandLevel(0.toShort(), lowFreqShift.toShort())                 // Low freq
+                    eq.setBandLevel(1.toShort(), (lowFreqShift * 0.7f).toInt().toShort()) // Low-mid  
                          eq.setBandLevel((numBands / 2).toShort(), midShift.toShort())          // Mid
                          eq.setBandLevel((numBands - 2).toShort(), (highShift * 0.8f).toInt().toShort()) // High-mid
                          eq.setBandLevel((numBands - 1).toShort(), highShift.toShort())         // High
                         
-                        Log.v(TAG, "8D Panning: bass=$bassShift, mid=$midShift, high=$highShift (angle=$angle)")
+                        Log.v(TAG, "8D Panning: lowFreq=$lowFreqShift, mid=$midShift, high=$highShift (angle=$angle)")
                     }
                 }
             }
@@ -689,15 +669,7 @@ class SpatialAudio private constructor(
                  }
              }
              
-             // Dynamic bass boost modulation for rhythmic 8D pulsing effect
-             bassBoost?.let { bass ->
-                 if (bass.enabled) {
-                     val bassPulse = (sin(angle * 3f) * 400).toInt() // Faster pulsing
-                     val dynamicBassStrength = (600 + bassPulse).coerceIn(0, 1000)
-                     bass.setStrength(dynamicBassStrength.toShort())
-                     Log.v(TAG, "8D Bass pulse: $dynamicBassStrength")
-                 }
-             }
+             
             
         } catch (e: Exception) {
             Log.w(TAG, "Error applying 8D panning effect", e)
@@ -718,7 +690,7 @@ class SpatialAudio private constructor(
             hasVirtualizer = virtualizer != null,
             hasEnvironmentalReverb = environmentalReverb != null,
             hasPresetReverb = presetReverb != null,
-            hasBassBoost = bassBoost != null,
+
             hasEqualizer = equalizer != null,
             supportsHeadTracking = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S // Android 12+
         )
@@ -734,13 +706,13 @@ class SpatialAudio private constructor(
             virtualizer?.release()
             environmentalReverb?.release()
             presetReverb?.release()
-            bassBoost?.release()
+    
             equalizer?.release()
             
             virtualizer = null
             environmentalReverb = null
             presetReverb = null
-            bassBoost = null
+    
             equalizer = null
             
             Log.d(TAG, "Spatial audio effects and timer released")
@@ -763,7 +735,7 @@ data class SpatialCapabilities(
     val hasVirtualizer: Boolean,
     val hasEnvironmentalReverb: Boolean,
     val hasPresetReverb: Boolean,
-    val hasBassBoost: Boolean,
+
     val hasEqualizer: Boolean,
     val supportsHeadTracking: Boolean
 )

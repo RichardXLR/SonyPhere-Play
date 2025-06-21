@@ -37,14 +37,19 @@ fun AudioVisualizer(
     val secondaryColor = MaterialTheme.colorScheme.secondary
     val density = LocalDensity.current
     
+    // OTIMIZAÇÃO: Lifecycle awareness para pausar quando não visível
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    val lifecycleState by lifecycleOwner.lifecycle.currentStateFlow.collectAsState()
+    val isAppVisible = lifecycleState.isAtLeast(androidx.lifecycle.Lifecycle.State.RESUMED)
+    
     // Animação das barras
     val animatedBands = remember { mutableStateListOf<Float>().apply { 
         repeat(32) { add(0f) } 
     }}
     
-    // Animação suave das barras
-    LaunchedEffect(frequencyBands, isPlaying) {
-        if (isPlaying) {
+    // OTIMIZAÇÃO: Animação com FPS reduzido e lifecycle awareness
+    LaunchedEffect(frequencyBands, isPlaying, isAppVisible) {
+        if (isPlaying && isAppVisible) {
             while (true) {
                 for (i in frequencyBands.indices) {
                     // Valores mais altos e variados para ondas mais visíveis
@@ -52,12 +57,13 @@ fun AudioVisualizer(
                     val enhancedValue = baseValue + Random.nextFloat() * 0.4f // Amplifica as ondas
                     animatedBands[i] = animatedBands[i] * 0.6f + enhancedValue.coerceAtMost(1f) * 0.4f
                 }
-                delay(40) // 25 FPS para mais fluidez
+                // OTIMIZAÇÃO: FPS reduzido de 25 para 10 (100ms ao invés de 40ms)
+                delay(100) // 10 FPS para melhor performance
             }
         } else {
-            // Fade out quando não está tocando
+            // OTIMIZAÇÃO: Fade out mais rápido quando não está tocando
             for (i in animatedBands.indices) {
-                animatedBands[i] *= 0.85f
+                animatedBands[i] *= 0.7f // Fade mais rápido
             }
         }
     }
@@ -68,13 +74,16 @@ fun AudioVisualizer(
             .height(70.dp)
             .clip(RoundedCornerShape(16.dp))
     ) {
-        drawNativeVisualizer(
-            bands = animatedBands.toFloatArray(),
-            amplitude = amplitude,
-            primaryColor = primaryColor,
-            secondaryColor = secondaryColor,
-            isPlaying = isPlaying
-        )
+        // OTIMIZAÇÃO: Só desenhar se app visível
+        if (isAppVisible) {
+            drawNativeVisualizer(
+                bands = animatedBands.toFloatArray(),
+                amplitude = amplitude,
+                primaryColor = primaryColor,
+                secondaryColor = secondaryColor,
+                isPlaying = isPlaying
+            )
+        }
     }
 }
 

@@ -85,19 +85,63 @@ fun Bitmap.extractThemeColor(): Color {
 }
 
 fun Bitmap.extractGradientColors(): List<Color> {
-    val extractedColors = Palette.from(this)
-        .maximumColorCount(16)
-        .generate()
-        .swatches
-        .associate { it.rgb to it.population }
+    return try {
+        val palette = Palette.from(this)
+            .maximumColorCount(24) // Aumentado para mais cores
+            .generate()
 
-    val orderedColors = Score.score(extractedColors, 2, 0xff4285f4.toInt(), true)
-        .sortedByDescending { Color(it).luminance() }
-
-    return if (orderedColors.size >= 2)
-        listOf(Color(orderedColors[0]), Color(orderedColors[1]))
-    else
-        listOf(Color(0xFF595959), Color(0xFF0D0D0D))
+        val colors = mutableListOf<Color>()
+        
+        // Adicionar cores principais em ordem de prioridade
+        palette.dominantSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.vibrantSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.mutedSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.lightVibrantSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.darkVibrantSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.lightMutedSwatch?.rgb?.let { colors.add(Color(it)) }
+        palette.darkMutedSwatch?.rgb?.let { colors.add(Color(it)) }
+        
+        // Se não temos cores suficientes, usar o Score para extrair mais
+        if (colors.size < 3) {
+            val extractedColors = palette.swatches
+                .associate { it.rgb to it.population }
+            val scoredColors = Score.score(extractedColors, 6, 0xff4285f4.toInt(), true)
+            
+            scoredColors.take(6).forEach { colorInt ->
+                val color = Color(colorInt)
+                if (!colors.any { existingColor -> 
+                    kotlin.math.abs(existingColor.red - color.red) < 0.1f &&
+                    kotlin.math.abs(existingColor.green - color.green) < 0.1f &&
+                    kotlin.math.abs(existingColor.blue - color.blue) < 0.1f
+                }) {
+                    colors.add(color)
+                }
+            }
+        }
+        
+        // Garantir pelo menos 3 cores para um bom gradiente
+        if (colors.isEmpty()) {
+            // Fallback para cores baseadas na cor dominante
+            val dominantColor = palette.dominantSwatch?.rgb ?: 0xFF6200EE.toInt()
+            val baseColor = Color(dominantColor)
+            listOf(
+                baseColor,
+                baseColor.copy(alpha = 0.8f),
+                baseColor.copy(alpha = 0.6f)
+            )
+        } else {
+            // Retornar até 6 cores para gradientes ricos
+            colors.distinct().take(6)
+        }
+        
+    } catch (e: Exception) {
+        // Fallback em caso de erro
+        listOf(
+            Color(0xFF6200EE),
+            Color(0xFF3700B3),
+            Color(0xFF03DAC6)
+        )
+    }
 }
 
 fun DynamicScheme.toColorScheme() = ColorScheme(

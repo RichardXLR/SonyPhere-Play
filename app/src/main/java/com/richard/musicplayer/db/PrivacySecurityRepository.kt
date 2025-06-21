@@ -33,6 +33,7 @@ class PrivacySecurityRepository @Inject constructor(
         val CRASH_REPORTS_ENABLED = booleanPreferencesKey("crash_reports_enabled")
         val FORCE_HTTPS = booleanPreferencesKey("force_https")
         val BLOCK_TRACKERS = booleanPreferencesKey("block_trackers")
+        val UNLOCK_SOUND_ENABLED = booleanPreferencesKey("unlock_sound_enabled")
         val ENCRYPTED_PIN = stringPreferencesKey("encrypted_pin")
         val PIN_IV = stringPreferencesKey("pin_iv")
     }
@@ -69,6 +70,7 @@ class PrivacySecurityRepository @Inject constructor(
                 put(PreferencesKeys.CRASH_REPORTS_ENABLED, preferences[PreferencesKeys.CRASH_REPORTS_ENABLED] ?: true)
                 put(PreferencesKeys.FORCE_HTTPS, preferences[PreferencesKeys.FORCE_HTTPS] ?: true)
                 put(PreferencesKeys.BLOCK_TRACKERS, preferences[PreferencesKeys.BLOCK_TRACKERS] ?: true)
+                put(PreferencesKeys.UNLOCK_SOUND_ENABLED, preferences[PreferencesKeys.UNLOCK_SOUND_ENABLED] ?: true)
             }
         }
 
@@ -138,6 +140,7 @@ class PrivacySecurityRepository @Inject constructor(
                 "crash_reports_enabled" -> PreferencesKeys.CRASH_REPORTS_ENABLED
                 "force_https" -> PreferencesKeys.FORCE_HTTPS
                 "block_trackers" -> PreferencesKeys.BLOCK_TRACKERS
+                "unlock_sound_enabled" -> PreferencesKeys.UNLOCK_SOUND_ENABLED
                 else -> throw IllegalArgumentException("Chave de preferência desconhecida: $name")
             }
         }

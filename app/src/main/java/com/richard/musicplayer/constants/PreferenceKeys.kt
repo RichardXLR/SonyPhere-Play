@@ -118,6 +118,7 @@ val ExcludedScanPathsKey = stringPreferencesKey("excludedScanPaths")
 val LastLocalScanKey = longPreferencesKey("lastLocalScan")
 
 val FirstSetupPassed = booleanPreferencesKey("firstSetupPassed")
+val NotificationPermissionAsked = booleanPreferencesKey("notificationPermissionAsked")
 val SwipeToSkip = booleanPreferencesKey("swipeToSkip")
 
 

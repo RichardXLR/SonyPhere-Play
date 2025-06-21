@@ -45,16 +45,16 @@ class ExoDownloadService : DownloadService(
 
     override fun getForegroundNotification(downloads: MutableList<Download>, notMetRequirements: Int): Notification =
         if (downloads.isEmpty()) {
-            downloadUtil.downloadNotificationHelper.buildDownloadCompletedNotification(this,
-                R.drawable.notification_icon,
+                    downloadUtil.downloadNotificationHelper.buildDownloadCompletedNotification(this,
+            R.mipmap.ic_launcher,
                 null,
                 null
             )
         } else {
             Notification.Builder.recoverBuilder(
-                this, downloadUtil.downloadNotificationHelper.buildProgressNotification(
-                    this,
-                    R.drawable.notification_icon,
+                        this, downloadUtil.downloadNotificationHelper.buildProgressNotification(
+            this,
+            R.mipmap.ic_launcher,
                     null,
                     if (downloads.size == 1) Util.fromUtf8Bytes(downloads[0].request.data)
                     else resources.getQuantityString(R.plurals.n_song, downloads.size, downloads.size),
@@ -90,9 +90,9 @@ class ExoDownloadService : DownloadService(
             finalException: Exception?,
         ) {
             if (download.state == Download.STATE_FAILED) {
-                val notification = notificationHelper.buildDownloadFailedNotification(
-                    context,
-                    R.drawable.notification_icon,
+                        val notification = notificationHelper.buildDownloadFailedNotification(
+            context,
+            R.mipmap.ic_launcher,
                     null,
                     Util.fromUtf8Bytes(download.request.data)
                 )

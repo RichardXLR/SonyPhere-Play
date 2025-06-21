@@ -45,9 +45,18 @@ android {
             isCrunchPngs = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
+            
+            // Otimizações para R8
+            isDebuggable = false
+            isJniDebuggable = false
+            renderscriptOptimLevel = 3
+            
+            // Configurações de build para economizar memória
+            multiDexEnabled = true
         }
         debug {
             applicationIdSuffix = ".debug"
+            multiDexEnabled = true
         }
 
         // userdebug is release builds without minify
@@ -55,6 +64,7 @@ android {
             initWith(getByName("release"))
             isMinifyEnabled = false
             isShrinkResources = false
+            multiDexEnabled = true
         }
     }
 
@@ -74,6 +84,9 @@ android {
             isUniversalApk = false
         }
     }
+
+    // Configurações para otimizar uso de memória durante compilação removidas
+    // dexOptions foi removido no AGP 8.0 - otimizações são automáticas
 
     flavorDimensions.add("abi")
 

@@ -977,6 +977,38 @@ fun AutoPlaylistListItem(
 )
 
 @Composable
+fun AutoPlaylistListItem(
+    playlist: PlaylistEntity,
+    thumbnailRes: Int,
+    modifier: Modifier = Modifier,
+    trailingContent: @Composable RowScope.() -> Unit = {},
+) = ListItem(
+    title = playlist.name,
+    subtitle = stringResource(id = R.string.auto_playlist),
+    thumbnailContent = {
+        Box(
+            modifier = Modifier
+                .size(ListThumbnailSize)
+                .background(
+                    MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp),
+                    shape = RoundedCornerShape(ThumbnailCornerRadius)
+                )
+        ) {
+            Icon(
+                painter = painterResource(id = thumbnailRes),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(ListThumbnailSize / 2 + 4.dp)
+                    .background(MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp))
+                    .align(Alignment.Center)
+            )
+        }
+    },
+    trailingContent = trailingContent,
+    modifier = modifier
+)
+
+@Composable
 fun AutoPlaylistGridItem(
     playlist: PlaylistEntity,
     thumbnail: ImageVector,
@@ -997,6 +1029,39 @@ fun AutoPlaylistGridItem(
         ) {
             Icon(
                 imageVector = thumbnail,
+                contentDescription = null,
+                tint = LocalContentColor.current.copy(alpha = 0.8f),
+                modifier = Modifier
+                    .size(width / 2 + 10.dp)
+                    .align(Alignment.Center)
+            )
+        }
+    },
+    fillMaxWidth = fillMaxWidth,
+    modifier = modifier
+)
+
+@Composable
+fun AutoPlaylistGridItem(
+    playlist: PlaylistEntity,
+    thumbnailRes: Int,
+    modifier: Modifier = Modifier,
+    fillMaxWidth: Boolean = false,
+) = GridItem(
+    title = playlist.name,
+    subtitle = stringResource(id = R.string.auto_playlist),
+    thumbnailContent = {
+        val width = maxWidth
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp),
+                    shape = RoundedCornerShape(ThumbnailCornerRadius)
+                )
+        ) {
+            Icon(
+                painter = painterResource(id = thumbnailRes),
                 contentDescription = null,
                 tint = LocalContentColor.current.copy(alpha = 0.8f),
                 modifier = Modifier
@@ -1176,8 +1241,12 @@ fun YouTubeListItem(
     isSelected: Boolean = false,
     badges: @Composable RowScope.() -> Unit = {
         val database = LocalDatabase.current
-        val song by database.song(item.id).collectAsState(initial = null)
-        val album by database.album(item.id).collectAsState(initial = null)
+        val song by remember(item.id) {
+            database.song(item.id)
+        }.collectAsState(initial = null)
+        val album by remember(item.id) {
+            database.album(item.id)
+        }.collectAsState(initial = null)
 
         if (item is SongItem && song?.song?.liked == true ||
             item is AlbumItem && album?.album?.bookmarkedAt != null
@@ -1242,8 +1311,12 @@ fun YouTubeGridItem(
     coroutineScope: CoroutineScope? = null,
     badges: @Composable RowScope.() -> Unit = {
         val database = LocalDatabase.current
-        val song by database.song(item.id).collectAsState(initial = null)
-        val album by database.album(item.id).collectAsState(initial = null)
+        val song by remember(item.id) {
+            database.song(item.id)
+        }.collectAsState(initial = null)
+        val album by remember(item.id) {
+            database.album(item.id)
+        }.collectAsState(initial = null)
 
         if (item is SongItem && song?.song?.liked == true ||
             item is AlbumItem && album?.album?.bookmarkedAt != null

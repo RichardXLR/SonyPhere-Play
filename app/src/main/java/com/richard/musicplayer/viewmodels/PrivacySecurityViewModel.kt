@@ -19,6 +19,7 @@ data class PrivacySecurityState(
     val crashReportsEnabled: Boolean = true,
     val forceHttps: Boolean = true,
     val blockTrackers: Boolean = true,
+    val unlockSoundEnabled: Boolean = true,
     val hasPin: Boolean = false
 )
 
@@ -41,6 +42,7 @@ class PrivacySecurityViewModel @Inject constructor(
                     crashReportsEnabled = settings[PrivacySecurityRepository.getPreferencesKey("crash_reports_enabled")] as Boolean,
                     forceHttps = settings[PrivacySecurityRepository.getPreferencesKey("force_https")] as Boolean,
                     blockTrackers = settings[PrivacySecurityRepository.getPreferencesKey("block_trackers")] as Boolean,
+                    unlockSoundEnabled = settings[PrivacySecurityRepository.getPreferencesKey("unlock_sound_enabled")] as Boolean,
                     hasPin = repository.hasPin()
                 )
             }
@@ -86,6 +88,12 @@ class PrivacySecurityViewModel @Inject constructor(
     fun setBlockTrackers(enabled: Boolean) {
         viewModelScope.launch {
             repository.updateSetting(PrivacySecurityRepository.getPreferencesKey("block_trackers"), enabled)
+        }
+    }
+
+    fun setUnlockSoundEnabled(enabled: Boolean) {
+        viewModelScope.launch {
+            repository.updateSetting(PrivacySecurityRepository.getPreferencesKey("unlock_sound_enabled"), enabled)
         }
     }
 

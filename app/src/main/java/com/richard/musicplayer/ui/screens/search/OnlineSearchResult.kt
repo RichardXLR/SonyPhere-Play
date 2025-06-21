@@ -18,7 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.SnackbarHost
@@ -41,6 +41,7 @@ import com.richard.musicplayer.LocalPlayerAwareWindowInsets
 import com.richard.musicplayer.LocalPlayerConnection
 import com.richard.musicplayer.R
 import com.richard.musicplayer.constants.AppBarHeight
+import com.richard.musicplayer.constants.SearchBarHeight
 import com.richard.musicplayer.constants.SearchFilterHeight
 import com.richard.musicplayer.extensions.toMediaItem
 import com.richard.musicplayer.extensions.togglePlayPause
@@ -230,7 +231,7 @@ fun OnlineSearchResult(
             if (searchSummary?.summaries?.isEmpty() == true) {
                 item {
                     EmptyPlaceholder(
-                        icon = Icons.Rounded.Search,
+                        icon = R.drawable.ic_search_modern,
                         text = stringResource(R.string.no_results_found),
                         modifier = Modifier.animateItem()
                     )
@@ -257,7 +258,7 @@ fun OnlineSearchResult(
             if (itemsPage?.items?.isEmpty() == true) {
                 item {
                     EmptyPlaceholder(
-                        icon = Icons.Rounded.Search,
+                        icon = R.drawable.ic_search_modern,
                         text = stringResource(R.string.no_results_found),
                         modifier = Modifier.animateItem()
                     )
@@ -308,6 +309,6 @@ fun OnlineSearchResult(
         },
         modifier = Modifier
             .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top))
-            .padding(top = AppBarHeight)
+            .padding(top = SearchBarHeight)
     )
 }

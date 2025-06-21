@@ -382,4 +382,5 @@ We recycle translations from upstream, they are pulled periodically. -->
     <string name="experimental_settings_title">Experimental</string>
     <string name="dev_settings_title">Enable developer settings</string>
     <string name="dev_settings_description">Reveals additional advanced settings intended for development use</string>
+    <string name="app_disabled">App disabled</string>
 </resources>

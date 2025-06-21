@@ -38,6 +38,10 @@ class HomeViewModel @Inject constructor(
     val isRefreshing = MutableStateFlow(false)
     val isLoading = MutableStateFlow(false)
 
+    // 🚀 CACHE PARA EVITAR RECARREGAMENTOS DESNECESSÁRIOS
+    private var lastLoadTime = 0L
+    private val cacheExpiryTime = 10 * 60 * 1000L // 10 minutos
+    
     val quickPicks = MutableStateFlow<List<Song>?>(null)
     val forgottenFavorites = MutableStateFlow<List<Song>?>(null)
     val keepListening = MutableStateFlow<List<LocalItem>?>(null)
@@ -47,6 +51,8 @@ class HomeViewModel @Inject constructor(
     val selectedChip = MutableStateFlow<HomePage.Chip?>(null)
     private val previousHomePage = MutableStateFlow<HomePage?>(null)
     val explorePage = MutableStateFlow<ExplorePage?>(null)
+    
+    // 🚀 LAZY LOADING para playlists e activities recentes
     val playlists = database.playlists(PlaylistFilter.LIBRARY, PlaylistSortType.NAME, true)
         .stateIn(viewModelScope, SharingStarted.Lazily, null)
     val recentActivity = database.recentActivity()
@@ -56,30 +62,36 @@ class HomeViewModel @Inject constructor(
     val allYtItems = MutableStateFlow<List<YTItem>>(emptyList())
 
     private suspend fun load() {
+        // 🚀 CACHE CHECK: Evitar recarregamento se dados ainda são válidos
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - lastLoadTime < cacheExpiryTime && quickPicks.value != null) {
+            return // Cache ainda válido, não recarregar
+        }
+        
         isLoading.value = true
 
+        // 🚀 OPTIMIZED: Reduzir quantidade de dados para melhor performance
         quickPicks.value = database.quickPicks()
-            .first().shuffled().take(20)
+            .first().shuffled().take(15) // Reduzido de 20 para 15
 
         forgottenFavorites.value = database.forgottenFavorites()
-            .first().shuffled().take(20)
+            .first().shuffled().take(15) // Reduzido de 20 para 15
 
         val fromTimeStamp = System.currentTimeMillis() - 86400000 * 7 * 2
-        val keepListeningSongs = database.mostPlayedSongs(fromTimeStamp, limit = 15, offset = 5)
-            .first().shuffled().take(10)
-        val keepListeningAlbums = database.mostPlayedAlbums(fromTimeStamp, limit = 8, offset = 2)
-            .first().filter { it.album.thumbnailUrl != null }.shuffled().take(5)
+        val keepListeningSongs = database.mostPlayedSongs(fromTimeStamp, limit = 12, offset = 5) // Reduzido
+            .first().shuffled().take(8) // Reduzido de 10 para 8
+        val keepListeningAlbums = database.mostPlayedAlbums(fromTimeStamp, limit = 6, offset = 2) // Reduzido
+            .first().filter { it.album.thumbnailUrl != null }.shuffled().take(4) // Reduzido
         val keepListeningArtists = database.mostPlayedArtists(fromTimeStamp)
-            .first().filter { it.artist.isYouTubeArtist && it.artist.thumbnailUrl != null }.shuffled().take(5)
+            .first().filter { it.artist.isYouTubeArtist && it.artist.thumbnailUrl != null }.shuffled().take(4) // Reduzido
         keepListening.value = (keepListeningSongs + keepListeningAlbums + keepListeningArtists).shuffled()
 
         allLocalItems.value =
             (quickPicks.value.orEmpty() + forgottenFavorites.value.orEmpty() + keepListening.value.orEmpty())
                 .filter { it is Song || it is Album }
 
-        if (YouTube.cookie != null) { // if logged in
-            // InnerTune way is YouTube.likedPlaylists().onSuccess { ... }
-            // OuterTune uses YouTube.library("FEmusic_liked_playlists").completedL().onSuccess { ... }
+        // 🚀 LAZY LOAD: YouTube data apenas se necessário
+        if (YouTube.cookie != null) {
             YouTube.library("FEmusic_liked_playlists").completed().onSuccess {
                 accountPlaylists.value = it.items.filterIsInstance<PlaylistItem>()
             }.onFailure {
@@ -87,11 +99,11 @@ class HomeViewModel @Inject constructor(
             }
         }
 
-        // Similar to artists
+        // 🚀 OPTIMIZED: Reduzir quantidade de recomendações similares
         val artistRecommendations =
-            database.mostPlayedArtists(fromTimeStamp, limit = 10).first()
+            database.mostPlayedArtists(fromTimeStamp, limit = 6).first() // Reduzido de 10 para 6
                 .filter { it.artist.isYouTubeArtist }
-                .shuffled().take(3)
+                .shuffled().take(2) // Reduzido de 3 para 2
                 .mapNotNull {
                     val items = mutableListOf<YTItem>()
                     YouTube.artist(it.id).onSuccess { page ->
@@ -105,43 +117,51 @@ class HomeViewModel @Inject constructor(
                             .ifEmpty { return@mapNotNull null }
                     )
                 }
-        // Similar to songs
+        
         val songRecommendations =
-            database.mostPlayedSongs(fromTimeStamp, limit = 10).first()
+            database.mostPlayedSongs(fromTimeStamp, limit = 8).first() // Reduzido de 10 para 8
                 .filter { it.album != null }
-                .shuffled().take(2)
+                .shuffled().take(1) // Reduzido de 2 para 1
                 .mapNotNull { song ->
                     val endpoint = YouTube.next(WatchEndpoint(videoId = song.id)).getOrNull()?.relatedEndpoint ?: return@mapNotNull null
                     val page = YouTube.related(endpoint).getOrNull() ?: return@mapNotNull null
                     SimilarRecommendation(
                         title = song,
-                        items = (page.songs.shuffled().take(8) +
-                                page.albums.shuffled().take(4) +
-                                page.artists.shuffled().take(4) +
-                                page.playlists.shuffled().take(4))
+                        items = (page.songs.shuffled().take(6) + // Reduzido de 8 para 6
+                                page.albums.shuffled().take(3) + // Reduzido de 4 para 3
+                                page.artists.shuffled().take(3) + // Reduzido de 4 para 3
+                                page.playlists.shuffled().take(3)) // Reduzido de 4 para 3
                             .shuffled()
                             .ifEmpty { return@mapNotNull null }
                     )
                 }
         similarRecommendations.value = (artistRecommendations + songRecommendations).shuffled()
 
-        YouTube.home().onSuccess { page ->
-            homePage.value = page
-        }.onFailure {
-            reportException(it)
+        // 🚀 BACKGROUND LOADING: Carregar YouTube data em background
+        viewModelScope.launch(Dispatchers.IO) {
+            YouTube.home().onSuccess { page ->
+                homePage.value = page
+            }.onFailure {
+                reportException(it)
+            }
+
+            YouTube.explore().onSuccess { page ->
+                explorePage.value = page
+            }.onFailure {
+                reportException(it)
+            }
+
+            allYtItems.value = similarRecommendations.value?.flatMap { it.items }.orEmpty() +
+                    homePage.value?.sections?.flatMap { it.items }.orEmpty()
         }
 
-        YouTube.explore().onSuccess { page ->
-            explorePage.value = page
-        }.onFailure {
-            reportException(it)
+        // 🚀 BACKGROUND SYNC: Executar sync em background separado
+        viewModelScope.launch(Dispatchers.IO) {
+            syncUtils.syncRecentActivity()
         }
 
-        syncUtils.syncRecentActivity()
-
-        allYtItems.value = similarRecommendations.value?.flatMap { it.items }.orEmpty() +
-                homePage.value?.sections?.flatMap { it.items }.orEmpty()
-
+        // 🚀 ATUALIZAR CACHE TIMESTAMP
+        lastLoadTime = currentTime
         isLoading.value = false
     }
     

@@ -52,6 +52,7 @@ import androidx.media3.exoplayer.analytics.AnalyticsListener
 import androidx.media3.exoplayer.analytics.PlaybackStats
 import androidx.media3.exoplayer.analytics.PlaybackStatsListener
 import androidx.media3.exoplayer.audio.AudioSink
+import androidx.media3.exoplayer.audio.AudioCapabilities
 import androidx.media3.exoplayer.audio.DefaultAudioOffloadSupportProvider
 import androidx.media3.exoplayer.audio.DefaultAudioSink
 import androidx.media3.exoplayer.audio.SilenceSkippingAudioProcessor
@@ -92,6 +93,7 @@ import com.richard.musicplayer.di.DownloadCache
 import com.richard.musicplayer.extensions.SilentHandler
 import com.richard.musicplayer.extensions.collect
 import com.richard.musicplayer.extensions.collectLatest
+import com.richard.musicplayer.playback.AudioEffects
 import com.richard.musicplayer.extensions.currentMetadata
 import com.richard.musicplayer.extensions.findNextMediaItemById
 import com.richard.musicplayer.extensions.metadata
@@ -263,6 +265,8 @@ class MusicService : MediaLibraryService(),
                 AudioAttributes.Builder()
                     .setUsage(C.USAGE_MEDIA)
                     .setContentType(C.AUDIO_CONTENT_TYPE_MUSIC)
+                    .setAllowedCapturePolicy(C.ALLOW_CAPTURE_BY_SYSTEM)
+                    .setSpatializationBehavior(C.SPATIALIZATION_BEHAVIOR_AUTO)
                     .build(), true
             )
             .setSeekBackIncrementMs(5000)
@@ -433,7 +437,7 @@ class MusicService : MediaLibraryService(),
         setMediaNotificationProvider(
             DefaultMediaNotificationProvider(this, { NOTIFICATION_ID }, CHANNEL_ID, R.string.music_player)
                 .apply {
-                    setSmallIcon(R.drawable.notification_icon)
+                    setSmallIcon(R.mipmap.ic_launcher)
                 }
         )
     }
@@ -810,8 +814,16 @@ class MusicService : MediaLibraryService(),
                 player.playbackState == Player.STATE_BUFFERING || player.playbackState == Player.STATE_READY
             if (isBufferingOrReady && player.playWhenReady) {
                 openAudioEffectSession()
+
             } else {
-                closeAudioEffectSession()
+
+                
+                // 🎵 AUDIO EFFECTS: Não fechar sessão durante pause, apenas durante IDLE/ENDED
+                // Isso preserva os AudioEffects durante pause/resume
+                if (player.playbackState == Player.STATE_IDLE || player.playbackState == Player.STATE_ENDED) {
+                    closeAudioEffectSession()
+                }
+                
                 if (!player.playWhenReady) {
                     waitingForNetworkConnection.value = false
                 }
@@ -972,7 +984,7 @@ class MusicService : MediaLibraryService(),
             context: Context, enableFloatOutput: Boolean, enableAudioTrackPlaybackParams: Boolean
         ): AudioSink {
             return DefaultAudioSink.Builder(this@MusicService)
-                .setEnableFloatOutput(enableFloatOutput)
+                .setEnableFloatOutput(enableFloatOutput) // Usar o valor padrão do sistema
                 .setAudioProcessorChain(
                     DefaultAudioSink.DefaultAudioProcessorChain(
                         emptyArray(),

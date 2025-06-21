@@ -1,23 +1,25 @@
 package com.richard.musicplayer.playback
 
-import android.media.audiofx.BassBoost
+
 import android.media.audiofx.Equalizer
 import android.media.audiofx.Visualizer
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import java.util.*
 import kotlin.math.sin
+import kotlinx.coroutines.withContext
 
-class AudioEffects(private val audioSessionId: Int) {
-    private var bassBoost: BassBoost? = null
+class AudioEffects private constructor(private val audioSessionId: Int) {
+
     private var equalizer: Equalizer? = null
     private var visualizer: Visualizer? = null
     
-    private val _bassLevel = MutableStateFlow(0f) // 0-100
-    private val bassLevel: StateFlow<Float> = _bassLevel.asStateFlow()
+
     
     private val _waveform = MutableStateFlow(ByteArray(0))
     val waveform: StateFlow<ByteArray> = _waveform.asStateFlow()
@@ -36,65 +38,37 @@ class AudioEffects(private val audioSessionId: Int) {
     private var fake8DTimer: Timer? = null
     private var fake8DAngle = 0f
     
-    init {
-        initializeEffects()
+    private val _visualizerData = MutableStateFlow<ByteArray?>(null)
+    val visualizerData: StateFlow<ByteArray?> = _visualizerData.asStateFlow()
+    
+
+    
+    companion object {
+        @Volatile
+        private var instance: AudioEffects? = null
+        
+        fun getInstance(audioSessionId: Int): AudioEffects {
+            return instance ?: synchronized(this) {
+                instance ?: AudioEffects(audioSessionId).also { instance = it }
+            }
+        }
+        
+        fun releaseInstance() {
+            instance?.release()
+            instance = null
+        }
     }
     
-    private fun initializeEffects() {
-        Log.d("AudioEffects", "Initializing audio effects for session ID: $audioSessionId")
-        
-        // Verificar se o audioSessionId é válido
-        if (audioSessionId <= 0) {
-            Log.e("AudioEffects", "Invalid audio session ID: $audioSessionId")
-            return
-        }
-        
-        Log.d("AudioEffects", "Starting initialization with valid session ID: $audioSessionId")
-        
-        // Initialize Bass Boost
-        try {
-            bassBoost = BassBoost(0, audioSessionId).apply {
-                // Verificar se o dispositivo suporta strength antes de habilitar
-                if (strengthSupported) {
-                    enabled = true
-                    Log.d("AudioEffects", "BassBoost initialized successfully with strength support")
-                } else {
-                    Log.w("AudioEffects", "BassBoost strength not supported, will use equalizer-only bass")
-                    // Não habilitar se não suporta strength, usaremos só equalizer
-                    enabled = false
-                }
-            }
-        } catch (e: Exception) {
-            Log.e("AudioEffects", "Failed to initialize BassBoost, will use equalizer-only bass", e)
-            bassBoost = null
-        }
+    init {
+
         
         // Initialize Equalizer
         try {
-            equalizer = Equalizer(0, audioSessionId)
-            equalizer?.let { eq ->
-                // Tentar habilitar o equalizer
+            equalizer = Equalizer(0, audioSessionId).apply {
                 try {
-                    eq.enabled = true
-                    Log.d("AudioEffects", "Equalizer enabled successfully")
-                } catch (enableE: Exception) {
-                    Log.e("AudioEffects", "Failed to enable Equalizer", enableE)
-                    // Tentar forçar habilitação após um delay
-                    try {
-                        Thread.sleep(100)
-                        eq.enabled = true
-                        Log.d("AudioEffects", "Equalizer enabled on retry")
-                    } catch (retryE: Exception) {
-                        Log.e("AudioEffects", "Failed to enable Equalizer on retry", retryE)
-                    }
-                }
-                
-                Log.d("AudioEffects", "Equalizer initialized - enabled: ${eq.enabled}, bands: ${eq.numberOfBands}")
-                
-                // Log das frequências para debug
-                for (i in 0 until eq.numberOfBands) {
-                    val freq = eq.getCenterFreq(i.toShort())
-                    Log.v("AudioEffects", "Band $i: ${freq/1000}kHz")
+                    enabled = true
+                } catch (e: Exception) {
+                    // silent fail
                 }
             }
         } catch (e: Exception) {
@@ -102,157 +76,78 @@ class AudioEffects(private val audioSessionId: Int) {
             equalizer = null
         }
         
-        // Initialize Visualizer for animations
+        // Initialize Visualizer
         try {
             visualizer = Visualizer(audioSessionId).apply {
-                captureSize = Visualizer.getCaptureSizeRange()[1] // Max size
-                setDataCaptureListener(
-                    object : Visualizer.OnDataCaptureListener {
-                        override fun onWaveFormDataCapture(
-                            visualizer: Visualizer?,
-                            waveform: ByteArray?,
-                            samplingRate: Int
-                        ) {
-                            waveform?.let { 
-                                _waveform.value = it
-                                // Calculate amplitude from waveform
-                                val amplitude = it.map { byte -> kotlin.math.abs(byte.toInt()) }.average() / 128f
-                                _amplitude.value = amplitude.toFloat().coerceIn(0f, 1f)
-                            }
-                        }
-                        
-                        override fun onFftDataCapture(
-                            visualizer: Visualizer?,
-                            fft: ByteArray?,
-                            samplingRate: Int
-                        ) {
-                            fft?.let { 
-                                _fft.value = it
-                                // Process FFT data into frequency bands
-                                processFFTData(it)
-                            }
-                        }
-                    },
-                    Visualizer.getMaxCaptureRate() / 2,
-                    true,
-                    true
-                )
+                captureSize = Visualizer.getCaptureSizeRange()[1]
+                setDataCaptureListener(object : Visualizer.OnDataCaptureListener {
+                    override fun onWaveFormDataCapture(visualizer: Visualizer?, waveform: ByteArray?, samplingRate: Int) {
+                        _visualizerData.value = waveform
+                    }
+                    
+                    override fun onFftDataCapture(visualizer: Visualizer?, fft: ByteArray?, samplingRate: Int) {
+                        // Not used for now
+                    }
+                }, Visualizer.getMaxCaptureRate() / 2, true, false)
+                
                 enabled = true
             }
-            Log.d("AudioEffects", "Visualizer initialized successfully")
         } catch (e: Exception) {
             Log.e("AudioEffects", "Failed to initialize Visualizer", e)
             visualizer = null
         }
-        
-        val effectsCount = listOfNotNull(bassBoost, equalizer, visualizer).size
-        Log.d("AudioEffects", "Audio effects initialization completed. $effectsCount/3 effects available")
-        
-        // Verificar estado final dos efeitos
-        Log.d("AudioEffects", "Final status:")
-        Log.d("AudioEffects", "- BassBoost: ${if (bassBoost != null) "available (enabled: ${bassBoost?.enabled}, strengthSupported: ${bassBoost?.strengthSupported})" else "null"}")
-        Log.d("AudioEffects", "- Equalizer: ${if (equalizer != null) "available (enabled: ${equalizer?.enabled}, bands: ${equalizer?.numberOfBands})" else "null"}")
-        Log.d("AudioEffects", "- Visualizer: ${if (visualizer != null) "available (enabled: ${visualizer?.enabled})" else "null"}")
     }
     
-    fun setBassLevel(level: Float) {
-        val clampedLevel = level.coerceIn(0f, 100f)
-        _bassLevel.value = clampedLevel
+
+    
+    // 🔄 FUNÇÃO DE RESET COMPLETO PARA EVITAR ACÚMULO
+    private suspend fun resetAllAudioEffects() {
+
         
-        Log.d("AudioEffects", "Setting bass level to: $clampedLevel%")
-        
-        var bassApplied = false
-        
-        // Tentar usar BassBoost primeiro (se disponível e funcional)
-        bassBoost?.let { boost ->
-            try {
-                if (boost.strengthSupported && boost.enabled) {
-                    val strength = (clampedLevel * 10).toInt().coerceIn(0, 1000)
-                    boost.setStrength(strength.toShort())
-                    Log.d("AudioEffects", "BassBoost strength set to: $strength")
-                    bassApplied = true
-                } else {
-                    Log.d("AudioEffects", "BassBoost not available, using equalizer-only approach")
-                }
-            } catch (e: Exception) {
-                Log.w("AudioEffects", "BassBoost failed, falling back to equalizer", e)
-            }
-        }
-        
-        // Sempre aplicar também via equalizer (para reforçar o efeito ou como fallback)
+        // Reset Equalizer
         equalizer?.let { eq ->
             try {
-                // Verificar se equalizer está habilitado, se não, tentar habilitar
-                if (!eq.enabled) {
-                    Log.w("AudioEffects", "Equalizer is not enabled, trying to enable it")
-                    try {
-                        eq.enabled = true
-                        Log.d("AudioEffects", "Successfully enabled Equalizer")
-                    } catch (enableE: Exception) {
-                        Log.e("AudioEffects", "Failed to enable Equalizer during bass adjustment", enableE)
-                        return@let
+                if (eq.enabled) {
+                    for (i in 0 until eq.numberOfBands) {
+                        eq.setBandLevel(i.toShort(), 0.toShort())
                     }
                 }
-                
-                val numBands = eq.numberOfBands
-                Log.d("AudioEffects", "Applying bass boost via equalizer (${numBands} bands) - enabled: ${eq.enabled}")
-                
-                // Usar gain mais forte se BassBoost não funcionou
-                val gainMultiplier = if (bassApplied) 0.15f else 0.5f
-                
-                for (i in 0 until numBands) {
-                    try {
-                        val freq = eq.getCenterFreq(i.toShort())
-                        
-                        // Aplicar boost em diferentes frequências de bass
-                        val gain = when {
-                            freq < 80000 -> { // Sub-bass (20-80Hz) - boost máximo
-                                (clampedLevel * gainMultiplier * 1.5f * 1000).toInt().coerceIn(-1500, 1500)
-                            }
-                            freq < 250000 -> { // Bass (80-250Hz) - boost médio
-                                (clampedLevel * gainMultiplier * 1000).toInt().coerceIn(-1500, 1500)
-                            }
-                            freq < 500000 -> { // Low-mid (250-500Hz) - boost suave
-                                (clampedLevel * gainMultiplier * 0.5f * 1000).toInt().coerceIn(-1500, 1500)
-                            }
-                            else -> 0 // Não mexer nas frequências mais altas
-                        }
-                        
-                        // SEMPRE aplicar o gain (mesmo se for 0) para resetar quando necessário
-                        if (freq < 500000) { // Aplicar apenas nas frequências de bass
-                            eq.setBandLevel(i.toShort(), gain.toShort())
-                            Log.v("AudioEffects", "Band $i (${freq/1000}kHz): bass gain set to $gain")
-                        }
-                    } catch (e: Exception) {
-                        Log.w("AudioEffects", "Failed to adjust band $i", e)
-                    }
-                }
-                
-                Log.d("AudioEffects", "Equalizer bass boost applied successfully")
-                bassApplied = true
-                
             } catch (e: Exception) {
-                Log.e("AudioEffects", "Error applying equalizer bass boost", e)
+                Log.w("AudioEffects", "Error resetting Equalizer", e)
             }
         }
         
-        if (bassApplied) {
-            Log.d("AudioEffects", "Bass level successfully applied: $clampedLevel%")
-        } else {
-            Log.e("AudioEffects", "Failed to apply bass boost - no working audio effects available")
+        // Wait for hardware to process
+        delay(100)
+    }
+
+
+    
+
+    
+    private fun tryRecoverEqualizer() {
+        try {
+            equalizer?.release() // Liberar o antigo primeiro
+            equalizer = null
+            
+            // Recriar com a mesma sessão
+            equalizer = Equalizer(0, audioSessionId).apply {
+                enabled = true
+            }
+        } catch (e: Exception) {
+            Log.e("AudioEffects", "❌ Failed to recover Equalizer", e)
+            equalizer = null
         }
     }
     
-    fun getBassLevel(): Float = _bassLevel.value
-    
     fun release() {
-        bassBoost?.release()
-        equalizer?.release()
-        visualizer?.release()
-        
-        bassBoost = null
-        equalizer = null
-        visualizer = null
+        try {
+            equalizer?.release()
+            visualizer?.release()
+            instance = null
+        } catch (e: Exception) {
+            Log.e("AudioEffects", "Error releasing AudioEffects", e)
+        }
     }
     
     // Fake 8D Audio System
@@ -264,10 +159,8 @@ class AudioEffects(private val audioSessionId: Int) {
         
         if (enabled) {
             startFake8DEffect()
-            Log.d("AudioEffects", "Fake 8D effect enabled - should be very noticeable!")
         } else {
             stopFake8DEffect()
-            Log.d("AudioEffects", "Fake 8D effect disabled")
         }
     }
     
@@ -298,7 +191,6 @@ class AudioEffects(private val audioSessionId: Int) {
                     for (i in 0 until eq.numberOfBands) {
                         eq.setBandLevel(i.toShort(), 0.toShort())
                     }
-                    Log.d("AudioEffects", "Equalizer reset to flat after disabling Fake 8D")
                 }
             }
         } catch (e: Exception) {
@@ -351,8 +243,6 @@ class AudioEffects(private val audioSessionId: Int) {
                                 eq.setBandLevel((numBands - 3).toShort(), (-phase2 * 800).toInt().toShort())
                             }
                         }
-                        
-                        Log.v("AudioEffects", "True8D: bassL=$bassLeft, bassR=$bassRight, midL=$midLeft, midR=$midRight, highL=$highLeft, highR=$highRight")
                     }
                 }
             }
@@ -362,6 +252,37 @@ class AudioEffects(private val audioSessionId: Int) {
     }
     
     fun isFake8DEnabled(): Boolean = fake8DEnabled
+    
+
+    
+    // 🚨 FUNÇÃO DE EMERGÊNCIA: Reset completo do sistema de áudio
+    suspend fun emergencyAudioReset() = withContext(Dispatchers.IO) {
+        try {
+            // 1. Use the centralized reset function
+            resetAllAudioEffects()
+            
+            // 2. Disable and re-enable effects
+            equalizer?.let { eq ->
+                try {
+                    eq.enabled = false
+                    delay(100)
+                    eq.enabled = true
+                    delay(100)
+                } catch (e: Exception) {
+                    Log.w("AudioEffects", "Erro ao resetar Equalizer", e)
+                }
+            }
+            
+            // 3. Aguardar estabilização do sistema
+            delay(500)
+            
+        } catch (e: Exception) {
+            Log.e("AudioEffects", "❌ Falha no reset de emergência", e)
+            
+            // 4. Last resort: recreate everything
+            tryRecoverEqualizer()
+        }
+    }
     
     private fun processFFTData(fft: ByteArray) {
         try {
@@ -394,19 +315,5 @@ class AudioEffects(private val audioSessionId: Int) {
         }
     }
     
-    companion object {
-        @Volatile
-        private var instance: AudioEffects? = null
-        
-        fun getInstance(audioSessionId: Int): AudioEffects {
-            return instance ?: synchronized(this) {
-                instance ?: AudioEffects(audioSessionId).also { instance = it }
-            }
-        }
-        
-        fun releaseInstance() {
-            instance?.release()
-            instance = null
-        }
-    }
+
 } 

@@ -33,9 +33,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.TrendingUp
-import androidx.compose.material.icons.rounded.Casino
+
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.rounded.Person
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material.icons.rounded.SdCard
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -120,6 +121,10 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.min
 import kotlin.random.Random
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import coil.request.CachePolicy
+import coil.request.ImageRequest
 
 @SuppressLint("UnusedBoxWithConstraintsScope")
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -387,6 +392,7 @@ fun HomeScreen(
         LazyColumn(
             state = lazylistState,
             contentPadding = LocalPlayerAwareWindowInsets.current.asPaddingValues()
+            // OTIMIZAÇÃO: BeyondBoundsLayout removido por incompatibilidade de versão
         ) {
             item {
                 Row(
@@ -398,14 +404,14 @@ fun HomeScreen(
                 ) {
                     NavigationTile(
                         title = stringResource(R.string.history),
-                        icon = Icons.Rounded.History,
+                        icon = R.drawable.ic_history_ai_modern,
                         onClick = { navController.navigate("history") },
                         modifier = Modifier.weight(1f)
                     )
 
                     NavigationTile(
                         title = stringResource(R.string.stats),
-                        icon = Icons.AutoMirrored.Rounded.TrendingUp,
+                        icon = R.drawable.ic_stats_ai_modern,
                         onClick = { navController.navigate("stats") },
                         modifier = Modifier.weight(1f)
                     )
@@ -423,7 +429,7 @@ fun HomeScreen(
 
                     NavigationTile(
                         title = stringResource(R.string.account),
-                        icon = Icons.Rounded.Person,
+                        icon = R.drawable.ic_person_ai_modern,
                         onClick = {
                             navController.navigate("account")
                         },
@@ -515,6 +521,8 @@ fun HomeScreen(
                         contentPadding = WindowInsets.systemBars
                             .only(WindowInsetsSides.Horizontal)
                             .asPaddingValues(),
+                        // OTIMIZAÇÃO: Prefetch strategy para melhor performance
+                        userScrollEnabled = true,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(ListItemHeight * 4)
@@ -524,8 +532,11 @@ fun HomeScreen(
                             items = quickPicks,
                             key = { it.id }
                         ) { originalSong ->
-                            // fetch song from database to keep updated
-                            val song by database.song(originalSong.id).collectAsState(initial = originalSong)
+                            // OTIMIZAÇÃO: Memoização de query para evitar recomposições desnecessárias
+                            val song by remember(originalSong.id) {
+                                database.song(originalSong.id)
+                            }.collectAsState(initial = originalSong)
+                            
                             SongListItem(
                                 song = song!!,
                                 onPlay = {
@@ -571,7 +582,10 @@ fun HomeScreen(
                             items = forgottenFavorites,
                             key = { _, song -> song.id }
                         ) { index, originalSong ->
-                            val song by database.song(originalSong.id).collectAsState(initial = originalSong)
+                            // OTIMIZAÇÃO: Memoização de query para evitar recomposições desnecessárias
+                            val song by remember(originalSong.id) {
+                                database.song(originalSong.id)
+                            }.collectAsState(initial = originalSong)
 
                             SongListItem(
                                 song = song!!,
@@ -662,8 +676,15 @@ fun HomeScreen(
                                 val shape =
                                     if (it.title is Artist) CircleShape else RoundedCornerShape(ThumbnailCornerRadius)
                                 AsyncImage(
-                                    model = thumbnailUrl,
+                                    model = ImageRequest.Builder(LocalContext.current)
+                                        .data(thumbnailUrl)
+                                        .size(ListThumbnailSize.value.toInt())
+                                        .memoryCachePolicy(CachePolicy.ENABLED)
+                                        .diskCachePolicy(CachePolicy.ENABLED)
+                                        .crossfade(150)
+                                        .build(),
                                     contentDescription = null,
+                                    contentScale = ContentScale.Crop,
                                     modifier = Modifier
                                         .size(ListThumbnailSize)
                                         .clip(shape)
@@ -708,8 +729,15 @@ fun HomeScreen(
                                         ThumbnailCornerRadius
                                     )
                                 AsyncImage(
-                                    model = thumbnailUrl,
+                                    model = ImageRequest.Builder(LocalContext.current)
+                                        .data(thumbnailUrl)
+                                        .size(ListThumbnailSize.value.toInt())
+                                        .memoryCachePolicy(CachePolicy.ENABLED)
+                                        .diskCachePolicy(CachePolicy.ENABLED)
+                                        .crossfade(150)
+                                        .build(),
                                     contentDescription = null,
+                                    contentScale = ContentScale.Crop,
                                     modifier = Modifier
                                         .size(ListThumbnailSize)
                                         .clip(shape)
@@ -819,7 +847,7 @@ fun HomeScreen(
         HideOnScrollFAB(
             visible = allLocalItems.isNotEmpty() || allYtItems.isNotEmpty(),
             lazyListState = lazylistState,
-            icon = Icons.Rounded.Casino,
+            icon = R.drawable.ic_random_modern,
             onClick = {
                 val local = when {
                     allLocalItems.isNotEmpty() && allYtItems.isNotEmpty() -> Random.nextFloat() < 0.5

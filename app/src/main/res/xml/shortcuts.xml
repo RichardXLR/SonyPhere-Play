@@ -7,18 +7,22 @@
         android:shortcutShortLabel="@string/search">
         <intent
             android:targetClass="com.richard.musicplayer.MainActivity"
-            android:targetPackage="com.richard.musicplayer"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.richard.musicplayer.action.SEARCH" />
     </shortcut>
     <shortcut
-        android:shortcutId="songs"
+        android:shortcutId="musicas_new_2024"
         android:enabled="true"
-        android:icon="@drawable/music_note"
-        android:shortcutShortLabel="@string/songs">
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/songs"
+        android:shortcutLongLabel="@string/songs"
+        android:shortcutDisabledMessage="@string/app_disabled">
         <intent
             android:targetClass="com.richard.musicplayer.MainActivity"
-            android:targetPackage="com.richard.musicplayer"
-            android:action="com.richard.musicplayer.action.SONGS" />
+            android:targetPackage="com.richard.musicplayer.debug"
+            android:action="com.richard.musicplayer.action.SONGS">
+            <extra android:name="shortcut_source" android:value="new_icon" />
+        </intent>
     </shortcut>
     <shortcut
         android:shortcutId="albums"
@@ -27,7 +31,7 @@
         android:shortcutShortLabel="@string/albums">
         <intent
             android:targetClass="com.richard.musicplayer.MainActivity"
-            android:targetPackage="com.richard.musicplayer"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.richard.musicplayer.action.ALBUMS" />
     </shortcut>
     <shortcut
@@ -37,7 +41,7 @@
         android:shortcutShortLabel="@string/playlists">
         <intent
             android:targetClass="com.richard.musicplayer.MainActivity"
-            android:targetPackage="com.richard.musicplayer"
+            android:targetPackage="com.richard.musicplayer.debug"
             android:action="com.richard.musicplayer.action.PLAYLISTS" />
     </shortcut>
 </shortcuts>

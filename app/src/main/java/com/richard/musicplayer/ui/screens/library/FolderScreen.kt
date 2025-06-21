@@ -24,7 +24,7 @@ import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.automirrored.rounded.List
 import androidx.compose.material.icons.rounded.AccountTree
 import androidx.compose.material.icons.rounded.SdCard
-import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material.icons.rounded.Shuffle
 import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -278,7 +278,7 @@ fun FolderScreen(
                             }
                         ) {
                             Icon(
-                                Icons.Rounded.Search,
+                                painter = painterResource(R.drawable.ic_search_modern),
                                 contentDescription = null
                             )
                         }

@@ -16,7 +16,7 @@ import androidx.compose.material.icons.rounded.ArrowOutward
 import androidx.compose.material.icons.rounded.Close
 import androidx.compose.material.icons.rounded.History
 import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -295,13 +295,23 @@ fun SuggestionItem(
             .clickable(onClick = onClick)
             .padding(end = SearchBarIconOffsetX)
     ) {
+        if (online) {
+            Icon(
+                painter = painterResource(R.drawable.ic_search_modern),
+                contentDescription = null,
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .alpha(0.5f)
+            )
+        } else {
         Icon(
-            if (online) Icons.Rounded.Search else Icons.Rounded.History,
+                imageVector = Icons.Rounded.History,
             contentDescription = null,
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .alpha(0.5f)
         )
+        }
 
         Text(
             text = query,

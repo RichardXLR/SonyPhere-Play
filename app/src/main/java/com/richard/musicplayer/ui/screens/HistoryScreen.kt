@@ -27,6 +27,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.MoreVert
 import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -210,7 +211,7 @@ fun HistoryScreen(
                             onClick = { isSearching = true }
                         ) {
                             Icon(
-                                Icons.Rounded.Search,
+                                painter = painterResource(R.drawable.ic_search_modern),
                                 contentDescription = null
                             )
                         }
@@ -475,7 +476,7 @@ fun HistoryScreen(
                     onClick = { isSearching = true }
                 ) {
                     Icon(
-                        Icons.Rounded.Search,
+                        painter = painterResource(R.drawable.ic_search_modern),
                         contentDescription = null
                     )
                 }

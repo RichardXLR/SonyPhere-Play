@@ -47,7 +47,7 @@ fun <E> ChipsRow(
             .fillMaxWidth()
             .horizontalScroll(rememberScrollState())
     ) {
-        Spacer(Modifier.width(12.dp))
+        Spacer(Modifier.width(16.dp))
 
         chips.forEach { (value, label) ->
             FilterChip(
@@ -98,7 +98,7 @@ fun <E> ChipsLazyRow(
         item(
             key = "spacer"
         ) {
-            Spacer(Modifier.width(12.dp))
+            Spacer(Modifier.width(16.dp))
         }
 
         items(

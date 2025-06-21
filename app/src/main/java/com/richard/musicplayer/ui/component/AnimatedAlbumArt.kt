@@ -9,6 +9,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
+import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.*
@@ -18,8 +20,11 @@ import androidx.compose.ui.graphics.*
 import androidx.compose.ui.graphics.drawscope.*
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import coil.request.CachePolicy
+import coil.request.ImageRequest
 import kotlinx.coroutines.delay
 import kotlin.math.*
 import kotlin.random.Random
@@ -33,15 +38,20 @@ fun AnimatedAlbumArt(
 ) {
     val density = LocalDensity.current
     
-    // Animation states
+    // OTIMIZAÇÃO: Lifecycle awareness para pausar animações quando não visível
+    val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+    val lifecycleState by lifecycleOwner.lifecycle.currentStateFlow.collectAsState()
+    val isAppVisible = lifecycleState.isAtLeast(androidx.lifecycle.Lifecycle.State.RESUMED)
+    
+    // OTIMIZAÇÃO: Animation states simplificados
     val infiniteTransition = rememberInfiniteTransition(label = "album")
     
     val rotation by infiniteTransition.animateFloat(
         initialValue = 0f,
-        targetValue = if (isPlaying) 360f else 0f,
+        targetValue = if (isPlaying && isAppVisible) 360f else 0f, // OTIMIZAÇÃO: Pausar quando não visível
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = 20000,
+                durationMillis = 30000, // OTIMIZAÇÃO: 50% mais lento (30s ao invés de 20s)
                 easing = LinearEasing
             ),
             repeatMode = RepeatMode.Restart
@@ -58,24 +68,25 @@ fun AnimatedAlbumArt(
         label = "scale"
     )
     
-    // Beat detection from audio data
-    val beatIntensity by remember(audioData) {
+    // OTIMIZAÇÃO: Beat detection simplificado
+    val beatIntensity by remember(audioData, isAppVisible) {
         derivedStateOf {
+            if (!isAppVisible) return@derivedStateOf 0f // Pausar quando não visível
             audioData?.let { data ->
                 if (data.isNotEmpty()) {
-                    // Simple beat detection - analyze low frequencies
-                    val lowFreqSum = data.take(data.size / 4).map { abs(it.toInt()) }.sum()
-                    (lowFreqSum / (data.size / 4f) / 128f).coerceIn(0f, 1f)
+                    // OTIMIZAÇÃO: Beat detection mais simples
+                    val sample = data.take(data.size / 8).map { abs(it.toInt()) }.average().toFloat() // Menos samples
+                    (sample / 128f).coerceIn(0f, 0.5f) // Reduzida intensidade máxima
                 } else 0f
             } ?: 0f
         }
     }
-    
+
     val animatedBeatScale by animateFloatAsState(
-        targetValue = 1f + beatIntensity * 0.1f,
+        targetValue = 1f + beatIntensity * 0.05f, // OTIMIZAÇÃO: Reduzido de 0.1f para 0.05f
         animationSpec = spring(
-            dampingRatio = Spring.DampingRatioLowBouncy,
-            stiffness = Spring.StiffnessHigh
+            dampingRatio = Spring.DampingRatioMediumBouncy, // Menos bouncy
+            stiffness = Spring.StiffnessMedium // Menos stiff
         ),
         label = "beatScale"
     )
@@ -88,12 +99,14 @@ fun AnimatedAlbumArt(
             },
         contentAlignment = Alignment.Center
     ) {
-        // Background glow effect
-        BeatReactiveGlow(
-            beatIntensity = beatIntensity,
-            isPlaying = isPlaying,
-            modifier = Modifier.fillMaxSize()
-        )
+        // OTIMIZAÇÃO: Glow effect simplificado
+        if (isAppVisible && isPlaying && beatIntensity > 0.1f) {
+            BeatReactiveGlow(
+                beatIntensity = beatIntensity,
+                isPlaying = isPlaying,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
         
         // Album art with effects
         Box(
@@ -101,25 +114,30 @@ fun AnimatedAlbumArt(
                 .fillMaxSize()
                 .clip(CircleShape)
         ) {
-            // Album image
+            // OTIMIZAÇÃO: Album image com cache otimizado
             AsyncImage(
-                model = albumArtUrl,
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(albumArtUrl)
+                    .size(300, 300) // OTIMIZAÇÃO: Tamanho fixo otimizado
+                    .memoryCachePolicy(CachePolicy.ENABLED)
+                    .diskCachePolicy(CachePolicy.ENABLED)
+                    .crossfade(100) // OTIMIZAÇÃO: Crossfade reduzido
+                    .build(),
                 contentDescription = null,
-                modifier = Modifier
-                    .fillMaxSize(),
+                modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
             )
             
-            // Vinyl overlay effect
-            if (isPlaying) {
+            // OTIMIZAÇÃO: Vinyl overlay apenas quando necessário
+            if (isPlaying && isAppVisible) {
                 VinylOverlay(
                     modifier = Modifier.fillMaxSize()
                 )
             }
         }
         
-        // Visualizer rings
-        if (isPlaying && audioData != null) {
+        // OTIMIZAÇÃO: Visualizer rings apenas quando há dados significativos
+        if (isPlaying && isAppVisible && audioData != null && beatIntensity > 0.2f) {
             AudioVisualizerRings(
                 audioData = audioData,
                 modifier = Modifier.fillMaxSize()
@@ -224,8 +242,8 @@ private fun AudioVisualizerRings(
                 val startIndex = i * step
                 val endIndex = minOf(startIndex + step, audioData.size)
                 val slice = audioData.slice(startIndex until endIndex)
-                val magnitude = slice.map { abs(it.toInt()) }.average() / 128f
-                barValues.add(magnitude.toFloat().coerceIn(0f, 1f))
+                val magnitude = slice.map { abs(it.toInt()) }.average().toFloat() / 128f
+                barValues.add(magnitude.coerceIn(0f, 1f))
             }
             
             animatedBars.clear()
@@ -241,7 +259,7 @@ private fun AudioVisualizerRings(
         
         animatedBars.forEachIndexed { index, magnitude ->
             val angle = (index.toFloat() / barCount) * 360f - 90f
-            val angleRad = Math.toRadians(angle.toDouble()).toFloat()
+            val angleRad = (angle * PI / 180f).toFloat()
             
             val barHeight = (outerRadius - innerRadius) * magnitude
             val startRadius = innerRadius

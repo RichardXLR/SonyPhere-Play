@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?android:attr/textColorPrimary">
+    <group>
+        <!-- Coração moderno com design mais suave -->
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M12,21.35c-0.2,0 -0.4,-0.08 -0.55,-0.23C10.7,20.54 2,12.8 2,8.5C2,5.42 4.42,3 7.5,3c1.74,0 3.41,0.81 4.5,2.09C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.42 22,8.5c0,4.3 -8.7,12.04 -9.45,12.62C12.4,21.27 12.2,21.35 12,21.35z"/>
+        <!-- Pequeno acento musical -->
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M15.5,9.5c0,0.28 -0.22,0.5 -0.5,0.5s-0.5,-0.22 -0.5,-0.5s0.22,-0.5 0.5,-0.5S15.5,9.22 15.5,9.5z"/>
+        <path
+            android:fillColor="@android:color/white"
+            android:pathData="M15,8.5v2.5c0,0.28 -0.22,0.5 -0.5,0.5s-0.5,-0.22 -0.5,-0.5V8.5c0,-0.28 0.22,-0.5 0.5,-0.5S15,8.22 15,8.5z"/>
+    </group>
+</vector> 

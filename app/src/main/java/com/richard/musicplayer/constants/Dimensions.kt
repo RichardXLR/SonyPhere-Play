@@ -17,6 +17,7 @@ val NavigationBarHeight = 72.dp
 val MiniPlayerHeight = 72.dp
 val QueuePeekHeight = 72.dp
 val AppBarHeight = 56.dp
+val SearchBarHeight = 96.dp // SearchBar (56dp) + padding vertical (40dp)
 
 val ListItemHeight = 72.dp
 val SuggestionItemHeight = 64.dp

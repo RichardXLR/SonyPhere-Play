@@ -18,6 +18,7 @@ import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.rounded.LibraryMusic
 import androidx.compose.material.icons.rounded.MusicNote
 import androidx.compose.material.icons.rounded.Person
+import androidx.compose.ui.res.painterResource
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -30,10 +31,10 @@ sealed class Screens(
     val icon: ImageVector,
     val route: String,
 ) {
-    data object Home : Screens(R.string.home, Icons.Rounded.Home, "home")
+    data object Home : Screens(R.string.home, Icons.Rounded.Home, "home") // TODO: Migrar para drawable moderno
     data object Songs : Screens(R.string.songs, Icons.Rounded.MusicNote, "songs")
     data object Folders : Screens(R.string.folders, Icons.Rounded.Folder, "folders")
-    data object Artists : Screens(R.string.artists, Icons.Rounded.Person, "artists")
+    data object Artists : Screens(R.string.artists, Icons.Rounded.Person, "artists") // TODO: Migrar para drawable moderno
     data object Albums : Screens(R.string.albums, Icons.Rounded.Album, "albums")
     data object Playlists : Screens(R.string.playlists, Icons.AutoMirrored.Rounded.QueueMusic, "playlists")
     data object Library : Screens(R.string.library, Icons.Rounded.LibraryMusic, "library")

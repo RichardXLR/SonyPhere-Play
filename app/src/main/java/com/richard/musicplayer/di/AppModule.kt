@@ -9,6 +9,8 @@ import androidx.media3.datasource.cache.SimpleCache
 import com.richard.musicplayer.constants.MaxSongCacheSizeKey
 import com.richard.musicplayer.db.InternalDatabase
 import com.richard.musicplayer.db.MusicDatabase
+import com.richard.musicplayer.db.PrivacySecurityRepository
+import com.richard.musicplayer.utils.AudioFeedbackManager
 import com.richard.musicplayer.utils.LmImageCacheMgr
 import com.richard.musicplayer.utils.dataStore
 import com.richard.musicplayer.utils.get
@@ -112,5 +114,16 @@ object AppModule {
         }
         constructor().release()
         return constructor()
+    }
+
+    @Singleton
+    @Provides
+    fun provideAudioFeedbackManager(
+        @ApplicationContext context: Context,
+        privacySecurityRepository: PrivacySecurityRepository
+    ): AudioFeedbackManager {
+        val manager = AudioFeedbackManager(context, privacySecurityRepository)
+        manager.initialize()
+        return manager
     }
 }

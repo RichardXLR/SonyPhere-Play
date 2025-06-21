@@ -17,10 +17,25 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <uses-feature android:name="android.hardware.audio.output" android:required="true" />
+    <uses-feature android:name="android.hardware.audio.low_latency" android:required="false" />
+    <uses-feature android:name="android.hardware.audio.pro" android:required="false" />
+    <uses-feature android:name="android.software.midi" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" />
 
     <queries>
         <intent>
             <action android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="content" android:mimeType="audio/*" />
         </intent>
     </queries>
     <application
@@ -39,6 +54,33 @@
         android:largeHeap="true"
         android:usesCleartextTraffic="false"
         tools:targetApi="tiramisu">
+        
+        <!-- Metadados importantes para players de mídia -->
+        <meta-data
+            android:name="android.media.FEATURE_MEDIA_PLAYBACK"
+            android:value="true" />
+            
+        <meta-data
+            android:name="android.media.AUDIO_BECOMING_NOISY"
+            android:value="true" />
+            
+        <meta-data
+            android:name="android.media.FEATURE_LIVE_AUDIO"
+            android:value="true" />
+            
+        <meta-data
+            android:name="android.hardware.type.audio"
+            android:value="true" />
+            
+        <!-- Declaração para suporte a Dolby e processamento de áudio -->
+        <meta-data
+            android:name="android.media.FEATURE_DOLBY_AUDIO_PROCESSING"
+            android:value="true" />
+            
+        <meta-data
+            android:name="android.media.FEATURE_SPATIAL_AUDIO"
+            android:value="true" />
+            
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -46,7 +88,7 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.OuterTune"
+            android:theme="@style/Theme.SplashScreen"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|uiMode"
@@ -59,6 +101,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.APP_MUSIC" />
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="audio/*" />
+                <data android:mimeType="application/ogg" />
+                <data android:mimeType="application/x-flac" />
+                <data android:mimeType="application/x-ogg" />
             </intent-filter>
 
             <intent-filter android:autoVerify="true">
@@ -130,11 +189,28 @@
             android:name=".MainActivity"
             android:exported="false"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.OuterTune"
+            android:theme="@style/Theme.MainActivity"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|uiMode|density"
             android:screenOrientation="portrait">
+            
+            <!-- 🚀 CONFIGURAÇÕES PARA TAXA MÁXIMA DE ATUALIZAÇÃO -->
+            <!-- Suporte a alta taxa de atualização (90Hz, 120Hz, 144Hz+) -->
+            <meta-data 
+                android:name="android.app.default_display_mode" 
+                android:value="high_refresh_rate" />
+            
+            <!-- Otimizações de performance para alta taxa de atualização -->
+            <meta-data 
+                android:name="android.app.prefer_high_refresh_rate" 
+                android:value="true" />
+                
+            <!-- Configuração para dispositivos com múltiplas taxas de atualização -->
+            <meta-data 
+                android:name="android.app.max_refresh_rate" 
+                android:value="165" />
+                
         </activity>
 
         <provider
@@ -156,7 +232,12 @@
                 <action android:name="androidx.media3.session.MediaSessionService" />
                 <action android:name="androidx.media3.session.MediaLibraryService" />
                 <action android:name="android.media.browse.MediaBrowserService" />
+                <action android:name="android.media.action.MEDIA_PLAY_FROM_SEARCH" />
             </intent-filter>
+            
+            <meta-data
+                android:name="android.media.session"
+                android:value="true" />
         </service>
 
         <receiver

@@ -5,17 +5,21 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.NavigateNext
-import androidx.compose.material.icons.rounded.Search
+import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHost
@@ -38,6 +42,7 @@ import androidx.navigation.NavController
 import com.richard.musicplayer.LocalPlayerAwareWindowInsets
 import com.richard.musicplayer.LocalPlayerConnection
 import com.richard.musicplayer.R
+import com.richard.musicplayer.constants.SearchBarHeight
 import com.richard.musicplayer.constants.CONTENT_TYPE_LIST
 import com.richard.musicplayer.constants.ListItemHeight
 import com.richard.musicplayer.db.entities.Album
@@ -97,7 +102,10 @@ fun LocalSearchScreen(
                 LocalFilter.PLAYLIST to stringResource(R.string.filter_playlists)
             ),
             currentValue = searchFilter,
-            onValueUpdate = { viewModel.filter.value = it }
+            onValueUpdate = { viewModel.filter.value = it },
+            modifier = Modifier
+                .windowInsetsPadding(WindowInsets.systemBars.only(WindowInsetsSides.Top))
+                .padding(top = SearchBarHeight)
         )
 
         LazyColumn(
@@ -209,7 +217,7 @@ fun LocalSearchScreen(
                     key = "no_result"
                 ) {
                     EmptyPlaceholder(
-                        icon = Icons.Rounded.Search,
+                        icon = R.drawable.ic_search_modern,
                         text = stringResource(R.string.no_results_found),
                         modifier = Modifier.animateItem()
                     )
