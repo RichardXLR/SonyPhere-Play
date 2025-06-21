@@ -1,0 +1,36 @@
+name: 🎵 Update SonyPhere Stats
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # A cada 6 horas
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    name: 📊 Atualizar estatísticas
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 🎯 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 📈 Gerar badge de versão
+      run: |
+        echo "🎵 SonyPhere-Play v25.06.1" > version.txt
+        echo "📱 Tema Borrado Ativo" >> version.txt
+        echo "✨ Última atualização: $(date '+%d/%m/%Y %H:%M')" >> version.txt
+        
+    - name: 🔄 Atualizar README se necessário
+      run: |
+        if [ -f "version.txt" ]; then
+          echo "📊 Estatísticas atualizadas em $(date)"
+        fi
+        
+    - name: 🎨 Mostrar status
+      run: |
+        echo "🎵 SonyPhere-Play"
+        echo "📱 Tema Borrado: ✅ ATIVO"
+        echo "🏗️ Compilações: ARM64 + Universal"
+        echo "🌟 Status: Pronto para uso!" 

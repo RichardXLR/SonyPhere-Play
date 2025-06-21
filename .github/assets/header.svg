@@ -1,0 +1,159 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes animados -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1">
+        <animate attributeName="stop-color" values="#FF6B35;#BB86FC;#00D4AA;#FF6B35" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#BB86FC;stop-opacity:1">
+        <animate attributeName="stop-color" values="#BB86FC;#00D4AA;#FF6B35;#BB86FC" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:1">
+        <animate attributeName="stop-color" values="#00D4AA;#FF6B35;#BB86FC;#00D4AA" dur="4s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Filtro de blur -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Padrão de ondas -->
+    <pattern id="waves" x="0" y="0" width="100" height="50" patternUnits="userSpaceOnUse">
+      <path d="M0,25 Q25,0 50,25 T100,25" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;100,0;0,0" dur="3s" repeatCount="indefinite"/>
+      </path>
+    </pattern>
+  </defs>
+  
+  <!-- Background com gradiente animado -->
+  <rect width="800" height="300" fill="url(#mainGrad)" opacity="0.9"/>
+  
+  <!-- Padrão de ondas -->
+  <rect width="800" height="300" fill="url(#waves)" opacity="0.3"/>
+  
+  <!-- Círculos decorativos animados -->
+  <circle cx="100" cy="80" r="30" fill="rgba(255,255,255,0.1)">
+    <animate attributeName="r" values="30;40;30" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="700" cy="220" r="25" fill="rgba(255,255,255,0.1)">
+    <animate attributeName="r" values="25;35;25" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Notas musicais animadas -->
+  <g id="note1" transform="translate(50,50)">
+    <text x="0" y="0" font-size="24" fill="rgba(255,255,255,0.7)">🎵</text>
+    <animateTransform attributeName="transform" type="translate" 
+                      values="50,50;60,40;50,50" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </g>
+  
+  <g id="note2" transform="translate(720,80)">
+    <text x="0" y="0" font-size="20" fill="rgba(255,255,255,0.6)">🎶</text>
+    <animateTransform attributeName="transform" type="translate" 
+                      values="720,80;730,70;720,80" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+  
+  <g id="note3" transform="translate(680,200)">
+    <text x="0" y="0" font-size="18" fill="rgba(255,255,255,0.5)">🎼</text>
+    <animateTransform attributeName="transform" type="translate" 
+                      values="680,200;690,190;680,200" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Título principal -->
+  <text x="400" y="120" text-anchor="middle" font-family="Orbitron, Arial, sans-serif" 
+        font-size="48" font-weight="bold" fill="white" filter="url(#glow)">
+    SonyPhere-Play
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="400" y="160" text-anchor="middle" font-family="Arial, sans-serif" 
+        font-size="20" fill="rgba(255,255,255,0.9)">
+    Reprodutor de Música com Tema Borrado
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Linha decorativa animada -->
+  <line x1="200" y1="180" x2="600" y2="180" stroke="rgba(255,255,255,0.5)" stroke-width="2">
+    <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Ícones de recursos -->
+  <g id="features" transform="translate(0,220)">
+    <!-- Material 3 -->
+    <g transform="translate(150,0)">
+      <circle cx="0" cy="0" r="15" fill="rgba(255,255,255,0.2)">
+        <animate attributeName="r" values="15;18;15" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white">M3</text>
+      <text x="0" y="35" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Material 3</text>
+    </g>
+    
+    <!-- YouTube Music -->
+    <g transform="translate(300,0)">
+      <circle cx="0" cy="0" r="15" fill="rgba(255,0,0,0.3)">
+        <animate attributeName="r" values="15;18;15" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white">YT</text>
+      <text x="0" y="35" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">YouTube Music</text>
+    </g>
+    
+    <!-- Blur Theme -->
+    <g transform="translate(450,0)">
+      <circle cx="0" cy="0" r="15" fill="rgba(255,255,255,0.2)">
+        <animate attributeName="r" values="15;18;15" dur="2.4s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white">🔮</text>
+      <text x="0" y="35" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Tema Borrado</text>
+    </g>
+    
+    <!-- ARM64 + Universal -->
+    <g transform="translate(600,0)">
+      <circle cx="0" cy="0" r="15" fill="rgba(0,212,170,0.3)">
+        <animate attributeName="r" values="15;18;15" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+      <text x="0" y="5" text-anchor="middle" font-size="12" fill="white">📱</text>
+      <text x="0" y="35" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">Universal</text>
+    </g>
+  </g>
+  
+  <!-- Partículas flutuantes -->
+  <g id="particles">
+    <circle cx="120" cy="150" r="2" fill="rgba(255,255,255,0.4)">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;10,-20;0,0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="680" cy="120" r="1.5" fill="rgba(255,255,255,0.3)">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;-15,25;0,0" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="250" cy="50" r="2.5" fill="rgba(255,255,255,0.5)">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0;20,15;0,0" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Versão -->
+  <text x="400" y="280" text-anchor="middle" font-family="monospace" 
+        font-size="12" fill="rgba(255,255,255,0.6)">
+    v25.06.1 - Tema Borrado Padrão
+  </text>
+</svg> 
