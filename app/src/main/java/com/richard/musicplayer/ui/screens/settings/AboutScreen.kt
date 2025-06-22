@@ -480,6 +480,20 @@ private fun ContactSupportSection() {
             Spacer(modifier = Modifier.height(12.dp))
             
             ActionButton(
+                icon = "🐙",
+                title = "GitHub - Código Fonte",
+                subtitle = "Explore o código, contribua ou baixe",
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW).apply {
+                        data = Uri.parse("https://github.com/RichardXLR/SonyPhere-Play")
+                    }
+                    context.startActivity(intent)
+                }
+            )
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            ActionButton(
                 icon = "🐛",
                 title = "Reportar Bug",
                 subtitle = "Ajude-nos a melhorar o app",
