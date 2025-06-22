@@ -450,35 +450,18 @@ private fun ContactSupportSection() {
             
             Spacer(modifier = Modifier.height(16.dp))
             
-            Row(
+            ContactButton(
+                emoji = "📧",
+                label = "Email",
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                ContactButton(
-                    emoji = "📧",
-                    label = "Email",
-                    modifier = Modifier.weight(1f),
-                    onClick = {
-                        val intent = Intent(Intent.ACTION_SENDTO).apply {
-                            data = Uri.parse("mailto:richardsilva.devx@gmail.com")
-                            putExtra(Intent.EXTRA_SUBJECT, "SonsPhere - Suporte")
-                        }
-                        context.startActivity(intent)
+                onClick = {
+                    val intent = Intent(Intent.ACTION_SENDTO).apply {
+                        data = Uri.parse("mailto:richardsilva.devx@gmail.com")
+                        putExtra(Intent.EXTRA_SUBJECT, "SonsPhere - Suporte")
                     }
-                )
-                
-                ContactButton(
-                    emoji = "💬",
-                    label = "WhatsApp",
-                    modifier = Modifier.weight(1f),
-                    onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW).apply {
-                            data = Uri.parse("https://wa.me/message/GRT4FIQS7SIFE1")
-                        }
-                        context.startActivity(intent)
-                    }
-                )
-            }
+                    context.startActivity(intent)
+                }
+            )
             
             Spacer(modifier = Modifier.height(12.dp))
             
