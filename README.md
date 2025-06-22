@@ -87,8 +87,8 @@
 
 | 🏗️ **Tipo** | 📏 **Tamanho** | 🎯 **Compatibilidade** | 📁 **Download** |
 |:---:|:---:|:---:|:---:|
-| **ARM64** | 8.1 MB | Celulares modernos | [![ARM64](https://img.shields.io/badge/ARM64-Download-00D4AA?style=for-the-badge)](releases) |
-| **Universal** | 11 MB | Todos os dispositivos | [![Universal](https://img.shields.io/badge/Universal-Download-FF6B35?style=for-the-badge)](releases) |
+| **ARM64** | 8.1 MB | Celulares modernos | [![ARM64](https://img.shields.io/badge/ARM64-Download-00D4AA?style=for-the-badge)](https://github.com/RichardXLR/SonyPhere-Play/releases/download/v25.06.1/SonsPhere-25.06.1-arm64-release.apk) |
+| **Universal** | 11 MB | Todos os dispositivos | [![Universal](https://img.shields.io/badge/Universal-Download-FF6B35?style=for-the-badge)](https://github.com/RichardXLR/SonyPhere-Play/releases/download/v25.06.1/SonsPhere-25.06.1-universal-release.apk) |
 
 </div>
 
@@ -212,8 +212,8 @@ adb install -r SonsPhere-25.06.1-universal-release.apk
 ```
 
 ### 📱 **Instalação Manual**
-1. Baixe o APK do [releases](releases)
-2. Ative "Fontes desconhecidas" 
+1. Baixe o APK: [ARM64](https://github.com/RichardXLR/SonyPhere-Play/releases/download/v25.06.1/SonsPhere-25.06.1-arm64-release.apk) ou [Universal](https://github.com/RichardXLR/SonyPhere-Play/releases/download/v25.06.1/SonsPhere-25.06.1-universal-release.apk)
+2. Ative "Fontes desconhecidas" nas configurações
 3. Instale normalmente
 
 </div>
