@@ -247,6 +247,34 @@ adb install -r SonsPhere-25.06.1-universal-release.apk
 
 ---
 
+## 🙏 **Créditos**
+
+<div align="center">
+
+### **Baseado no OuterTune**
+
+<img src="https://img.shields.io/badge/Baseado_em-OuterTune-FF6B35?style=for-the-badge&logo=github&logoColor=white" alt="OuterTune"/>
+
+</div>
+
+> **📚 Projeto Original**  
+> Este aplicativo é baseado no projeto de código aberto [**OuterTune**](https://github.com/OuterTune/OuterTune), licenciado sob a MIT License. Este é um projeto derivado com alterações significativas na UI, nome e funcionalidades.
+
+#### **🔗 Repositório Original:**
+**https://github.com/OuterTune/OuterTune**
+
+#### **✨ Nossas Contribuições:**
+- 🎨 **Interface redesenhada** com Material Design 3
+- 🔮 **Tema borrado** implementado como padrão
+- 📱 **Otimizações ARM64** e Universal
+- 🎵 **Experiência visual** aprimorada
+- 📊 **Performance melhorada**
+
+#### **🤝 Agradecimentos:**
+Agradecemos à equipe do **OuterTune** por fornecer uma base sólida e bem estruturada que permitiu o desenvolvimento do **SonyPhere-Play**.
+
+---
+
 ## 📄 **Licença e Isenção**
 
 <div align="center">
